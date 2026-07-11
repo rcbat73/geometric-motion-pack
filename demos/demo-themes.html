@@ -62,13 +62,14 @@
         color: #cbd5e1;
       }
       .preview-frame {
+        box-sizing: border-box;
         width: 100%;
         min-height: 220px;
         display: grid;
         place-items: center;
         background: rgba(0, 0, 0, 0.18);
         border-radius: 16px;
-        padding: 1rem;
+        padding: 1.5rem 1.75rem;
       }
       .preview-frame.small {
         min-height: 160px;
@@ -158,13 +159,6 @@
   <body>
     <div class="panel">
       <h2>Orbital Harmonic — Theme Preview</h2>
-      <div class="controls" role="tablist">
-        <button data-theme="" class="active">Default</button>
-        <button data-theme="orbital-theme-neon">Neon</button>
-        <button data-theme="orbital-theme-warm">Warm</button>
-        <button data-theme="orbital-theme-subtle">Subtle</button>
-        <button data-theme="orbital-theme-mono">Mono</button>
-      </div>
       <div class="preview-grid">
         <div class="preview-card">
           <h3>Orbital Harmonic</h3>
@@ -174,6 +168,13 @@
               <div class="ring ring--middle"></div>
               <div class="ring ring--outer"></div>
             </div>
+          </div>
+          <div class="controls" role="tablist">
+            <button data-theme="" class="active">Default</button>
+            <button data-theme="orbital-theme-neon">Neon</button>
+            <button data-theme="orbital-theme-warm">Warm</button>
+            <button data-theme="orbital-theme-subtle">Subtle</button>
+            <button data-theme="orbital-theme-mono">Mono</button>
           </div>
           <p class="preview-line">
             Glowing orbitals with dynamic rotation and ring build.
@@ -234,7 +235,9 @@
 
     <script>
       const buttons = document.querySelectorAll(".controls button");
-      const orbitalPreview = document.getElementById("orbital-preview");
+      const orbitalPreview = document.querySelector(
+        "#orbital-preview .orbital-harmonic",
+      );
       const drStrangeRing = document.querySelector(
         "#dr-strange-preview .dr-strange-ring",
       );
@@ -271,8 +274,9 @@
           buttons.forEach((b) => b.classList.remove("active"));
           btn.classList.add("active");
           const theme = btn.getAttribute("data-theme");
-          orbitalPreview.className = "orbital-harmonic";
-          if (theme) orbitalPreview.classList.add(theme);
+          orbitalPreview.className = theme
+            ? `orbital-harmonic ${theme}`
+            : "orbital-harmonic";
         }),
       );
 
