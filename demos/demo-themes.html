@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Demo: Orbital Harmonic Themes</title>
+    <link rel="stylesheet" href="../css/motionforge.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #0b1220;
+        color: #f8fafc;
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+      .panel {
+        background: rgba(255, 255, 255, 0.04);
+        padding: 2rem;
+        border-radius: 12px;
+        width: min(1040px, calc(100vw - 2rem));
+        text-align: center;
+      }
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+      button {
+        background: #111827;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      button.active {
+        outline: 2px solid #fff;
+      }
+      .preview-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .preview-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      .preview-card h3 {
+        margin: 0;
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+        color: #cbd5e1;
+      }
+      .preview-frame {
+        width: 100%;
+        min-height: 220px;
+        display: grid;
+        place-items: center;
+        background: rgba(0, 0, 0, 0.18);
+        border-radius: 16px;
+        padding: 1rem;
+      }
+      .preview-frame.small {
+        min-height: 160px;
+      }
+      .dr-strange-controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 0.75rem;
+      }
+      .dr-strange-controls label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.7rem 0.85rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #e5e7eb;
+        font-size: 0.95rem;
+      }
+      .dr-strange-controls input[type="color"],
+      .dr-strange-controls input[type="range"] {
+        border: none;
+        background: transparent;
+        color: inherit;
+      }
+      #ds-radius-value {
+        min-width: 3.5rem;
+        text-align: right;
+        display: inline-block;
+      }
+      .preview-line {
+        color: rgba(248, 250, 252, 0.72);
+        font-size: 0.95rem;
+        margin: 0;
+      }
+      .orbital-theme-neon {
+        --oh-inner-color: #00f6ff;
+        --oh-middle-color: #7c3aed;
+        --oh-outer-color: #ff4d6d;
+        --oh-inner-duration: 4s;
+        --oh-middle-duration: 5.6s;
+        --oh-outer-duration: 7s;
+        --oh-inner-dot-duration: 2.6s;
+        --oh-middle-dot-duration: 4s;
+        --oh-outer-dot-duration: 5s;
+        --oh-inner-glow-1: rgba(0, 246, 255, 0.36);
+        --oh-inner-glow-2: rgba(0, 246, 255, 0.12);
+        --oh-outer-dot-glow: rgba(255, 77, 109, 0.95);
+      }
+      .orbital-theme-warm {
+        --oh-inner-color: #ffd6a5;
+        --oh-middle-color: #ffadad;
+        --oh-outer-color: #ff6b6b;
+        --oh-inner-duration: 5s;
+        --oh-outer-dot-duration: 6s;
+        --oh-outer-glow-1: rgba(255, 107, 107, 0.18);
+        --oh-outer-glow-2: rgba(255, 107, 107, 0.06);
+      }
+      .orbital-theme-subtle {
+        --oh-inner-color: #9ad1ff;
+        --oh-middle-color: #cbb4ff;
+        --oh-outer-color: #ffb0c0;
+        --oh-inner-duration: 5.6s;
+        --oh-middle-duration: 6.8s;
+        --oh-outer-duration: 8s;
+        --oh-inner-glow-1: rgba(154, 209, 255, 0.12);
+        --oh-inner-glow-2: rgba(154, 209, 255, 0.04);
+        --oh-outer-dot-glow: rgba(255, 176, 192, 0.9);
+      }
+      .orbital-theme-mono {
+        --oh-inner-color: #ffffff;
+        --oh-middle-color: #d1d5db;
+        --oh-outer-color: #9ca3af;
+        --oh-inner-duration: 5s;
+        --oh-outer-dot-duration: 6s;
+        --oh-inner-glow-1: rgba(255, 255, 255, 0.14);
+        --oh-inner-glow-2: rgba(255, 255, 255, 0.06);
+      }
+      .muted {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="panel">
+      <h2>Orbital Harmonic — Theme Preview</h2>
+      <div class="controls" role="tablist">
+        <button data-theme="" class="active">Default</button>
+        <button data-theme="orbital-theme-neon">Neon</button>
+        <button data-theme="orbital-theme-warm">Warm</button>
+        <button data-theme="orbital-theme-subtle">Subtle</button>
+        <button data-theme="orbital-theme-mono">Mono</button>
+      </div>
+      <div class="preview-grid">
+        <div class="preview-card">
+          <h3>Orbital Harmonic</h3>
+          <div class="preview-frame" id="orbital-preview">
+            <div class="orbital-harmonic" aria-label="Orbital harmonic loader">
+              <div class="ring ring--inner"></div>
+              <div class="ring ring--middle"></div>
+              <div class="ring ring--outer"></div>
+            </div>
+          </div>
+          <p class="preview-line">
+            Glowing orbitals with dynamic rotation and ring build.
+          </p>
+        </div>
+        <div class="preview-card">
+          <h3>Ember Ring</h3>
+          <div class="preview-frame" id="sparks-preview">
+            <div class="ember-ring" aria-label="Ember ring loader">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <p class="preview-line">
+            Builds from sparks to a rotating glowing ring.
+          </p>
+        </div>
+        <div class="preview-card">
+          <h3>Dr Strange Ring</h3>
+          <div class="preview-frame" id="dr-strange-preview">
+            <div
+              class="particle-container dr-strange-preview"
+              aria-label="Dr Strange ring loader"
+            >
+              <div class="dr-strange-ring" data-total-particles="80"></div>
+            </div>
+          </div>
+          <div class="dr-strange-controls">
+            <label>
+              Particle
+              <input id="ds-color-input" type="color" value="#ffcc00" />
+            </label>
+            <label>
+              Glow
+              <input id="ds-glow-input" type="color" value="#ff3300" />
+            </label>
+            <label>
+              Radius
+              <input
+                id="ds-radius-input"
+                type="range"
+                min="40"
+                max="90"
+                value="80"
+              />
+              <span id="ds-radius-value">80px</span>
+            </label>
+          </div>
+          <p class="preview-line">
+            Mystical sparks trace a ring path with gold energy trails.
+          </p>
+        </div>
+      </div>
+      <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.75)">
+        Click a preset to apply the theme. You can also copy the CSS variable
+        overrides from <code>docs/themes.md</code>.
+      </p>
+    </div>
+
+    <script>
+      const buttons = document.querySelectorAll(".controls button");
+      const orbitalPreview = document.getElementById("orbital-preview");
+      const drStrangeRing = document.querySelector(
+        "#dr-strange-preview .dr-strange-ring",
+      );
+      const dsColorInput = document.getElementById("ds-color-input");
+      const dsGlowInput = document.getElementById("ds-glow-input");
+      const dsRadiusInput = document.getElementById("ds-radius-input");
+      const dsRadiusValue = document.getElementById("ds-radius-value");
+
+      function initDrStrangeParticles() {
+        document.querySelectorAll(".dr-strange-ring").forEach((container) => {
+          const targetCount = Number(container.dataset.totalParticles) || 80;
+          container.innerHTML = "";
+          for (let i = 0; i < targetCount; i += 1) {
+            const particle = document.createElement("div");
+            particle.className = "particle";
+            container.appendChild(particle);
+          }
+        });
+      }
+
+      function updateDrStrangePreview() {
+        if (!drStrangeRing) return;
+        drStrangeRing.style.setProperty("--ds-ring-color", dsColorInput.value);
+        drStrangeRing.style.setProperty("--ds-ring-glow", dsGlowInput.value);
+        drStrangeRing.style.setProperty(
+          "--ds-ring-radius",
+          `${dsRadiusInput.value}px`,
+        );
+        dsRadiusValue.textContent = `${dsRadiusInput.value}px`;
+      }
+
+      buttons.forEach((btn) =>
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const theme = btn.getAttribute("data-theme");
+          orbitalPreview.className = "orbital-harmonic";
+          if (theme) orbitalPreview.classList.add(theme);
+        }),
+      );
+
+      document.addEventListener("DOMContentLoaded", () => {
+        initDrStrangeParticles();
+        updateDrStrangePreview();
+      });
+
+      dsColorInput.addEventListener("input", updateDrStrangePreview);
+      dsGlowInput.addEventListener("input", updateDrStrangePreview);
+      dsRadiusInput.addEventListener("input", updateDrStrangePreview);
+    </script>
+  </body>
+</html>

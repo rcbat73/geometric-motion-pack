@@ -1,0 +1,108 @@
+// loaders/_ember-ring.scss
+
+$rs-size: 96px;
+$rs-spark-size: 8px;
+$rs-ring-color: #7c3aed;
+$rs-glow-color: rgba(124, 58, 237, 0.18);
+$rs-spark-glow: rgba(124, 58, 237, 0.95);
+$rs-spin-duration: 8.8s;
+$rs-sparks-duration: 4.4s;
+$rs-ring-glow-duration: 3.8s;
+$rs-spark-count: 5;
+
+.ember-ring {
+  position: relative;
+  width: $rs-size;
+  height: $rs-size;
+  margin: 1.5rem auto;
+  color: var(--rs-ring-color, #{$rs-ring-color});
+  --rs-size: #{$rs-size};
+  --rs-spark-size: #{$rs-spark-size};
+  --rs-ring-color: #{$rs-ring-color};
+  --rs-glow-color: #{$rs-glow-color};
+  --rs-spark-glow: #{$rs-spark-glow};
+  --rs-spin-duration: #{$rs-spin-duration};
+  --rs-sparks-duration: #{$rs-sparks-duration};
+  --rs-ring-glow-duration: #{$rs-ring-glow-duration};
+  --rs-radius: calc(var(--rs-size) / 2 - 14px);
+  transform-style: preserve-3d;
+  animation: rs-spin var(--rs-spin-duration) linear infinite;
+}
+
+.ember-ring::before {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: calc(var(--rs-size) * 0.18);
+  height: calc(var(--rs-size) * 0.18);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  box-shadow: 0 0 20px var(--rs-glow-color), 0 0 42px rgba(255, 255, 255, 0.06);
+  animation: rs-ring-glow var(--rs-ring-glow-duration) ease-out infinite;
+}
+
+.ember-ring span {
+  position: absolute;
+  inset: 0;
+}
+
+.ember-ring span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--rs-spark-size);
+  height: var(--rs-spark-size);
+  background: currentColor;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  filter: blur(0.7px);
+  box-shadow: 0 0 10px var(--rs-spark-glow), 0 0 18px rgba(255, 255, 255, 0.08);
+  animation: rs-spark-path var(--rs-sparks-duration) ease-in-out infinite;
+}
+
+@for $i from 1 through $rs-spark-count {
+  .ember-ring span:nth-child(#{$i})::before {
+    --rs-start: #{($i - 1) * 72}deg;
+    --rs-offset: #{random(34) + 10}deg;
+    animation-delay: #{($i - 1) * -0.75}s;
+  }
+}
+
+@keyframes rs-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rs-ring-glow {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.45); }
+  30% { opacity: 0.32; transform: translate(-50%, -50%) scale(0.72); }
+  65% { opacity: 0.72; transform: translate(-50%, -50%) scale(0.94); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes rs-spark-path {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--rs-start)) translateY(calc(-1 * var(--rs-radius))) scale(0.28);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(calc(var(--rs-start) + var(--rs-offset) * 0.2)) translateY(calc(-1 * var(--rs-radius))) scale(0.72);
+  }
+  45% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(calc(var(--rs-start) + var(--rs-offset) * 0.5)) translateY(calc(-1 * var(--rs-radius))) scale(1);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(calc(var(--rs-start) + var(--rs-offset) * 0.85)) translateY(calc(-1 * var(--rs-radius))) scale(0.82);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(calc(var(--rs-start) + var(--rs-offset) + 16deg)) translateY(calc(-1 * var(--rs-radius))) scale(0.32);
+  }
+}

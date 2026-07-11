@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geometric Motion Pack Demo</title>
+    <link rel="stylesheet" href="../css/motionforge.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #111827;
+        color: #f9fafb;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      .demo-card {
+        text-align: center;
+        padding: 2rem 2.5rem;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="demo-card">
+      <h1>Geometric Motion Pack</h1>
+      <p>
+        Preview of the current animation pack. Each card shows one component
+        running live so users can compare behavior instantly.
+      </p>
+      <div class="animation-grid">
+        <article class="animation-card">
+          <h2>Orbital Harmonic</h2>
+          <div class="preview-shell">
+            <div class="orbital-harmonic" aria-label="Orbital harmonic loader">
+              <div class="ring ring--inner"></div>
+              <div class="ring ring--middle"></div>
+              <div class="ring ring--outer"></div>
+            </div>
+          </div>
+          <p class="caption">
+            Three glowing orbitals with a smooth rotating ring effect.
+          </p>
+        </article>
+        <article class="animation-card">
+          <h2>Ember Ring</h2>
+          <div class="preview-shell">
+            <div class="ember-ring" aria-label="Ember ring loader">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <p class="caption">
+            A ring built from glowing ember sparks and subtle rotation.
+          </p>
+        </article>
+        <article class="animation-card">
+          <h2>Dr Strange Ring</h2>
+          <div class="preview-shell">
+            <div
+              class="particle-container dr-strange-preview"
+              aria-label="Dr Strange ring loader"
+            >
+              <div class="dr-strange-ring" data-total-particles="80"></div>
+            </div>
+          </div>
+          <p class="caption">
+            Mystic energy trails form a glowing ring with a sorcerer-style
+            shimmer.
+          </p>
+        </article>
+        <article class="animation-card">
+          <h2>Square Flip</h2>
+          <div class="preview-shell preview-small">
+            <div class="square-flip" aria-label="Square flip loader"></div>
+          </div>
+          <p class="caption">
+            Simple motion demo from the pack to show other available effects.
+          </p>
+        </article>
+      </div>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".dr-strange-ring").forEach((container) => {
+          const targetCount = Number(container.dataset.totalParticles) || 80;
+          container.innerHTML = "";
+          for (let i = 0; i < targetCount; i += 1) {
+            const particle = document.createElement("div");
+            particle.className = "particle";
+            container.appendChild(particle);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

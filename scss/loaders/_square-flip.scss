@@ -1,0 +1,12 @@
+// Square flip loader
+
+.square-flip {
+  width: 2.5rem;
+  height: 2.5rem;
+  animation: flip 1s infinite ease-in-out;
+}
+
+@keyframes flip {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(180deg); }
+}
