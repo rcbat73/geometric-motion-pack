@@ -1,0 +1,311 @@
+/* ==========================================================================
+   HEROES / _ORBITAL-NETWORK.SCSS — MALHA DE REDE FECHADA (CONEXÕES DUPLAS)
+   ========================================================================== */
+
+// 1. API DE VARIÁVEIS CSS (Escopo local para o componente)
+.orbital-constellation {
+  --oc-background: #111827;
+  --oc-node-color: #67E8F9;
+  --oc-accent-color: #67E8F9;
+  --oc-line-color: rgba(103, 232, 249, 0.10); // Ligeiramente mais suave para equilibrar o dobro de linhas
+  --oc-glow-color: rgba(167, 139, 250, 0.06);
+  --oc-speed-drift: 12s;
+  --oc-speed-packets: 4.5s;        
+  --oc-packet-length: 75px;         
+  --oc-content-width: 650px;
+  --oc-grid-opacity: 0.02;
+}
+
+// 2. MAPA DE TEMAS DE CORES
+.select-theme-cyan {
+  --oc-node-color: #67E8F9; --oc-accent-color: #67E8F9; --oc-line-color: rgba(103, 232, 249, 0.10);
+}
+.select-theme-emerald {
+  --oc-node-color: #34D399; --oc-accent-color: #34D399; --oc-line-color: rgba(52, 211, 153, 0.10);
+}
+.select-theme-fire {
+  --oc-node-color: #F97316; --oc-accent-color: #FACC15; --oc-line-color: rgba(249, 115, 22, 0.10);
+}
+.select-theme-cosmic {
+  --oc-node-color: #3B82F6; --oc-accent-color: #EC4899; --oc-line-color: rgba(59, 130, 246, 0.10);
+}
+
+// 3. ESTRUTURAÇÃO DO CONTAINER PRINCIPAL
+.orbital-constellation {
+  position: relative;
+  width: 100%;
+  height: clamp(450px, 70vh, 650px);
+  background-color: var(--oc-background);
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+}
+
+// Grid de Fundo
+.oc-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, var(--oc-grid-opacity)) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, var(--oc-grid-opacity)) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+// Ambiência de Iluminação Radial
+.oc-radial-glow {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, var(--oc-glow-color) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+// 4. MOTOR DA REDE DE CONSTELAÇÕES
+.oc-network {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  animation: ocGlobalDrift calc(var(--oc-speed-drift) * 2.5) ease-in-out infinite alternate;
+}
+
+// Nó Genérico com suporte a Conexões Duplas Interligadas
+.oc-node {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--oc-node-color);
+  box-shadow: 0 0 14px var(--oc-node-color);
+  animation: ocNodeBreathe var(--oc-speed-drift) ease-in-out infinite alternate;
+  animation-delay: var(--node-delay, 0s);
+  
+  // LINHA VETORIAL 1 (VAI PARA O CENTRO/DIAGONAL)
+  &::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, var(--oc-line-color) 0%, rgba(255, 255, 255, 0) 100%);
+    transform-origin: 0% 50%;
+    width: var(--line-w, 180px);
+    transform: rotate(var(--line-r, 0deg));
+    top: 50%;
+    left: 50%;
+  }
+
+  // LINHA VETORIAL 2 (NOVA: FECHA A MALHA INTERLIGANDO OS NÓS ADJACENTES)
+  &::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, var(--oc-line-color) 0%, rgba(255, 255, 255, 0) 100%);
+    transform-origin: 0% 50%;
+    width: var(--line2-w, 0px);
+    transform: rotate(var(--line2-r, 0deg));
+    top: 50%;
+    left: 50%;
+    display: var(--line2-display, none);
+  }
+}
+
+// BRILHO LINEAR 1 (Garante o fluxo da Linha 1)
+.oc-packet {
+  position: absolute;
+  height: 1px;
+  width: var(--oc-packet-length);
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 50%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, var(--oc-accent-color) 30%, rgba(255,255,255,0.9) 60%, var(--oc-accent-color) 85%, rgba(255,255,255,0) 100%);
+  filter: drop-shadow(0 0 3px var(--oc-accent-color));
+  animation: ocReflexMove var(--oc-speed-packets) infinite linear;
+  animation-delay: var(--packet-delay, 0s);
+}
+
+// BRILHO LINEAR 2 (NOVO: Garante o fluxo assíncrono sobre a Linha 2 de fechamento da rede)
+.oc-packet-2 {
+  position: absolute;
+  height: 1px;
+  width: var(--oc-packet-length);
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 50%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, var(--oc-accent-color) 30%, rgba(255,255,255,0.9) 60%, var(--oc-accent-color) 85%, rgba(255,255,255,0) 100%);
+  filter: drop-shadow(0 0 3px var(--oc-accent-color));
+  display: var(--line2-display, none);
+  animation: ocReflexMove2 var(--oc-speed-packets) infinite linear;
+  animation-delay: calc(var(--packet-delay, 0s) + 1.5s); // Desencontrado do primeiro brilho
+}
+
+/* ==========================================================================
+   5. MAPEAMENTO GEOMÉTRICO (REDE COMPLETA SEM NÓS ISOLADOS)
+   ========================================================================== */
+
+// --- QUADRANTE TOPO ESQUERDA ---
+// Nó 1 liga ao centro (--line-r) e desce para fechar teia com Nó 4 (--line2-r)
+.oc-node-1  { 
+  top: 15%; left: 8%; width: 14px; height: 14px; 
+  --line-w: 240px; --line-r: 12deg; 
+  --line2-display: block; --line2-w: 130px; --line2-r: 65deg; 
+  --node-delay: 0.1s; --packet-delay: 0.5s; 
+}
+// Nó 2 liga ao centro e estende conexão horizontal até o Nó 3
+.oc-node-2  { 
+  top: 22%; left: 28%; width: 8px; height: 8px; 
+  --line-w: 160px; --line-r: -25deg; 
+  --line2-display: block; --line2-w: 165px; --line2-r: -12deg;
+  --node-delay: 0.8s; --packet-delay: 2.3s; --oc-speed-packets: 3.4s; 
+}
+.oc-node-3  { top: 12%; left: 42%; width: 10px; height: 10px; --line-w: 190px; --line-r: 35deg;  --node-delay: 1.4s; --packet-delay: 1.1s; }
+// Nó 4 liga ao centro e amarra verticalmente subindo para o Nó 2
+.oc-node-4  { 
+  top: 32%; left: 14%; width: 16px; height: 16px; 
+  --line-w: 150px; --line-r: 75deg; 
+  --line2-display: block; --line2-w: 175px; --line2-r: -20deg;
+  --node-delay: 0.3s; --packet-delay: 3.7s; 
+}
+
+// --- QUADRANTE TOPO DIREITA ---
+// Nó 5 liga ao centro e desce em direção ao Nó 8
+.oc-node-5  { 
+  top: 14%; left: 88%; width: 12px; height: 12px; 
+  --line-w: 210px; --line-r: 168deg; 
+  --line2-display: block; --line2-w: 150px; --line2-r: 110deg;
+  --node-delay: 0.6s; --packet-delay: 1.8s; 
+}
+// Nó 6 liga ao centro e estica uma ponte para a esquerda conectando ao Nó 7
+.oc-node-6  { top: 26%; left: 74%; width: 10px; height: 10px; --line-w: 170px; --line-r: 115deg; --node-delay: 1.9s; --packet-delay: 0.2s; --oc-speed-packets: 4.1s; }
+.oc-node-7  { 
+  top: 10%; left: 62%; width: 8px; height: 8px; 
+  --line-w: 180px; --line-r: -145deg;
+  --line2-display: block; --line2-w: 155px; --line2-r: 15deg;
+  --node-delay: 1.2s; --packet-delay: 2.9s; 
+}
+.oc-node-8  { top: 35%; left: 85%; width: 18px; height: 18px; --line-w: 140px; --line-r: 205deg; --node-delay: 0.9s; --packet-delay: 4.2s; }
+
+// --- QUADRANTE BASE ESQUERDA ---
+// Nó 9 liga ao centro e sobe diagonalmente para ancorar no Nó 12
+.oc-node-9  { 
+  bottom: 18%; left: 10%; width: 10px; height: 10px; 
+  --line-w: 180px; --line-r: -15deg; 
+  --line2-display: block; --line2-w: 140px; --line2-r: -65deg;
+  --node-delay: 1.5s; --packet-delay: 0.9s; 
+}
+// Nó 10 liga ao centro e estende linha horizontal para amarrar no Nó 11
+.oc-node-10 { 
+  bottom: 28%; left: 25%; width: 14px; height: 14px; 
+  --line-w: 220px; --line-r: 8deg;   
+  --line2-display: block; --line2-w: 160px; --line2-r: 45deg;
+  --node-delay: 0.4s; --packet-delay: 3.1s; --oc-speed-packets: 3.8s; 
+}
+.oc-node-11 { bottom: 14%; left: 38%; width: 8px;  height: 8px;  --line-w: 130px; --line-r: -65deg; --node-delay: 2.2s; --packet-delay: 1.5s; }
+.oc-node-12 { 
+  bottom: 35%; left: 16%; width: 12px; height: 12px; 
+  --line-w: 160px; --line-r: 50deg;  
+  --line2-display: block; --line2-w: 130px; --line2-r: -15deg;
+  --node-delay: 0.7s; --packet-delay: 2.6s; 
+}
+
+// --- QUADRANTE BASE DIREITA ---
+// Nó 13 liga ao centro e sobe para fixar a rede com o Nó 16
+.oc-node-13 { 
+  bottom: 16%; left: 86%; width: 14px; height: 14px; 
+  --line-w: 200px; --line-r: 190deg; 
+  --line2-display: block; --line2-w: 160px; --line2-r: -115deg;
+  --node-delay: 2.5s; --packet-delay: 0.4s; 
+}
+.oc-node-14 { bottom: 32%; left: 72%; width: 10px; height: 10px; --line-w: 150px; --line-r: -120deg;--node-delay: 1.1s; --packet-delay: 3.3s; }
+// Nó 15 liga ao centro e cria ponte lateral em direção ao Nó 14
+.oc-node-15 { 
+  bottom: 12%; left: 60%; width: 18px; height: 18px; 
+  --line-w: 230px; --line-r: 145deg; 
+  --line2-display: block; --line2-w: 170px; --line2-r: -45deg;
+  --node-delay: 0.5s; --packet-delay: 2.0s; --oc-speed-packets: 4.9s; 
+}
+.oc-node-16 { bottom: 38%; left: 89%; width: 8px;  height: 8px;  --line-w: 140px; --line-r: -160deg;--node-delay: 1.7s; --packet-delay: 1.2s; }
+
+
+// 6. ISOLAMENTO DO CONTEÚDO
+.oc-hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: var(--oc-content-width);
+  text-align: center;
+  padding: 0 24px;
+  color: #ffffff;
+  pointer-events: auto;
+}
+
+.oc-badge {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 16px;
+  border-radius: 99px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--oc-node-color);
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.oc-title {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 18px 0;
+  letter-spacing: -1px;
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.oc-description {
+  font-size: clamp(15px, 2vw, 17px);
+  line-height: 1.6;
+  color: #9ca3af;
+  margin: 0 0 36px 0;
+}
+
+.oc-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.oc-btn {
+  padding: 12px 30px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);&.oc-btn-primary {background-color: #ffffff;color: #111827;box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);&:hover {background-color: rgba(255, 255, 255, 0.9);transform: translateY(-1px);}}&.oc-btn-secondary {background-color: rgba(255, 255, 255, 0.03);color: #ffffff;border: 1px solid rgba(255, 255, 255, 0.1);&:hover {background-color: rgba(255, 255, 255, 0.08);border-color: rgba(255, 255, 255, 0.2);}}}
+
+// 7. KEYFRAMES DE ENGENHARIA DE RENDERIZAÇÃO
+
+@keyframes ocGlobalDrift {0%   { transform: translate3d(0, 0, 0) scale(1); }100% { transform: translate3d(0.4%, -0.4%, 0) scale(1.003); }}
+@keyframes ocNodeBreathe {0%   { transform: translate3d(0, 0, 0); }50%  { transform: translate3d(3px, -4px, 0); }100% { transform: translate3d(-1px, 2px, 0); }}
+
+// Drive do Brilho 1 (Linhas principais direcionais)
+@keyframes ocReflexMove {0% {transform: rotate(var(--line-r)) translate3d(0, -50%, 0);opacity: 0;}12% { opacity: 1; }60% { opacity: 1; }85%, 100% {transform: rotate(var(--line-r)) translate3d(var(--line-w), -50%, 0);opacity: 0;}}
+
+// Drive do Brilho 2 (Linhas secundárias de fechamento de teia)
+@keyframes ocReflexMove2 {0% {transform: rotate(var(--line2-r)) translate3d(0, -50%, 0);opacity: 0;}12% { opacity: 1; }60% { opacity: 1; }85%, 100% {transform: rotate(var(--line2-r)) translate3d(var(--line2-w), -50%, 0);opacity: 0;}}
+
+// 8. CORTE RESPONSIVO
+@media (max-width: 1024px) {.oc-node-1, .oc-node-5, .oc-node-9, .oc-node-13 { display: none !important; }}@media (max-width: 768px) {.oc-node-2, .oc-node-6, .oc-node-10, .oc-node-14 { display: none !important; }.oc-radial-glow { width: 350px; height: 350px; }.oc-hero-content { padding: 0 16px; }.oc-actions { flex-direction: column; width: 100%; gap: 10px; }.oc-btn { width: 100%; text-align: center; }}
+
+// 9. ACESSIBILIDADE
+@media (prefers-reduced-motion: reduce) {.oc-network, .oc-node, .oc-packet, .oc-packet-2 {animation: none !important;transform: none !important;}.oc-packet, .oc-packet-2 {display: none !important;}}

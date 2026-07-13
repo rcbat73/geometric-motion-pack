@@ -1,4 +1,5 @@
 // loaders/_orbital-harmonic.scss
+@use "sass:math";
 
 $oh-wrapper-size: 96px;
 $oh-ring-border: 1.5px;
@@ -10,12 +11,12 @@ $oh-marker-size: 10px;
 $oh-inner-scale: 0.6;
 $oh-middle-scale: 0.8;
 $oh-outer-scale: 1;
-$oh-inner-radius: $oh-wrapper-size * $oh-inner-scale / 2;
-$oh-middle-radius: $oh-wrapper-size * $oh-middle-scale / 2;
-$oh-outer-radius: $oh-wrapper-size * $oh-outer-scale / 2;
-$oh-inner-center: $oh-inner-radius - ($oh-ring-border / 2);
-$oh-middle-center: $oh-middle-radius - ($oh-ring-border / 2);
-$oh-outer-center: $oh-outer-radius - ($oh-ring-border / 2);
+$oh-inner-radius: math.div($oh-wrapper-size * $oh-inner-scale, 2);
+$oh-middle-radius: math.div($oh-wrapper-size * $oh-middle-scale, 2);
+$oh-outer-radius: math.div($oh-wrapper-size * $oh-outer-scale, 2);
+$oh-inner-center: $oh-inner-radius - math.div($oh-ring-border, 2);
+$oh-middle-center: $oh-middle-radius - math.div($oh-ring-border, 2);
+$oh-outer-center: $oh-outer-radius - math.div($oh-ring-border, 2);
 $oh-inner-duration: 4.8s;
 $oh-middle-duration: 6.2s;
 $oh-outer-duration: 7.6s;

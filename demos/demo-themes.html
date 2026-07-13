@@ -154,79 +154,178 @@
       .muted {
         opacity: 0.9;
       }
+
+      .demo-section + .demo-section {
+        margin-top: 3rem;
+      }
+
+      .demo-section > h2 {
+        margin: 0 0 1.25rem;
+        font-size: 1.35rem;
+        letter-spacing: 0.04em;
+      }
     </style>
   </head>
   <body>
     <div class="panel">
-      <h2>Orbital Harmonic — Theme Preview</h2>
-      <div class="preview-grid">
-        <div class="preview-card">
-          <h3>Orbital Harmonic</h3>
-          <div class="preview-frame" id="orbital-preview">
-            <div class="orbital-harmonic" aria-label="Orbital harmonic loader">
-              <div class="ring ring--inner"></div>
-              <div class="ring ring--middle"></div>
-              <div class="ring ring--outer"></div>
+      <h1>Geometric Motion Pack</h1>
+      <section class="demo-section">
+        <h2>Loaders</h2>
+        <div class="preview-grid">
+          <div class="preview-card">
+            <h3>Orbital Harmonic</h3>
+            <div class="preview-frame" id="orbital-preview">
+              <div
+                class="orbital-harmonic"
+                aria-label="Orbital harmonic loader"
+              >
+                <div class="ring ring--inner"></div>
+                <div class="ring ring--middle"></div>
+                <div class="ring ring--outer"></div>
+              </div>
             </div>
-          </div>
-          <div class="controls" role="tablist">
-            <button data-theme="" class="active">Default</button>
-            <button data-theme="orbital-theme-neon">Neon</button>
-            <button data-theme="orbital-theme-warm">Warm</button>
-            <button data-theme="orbital-theme-subtle">Subtle</button>
-            <button data-theme="orbital-theme-mono">Mono</button>
-          </div>
-          <p class="preview-line">
-            Glowing orbitals with dynamic rotation and ring build.
-          </p>
-        </div>
-        <div class="preview-card">
-          <h3>Ember Ring</h3>
-          <div class="preview-frame" id="sparks-preview">
-            <div class="ember-ring" aria-label="Ember ring loader">
-              <span></span><span></span><span></span><span></span><span></span>
+            <div class="controls" role="tablist">
+              <button data-theme="" class="active">Default</button>
+              <button data-theme="orbital-theme-neon">Neon</button>
+              <button data-theme="orbital-theme-warm">Warm</button>
+              <button data-theme="orbital-theme-subtle">Subtle</button>
+              <button data-theme="orbital-theme-mono">Mono</button>
             </div>
+            <p class="preview-line">
+              Glowing orbitals with dynamic rotation and ring build.
+            </p>
           </div>
-          <p class="preview-line">
-            Builds from sparks to a rotating glowing ring.
-          </p>
-        </div>
-        <div class="preview-card">
-          <h3>Dr Strange Ring</h3>
-          <div class="preview-frame" id="dr-strange-preview">
-            <div
-              class="particle-container dr-strange-preview"
-              aria-label="Dr Strange ring loader"
-            >
-              <div class="dr-strange-ring" data-total-particles="80"></div>
+          <div class="preview-card">
+            <h3>Ember Ring</h3>
+            <div class="preview-frame" id="sparks-preview">
+              <div class="ember-ring" aria-label="Ember ring loader">
+                <span></span><span></span><span></span><span></span
+                ><span></span>
+              </div>
             </div>
+            <p class="preview-line">
+              Builds from sparks to a rotating glowing ring.
+            </p>
           </div>
-          <div class="dr-strange-controls">
-            <label>
-              Particle
-              <input id="ds-color-input" type="color" value="#ffcc00" />
-            </label>
-            <label>
-              Glow
-              <input id="ds-glow-input" type="color" value="#ff3300" />
-            </label>
-            <label>
-              Radius
-              <input
-                id="ds-radius-input"
-                type="range"
-                min="40"
-                max="90"
-                value="80"
-              />
-              <span id="ds-radius-value">80px</span>
-            </label>
+          <div class="preview-card">
+            <h3>Dr Strange Ring</h3>
+            <div class="preview-frame" id="dr-strange-preview">
+              <div
+                class="particle-container dr-strange-preview"
+                aria-label="Dr Strange ring loader"
+              >
+                <div class="dr-strange-ring" data-total-particles="80"></div>
+              </div>
+            </div>
+            <div class="dr-strange-controls">
+              <label>
+                Particle
+                <input id="ds-color-input" type="color" value="#ffcc00" />
+              </label>
+              <label>
+                Glow
+                <input id="ds-glow-input" type="color" value="#ff3300" />
+              </label>
+              <label>
+                Radius
+                <input
+                  id="ds-radius-input"
+                  type="range"
+                  min="40"
+                  max="90"
+                  value="80"
+                />
+                <span id="ds-radius-value">80px</span>
+              </label>
+            </div>
+            <p class="preview-line">
+              Mystical sparks trace a ring path with gold energy trails.
+            </p>
           </div>
-          <p class="preview-line">
-            Mystical sparks trace a ring path with gold energy trails.
-          </p>
         </div>
-      </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Hero Animations</h2>
+
+        <div class="preview-grid">
+          <div class="preview-card">
+            <h3>Orbital Constellation</h3>
+
+            <div class="preview-frame preview-frame--hero">
+              <div
+                class="mf-orbital-network"
+                aria-label="Orbital Constellation hero animation"
+              >
+                <div class="mf-orbital-network__scene" aria-hidden="true">
+                  <span
+                    class="mf-orbital-network__link mf-orbital-network__link--1"
+                  ></span>
+                  <span
+                    class="mf-orbital-network__link mf-orbital-network__link--2"
+                  ></span>
+                  <span
+                    class="mf-orbital-network__link mf-orbital-network__link--3"
+                  ></span>
+                  <span
+                    class="mf-orbital-network__link mf-orbital-network__link--4"
+                  ></span>
+                  <span
+                    class="mf-orbital-network__link mf-orbital-network__link--5"
+                  ></span>
+                  <span
+                    class="mf-orbital-network__link mf-orbital-network__link--6"
+                  ></span>
+
+                  <span
+                    class="mf-orbital-network__node mf-orbital-network__node--1"
+                  ></span>
+                  <span
+                    class="mf-orbital-network__node mf-orbital-network__node--2"
+                  ></span>
+                  <span
+                    class="mf-orbital-network__node mf-orbital-network__node--3"
+                  ></span>
+                  <span
+                    class="mf-orbital-network__node mf-orbital-network__node--4"
+                  ></span>
+                  <span
+                    class="mf-orbital-network__node mf-orbital-network__node--5"
+                  ></span>
+                  <span
+                    class="mf-orbital-network__node mf-orbital-network__node--6"
+                  ></span>
+                </div>
+
+                <div class="mf-orbital-network__content">
+                  <span class="mf-orbital-network__eyebrow"
+                    >Geometric Motion</span
+                  >
+                  <strong>Motion for modern interfaces</strong>
+                  <p>
+                    Pure CSS animations for landing pages and digital products.
+                  </p>
+                  <span class="mf-orbital-network__button"
+                    >Explore the pack</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <p class="preview-line">
+              Animated constellation for technology and SaaS hero sections.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Background Loops</h2>
+
+        <div class="preview-grid">
+          <!-- depois entram os 2 backgrounds -->
+        </div>
+      </section>
       <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.75)">
         Click a preset to apply the theme. You can also copy the CSS variable
         overrides from <code>docs/themes.md</code>.

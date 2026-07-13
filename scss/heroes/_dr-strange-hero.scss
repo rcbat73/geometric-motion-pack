@@ -1,0 +1,253 @@
+@use "sass:math";
+
+/* ==========================================================================
+   MOTIONFORGE PREMIUM PACK - CINEMATIC WIDER HERO SECTION LAYOUT
+   ========================================================================== */
+
+// --- 1. ESTILOS DO NOVO LAYOUT EXPANDIDO (WIDER HERO) ---
+body {
+  margin: 0;
+  background: #050508;
+  overflow-x: hidden;
+}
+
+.theme-panel {
+  position: absolute;
+  top: 25px; 
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 15, 25, 0.85);
+  padding: 10px 20px; 
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  display: flex; 
+  gap: 12px; 
+  align-items: center;
+  z-index: 100;
+
+  // CORREÇÃO: Força o texto ao lado do selector a ficar visível sobre o fundo escuro
+  label {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.8;
+  }
+}
+
+
+.mf-hero-header {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+  box-sizing: border-box;
+  background: radial-gradient(circle at 80% 50%, rgba(255, 68, 0, 0.05) 0%, transparent 60%);
+  gap: 5%;
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 5%;
+    gap: 60px;
+    background: radial-gradient(circle at 50% 80%, rgba(255, 68, 0, 0.05) 0%, transparent 60%);
+  }
+}
+
+.mf-hero-content {
+  max-width: 540px;
+  z-index: 10;
+  color: #fff;
+
+  .mf-hero-tag {
+    font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px;
+    color: var(--sr-color-primary, #ffcc00);
+    display: inline-block; margin-bottom: 15px;
+  }
+  .mf-hero-title {
+    font-size: 52px; font-weight: 800; line-height: 1.1; margin: 0 0 20px 0; letter-spacing: -1px;
+    span { color: var(--sr-color-secondary, #ff8a00); filter: drop-shadow(0 0 15px var(--sr-glow-color)); }
+  }
+  .mf-hero-description {
+    font-size: 16px; line-height: 1.6; color: #a0a0ba; margin: 0 0 35px 0;
+  }
+  .mf-hero-actions {
+    display: flex; gap: 15px;
+    
+    .mf-btn {
+      padding: 12px 28px; border-radius: 30px; font-size: 14px; font-weight: 600;
+      text-decoration: none; transition: all 0.3s ease;
+      
+      &--primary {
+        background: var(--sr-color-primary, #ffcc00); color: #000;
+        box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+        &:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 204, 0, 0.5); }
+      }
+      &--secondary {
+        border: 1px solid rgba(255,255,255,0.15); color: #fff;
+        background: rgba(255,255,255,0.03);
+        &:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); }
+      }
+    }
+  }
+}
+
+.mf-hero-visual-stage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+// --- 2. O TEU MOTOR DO PORTAL 3D (MANTIDO INTACTO) ---
+.strange-ring-hero {
+  --sr-size: 340px; // Subimos ligeiramente para ganhar dominância visual no cabeçalho
+  --sr-color-primary: #ffcc00;
+  --sr-color-secondary: #ff8a00;
+  --sr-color-tertiary: #ffd700;
+  --sr-glow-color: rgba(255, 51, 0, 0.75);
+
+  --sr-speed-middle: 3s; 
+  --sr-speed-inner: 2.2s;
+  --sr-speed-glyphs: 14s; 
+  --sr-pulse-duration: 3.5s;
+
+  $total-particles-html: 80;
+  $portal-opening-time: 3s;
+  $outer-ring-radius: 160px; 
+
+  --ds-ring-scale: calc(var(--sr-size) / 320px);
+
+  &.theme--arcane {
+    --sr-color-primary: #00f0ff; --sr-color-secondary: #bd00ff; --sr-color-tertiary: #e0e0e0;
+    --sr-glow-color: rgba(0, 240, 255, 0.7); --sr-speed-glyphs: 9s;
+  }
+  &.theme--cosmic {
+    --sr-color-primary: #ff00ff; --sr-color-secondary: #0044ff; --sr-color-tertiary: #9d00ff;
+    --sr-glow-color: rgba(255, 0, 255, 0.6);
+  }
+  &.theme--shadow {
+    --sr-color-primary: #bfa15f; --sr-color-secondary: #4a154b; --sr-color-tertiary: #33333a;
+    --sr-glow-color: rgba(191, 161, 95, 0.4);
+  }
+  &.theme--gold {
+    --sr-color-primary: #ffd700; --sr-color-secondary: #ffffff; --sr-color-tertiary: #ffb700;
+    --sr-glow-color: rgba(255, 215, 0, 0.8);
+  }
+
+  position: relative;
+  width: var(--sr-size);
+  height: var(--sr-size);
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+  perspective: 1200px;
+
+  .particle {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: calc(1.25px * var(--ds-ring-scale));
+    height: calc(10px * var(--ds-ring-scale));
+    background: var(--sr-color-primary, currentColor);
+    border-radius: 1px;
+    opacity: 0;
+    z-index: 5;
+
+    @for $j from 1 through $total-particles-html {
+      &:nth-child(#{$j}) {
+        $deg: math.div(360deg, $total-particles-html) * $j;
+        $start-x: math.cos($deg) * $outer-ring-radius; 
+        $start-y: math.sin($deg) * $outer-ring-radius;
+        
+        $final-y: -45px; $final-x: 10px;
+        @if $j % 2 == 0 { $final-y: -35px; $final-x: -6px; }
+
+        $individual-speed: (math.random(200) + 400) * 1ms;
+
+        animation: mfExpandHeroOut-#{$j} $individual-speed infinite ease-out;
+        animation-delay: calc((#{$j} / #{$total-particles-html}) * #{$portal-opening-time});
+
+        @keyframes mfExpandHeroOut-#{$j} {
+          0% {
+            transform: translate(calc(-50% + #{$start-x} * var(--ds-ring-scale)), calc(-50% + #{$start-y} * var(--ds-ring-scale))) rotate($deg) scale(0.6);
+            box-shadow: 0px 0px 12px 5px var(--sr-glow-color);
+            opacity: 0;
+          }
+          20% { opacity: 1; }
+          100% {
+            transform: translate(calc(-50% + #{$start-x} * var(--ds-ring-scale)), calc(-50% + #{$start-y} * var(--ds-ring-scale))) 
+                       rotate($deg) 
+                       translateY(calc(#{$final-y} * var(--ds-ring-scale))) 
+                       translateX(calc(#{$final-x} * var(--ds-ring-scale))) scale(1.2);
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .ring-3d-layer {
+    position: absolute;
+    width: 100%; height: 100%; top: 0; left: 0;
+    pointer-events: none;
+    transform-origin: center center;
+    transform-style: preserve-3d;
+    will-change: transform;
+
+    svg { width: 100%; height: 100%; }
+    circle { stroke-width: calc(1px * var(--ds-ring-scale)); filter: drop-shadow(0 0 3px var(--sr-glow-color)); }
+
+    .svg-ring-line { stroke: var(--sr-color-secondary); fill: rgba(255, 138, 0, 0.08); }
+    .svg-ring-glow {
+      stroke: var(--sr-color-primary); stroke-width: calc(1.4px * var(--ds-ring-scale));
+      stroke-dasharray: 45 125; fill: none; filter: drop-shadow(0 0 5px var(--sr-color-primary));
+    }
+
+    &--middle { animation: spinX var(--sr-speed-middle) linear infinite; transform: rotateX(42deg); }
+    &--inner { animation: spinX-reverse var(--sr-speed-inner) linear infinite; transform: rotateX(54deg); }
+    &--mini { animation: spinX 5s linear infinite; transform: rotateX(32deg); }
+    &--core-ring { animation: spinX-reverse 3.5s linear infinite; transform: rotateX(65deg); }
+
+    &--glyphs {
+      z-index: 4;
+      transform: rotateX(0deg);
+      animation: mfFlatCounter var(--sr-speed-glyphs) linear infinite;
+      
+      .svg-ring-line { stroke: var(--sr-color-secondary); stroke-width: calc(1px * var(--ds-ring-scale)); fill: rgba(255, 138, 0, 0.12); }
+      .text-vector {
+        font-family: 'Courier New', Courier, monospace, sans-serif; font-weight: 900;
+        fill: var(--sr-color-primary); font-size: calc(11.5px * var(--ds-ring-scale));
+        letter-spacing: calc(13.6px * var(--ds-ring-scale)); text-shadow: 0 0 5px var(--sr-glow-color);
+      }
+    }
+  }
+
+  .ring-layer--core {
+    position: absolute;
+    width: 5%; height: 5%; background: var(--sr-color-primary); border-radius: 4px; 
+    box-shadow: 0 0 6px 3px var(--sr-color-primary); animation: mfCoreStarWobble 3s ease-in-out infinite alternate; z-index: 2;
+    
+    &::before, &::after {
+      content: ''; position: absolute; background: linear-gradient(to right, transparent, var(--sr-color-primary) 50%, transparent);
+      filter: drop-shadow(0 0 3px var(--sr-color-primary)); top: 50%; left: 50%;
+    }
+    &::before { width: calc(150px * var(--ds-ring-scale)); height: 2px; transform: translate(-50%, -50%) rotate(45deg); }
+    &::after { width: calc(150px * var(--ds-ring-scale)); height: 2px; transform: translate(-50%, -50%) rotate(-45deg); }
+  }
+
+  .pulse-wave {
+    position: absolute;
+    width: 100%; height: 100%; border-radius: 50%;
+    background: radial-gradient(circle, transparent 55%, var(--sr-glow-color) 100%);
+    opacity: 0; will-change: transform, opacity; animation: mfWavePulse var(--sr-pulse-duration) ease-out infinite; z-index: 1;
+  }
+}
+
+@keyframes spinX { from { transform: rotateX(42deg) rotate(0deg); } to { transform: rotateX(42deg) rotate(360deg); } }
+@keyframes spinX-reverse { from { transform: rotateX(54deg) rotate(0deg); } to { transform: rotateX(54deg) rotate(-360deg); } }
+@keyframes mfFlatCounter { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+@keyframes mfCoreStarWobble { 0% { transform: rotate(45deg) scale(0.9); } 100% { transform: rotate(45deg) scale(1.1); } }
+@keyframes mfWavePulse { 0% { transform: scale3d(0.3, 0.3, 1); opacity: 0.9; } 100% { transform: scale3d(1.3, 1.3, 1); opacity: 0; } }

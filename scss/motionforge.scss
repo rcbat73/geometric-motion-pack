@@ -1,7 +1,9 @@
 // Main entrypoint for geometric-motion-pack
 
-@import 'variables';
-@import 'mixins';
-@import 'loaders/orbital-harmonic';
-@import 'loaders/ember-ring';
-@import 'loaders/dr-strange-ring';
+@use 'variables';
+@use 'mixins';
+@use 'loaders/orbital-harmonic';
+@use 'loaders/ember-ring';
+@use 'loaders/dr-strange-ring';
+@use "heroes/orbital-network";
+@use "heroes/dr-strange-hero";

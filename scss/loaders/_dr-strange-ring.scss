@@ -51,7 +51,7 @@ $portal-opening-time: 3s;    //O tempo que o anel demora a formar-se completamen
 
   @for $j from 1 through $total-particles-html {
     &:nth-child(#{$j}) {
-      $deg: (360deg / $total-particles-html) * $j;
+      $deg: math.div(360deg, $total-particles-html) * $j;
       $start-x: math.cos($deg) * $ring-radius;
       $start-y: math.sin($deg) * $ring-radius;
 
