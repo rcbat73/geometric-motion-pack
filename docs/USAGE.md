@@ -1,12 +1,50 @@
-# Orbital Harmonic — Usage & Variable Reference
+# Geometric Motion Pack — Usage Guide
 
-This document explains how to use and customize the Orbital Harmonic loader.
+This guide explains how to use, customize and integrate the animations included in the Geometric Motion Pack.
 
-1. Quick markup
+## Supported Platforms
 
----
+The animations are designed to work with virtually any platform that supports HTML and CSS.
 
-Include the compiled CSS, then add the component:
+### Quick integration
+
+- HTML
+- React
+- Next.js
+- Vue
+- Angular
+- Svelte
+- Astro
+- Tailwind CSS
+- WordPress
+- Webflow
+- Shopify
+- Framer
+- Any CMS with custom HTML/CSS support
+
+Most users only need to:
+
+1. Include `css/motionforge.css`
+2. Copy the animation markup
+3. Customize it if needed using CSS Custom Properties
+
+No Sass compilation or JavaScript framework is required unless you want to modify the source files.
+
+## Quick Start
+
+The quickest way to use any animation is:
+
+1. Include the compiled stylesheet.
+
+```html
+<link rel="stylesheet" href="css/motionforge.css" />
+```
+
+2. Copy the HTML markup of the animation you want to use.
+
+3. Customize it if needed using CSS Custom Properties.
+
+That's it.
 
 ```html
 <link rel="stylesheet" href="css/motionforge.css" />
@@ -35,9 +73,7 @@ Include the compiled CSS, then add the component:
 </div>
 ```
 
-2. Runtime customization (recommended for themes)
-
----
+## Runtime customization (recommended)
 
 Override CSS custom properties on the component or on ancestor selectors.
 
@@ -65,29 +101,9 @@ Examples:
 }
 ```
 
-3. Source defaults (Sass)
+## CSS Custom Properties
 
----
-
-Edit `scss/loaders/_orbital-harmonic.scss` for defaults and geometry. Useful for:
-
-- Changing default colors used when no CSS variables are set
-- Changing ring sizes, marker size, or stroke thickness
-- Changing keyframe definitions (e.g. ease or turn counts)
-
-Key source variables (Sass):
-
-- `$oh-wrapper-size` — overall component width/height
-- `$oh-ring-border` — ring stroke thickness
-- `$oh-marker-size` — diameter of the orbiting dots
-- `$oh-inner-scale`, `$oh-middle-scale`, `$oh-outer-scale` — per-ring scale factors
-- `$oh-inner-duration`, `$oh-middle-duration`, `$oh-outer-duration` — default spin durations
-- `$oh-inner-dot-duration`, `$oh-middle-dot-duration`, `$oh-outer-dot-duration` — default dot orbit durations
-- `$oh-dot-offset` — extra offset for the dot relative to ring stroke
-
-4. CSS custom properties (runtime overrides)
-
----
+### Orbital Harmonic
 
 - `--oh-inner-color`, `--oh-middle-color`, `--oh-outer-color`
 - `--oh-inner-duration`, `--oh-middle-duration`, `--oh-outer-duration`
@@ -97,7 +113,7 @@ Key source variables (Sass):
 - `--oh-outer-glow-1`, `--oh-outer-glow-2`
 - `--oh-inner-dot-glow`, `--oh-middle-dot-glow`, `--oh-outer-dot-glow`
 
-## Dr Strange Ring — Runtime customization
+### Dr Strange Ring
 
 Override the Dr Strange ring color and radius on the `.dr-strange-ring` element or an ancestor.
 
@@ -120,48 +136,11 @@ Supported CSS properties:
 - `--ds-ring-radius` — radius of the ring in px
 - `--ds-ring-glow` — particle glow color
 
-5. Theming recipes (examples)
-
----
-
-- Fast subtle theme:
-
-```css
-.orbital-subtle {
-  --oh-inner-color: #9ad1ff;
-  --oh-middle-color: #cbb4ff;
-  --oh-outer-color: #ffb0c0;
-  --oh-inner-duration: 5s;
-  --oh-outer-dot-duration: 8s;
-  --oh-outer-glow-1: rgba(255, 176, 192, 0.12);
-  --oh-outer-glow-2: rgba(255, 176, 192, 0.06);
-}
-```
-
-6. Build & test
-
----
-
-- `npm run build` — compile once
-- `npm run watch` — continuous compile during development
-- Open `demos/index.html` in a browser to preview
-
-7. Distribution tips
-
----
-
-- Ship the compiled `css/motionforge.css` along with `demos/` as previews for customers.
-- Consider adding an example `themes.css` file containing a few themed classes to speed integration.
-
-## Contact / Support
-
-If you want me to add a `docs/themes.md` and `demos/demo-themes.html` showing theme switching and prebuilt classes, say "yes" and I will add them.
-
 ## Platform integration (no-Sass / quick-start)
 
 These examples assume you include the compiled stylesheet `css/motionforge.css` in your project and override CSS custom properties to theme the loader — no Sass required.
 
-## React
+### React
 
 1. Copy `css/motionforge.css` into your React `public` folder or import it from your build output.
 2. Use the component in JSX and pass a `style` prop to override CSS variables:
@@ -190,7 +169,7 @@ export default function OrbitalLoader({ className = "", style = {} }) {
 }
 ```
 
-## Tailwind (utility-based projects)
+### Tailwind (utility-based projects)
 
 Tailwind projects can still use the compiled CSS. To theme via Tailwind utilities, add a helper class that sets CSS variables and apply it alongside `orbital-harmonic`.
 
@@ -210,7 +189,7 @@ Usage in markup:
 <div class="orbital-harmonic orbital-theme-accent"></div>
 ```
 
-## Webflow (no code)
+### Webflow (no code)
 
 1. Upload `css/motionforge.css` to your site settings (Custom Code → Head) or host it and add a link in the Page Settings → Head Code.
 2. Add an HTML Embed block where you want the loader and paste:
@@ -221,7 +200,7 @@ Usage in markup:
 
 3. Add custom CSS variables in the Page Settings → Head Code or in the Embed with a `<style>` tag to theme.
 
-## WordPress (theme or plugin)
+### WordPress (theme or plugin)
 
 - Enqueue the compiled CSS in your theme's `functions.php` or a plugin:
 
@@ -240,7 +219,7 @@ add_action('wp_enqueue_scripts', 'enqueue_motionforge');
 
 - To provide theme options, expose CSS variable values via the Customizer or block attributes and output them inline.
 
-## Shopify (theme)
+### Shopify (theme)
 
 1. Upload `css/motionforge.css` to your theme assets (Admin → Online Store → Themes → Edit code → Assets).
 2. Include it in your theme layout (e.g., `layout/theme.liquid`):
@@ -257,8 +236,53 @@ add_action('wp_enqueue_scripts', 'enqueue_motionforge');
 
 4. For store-level theming, add theme settings that output CSS variables to `theme.liquid` inside a `<style>` block.
 
-## Notes for no-Sass users
+### Notes for no-Sass users
 
 - All runtime customization can be done via CSS custom properties — consumers do not need to run Sass. Ship the compiled `css/motionforge.css` and instruct users to override the properties.
 - If you want to provide a smaller subset of the pack (just the loader), export a minified CSS file containing only the relevant selectors and keyframes.
 - Include `demos/` as preview pages so buyers can quickly test the loader in their environment.
+
+## Source Customization (Sass)
+
+Edit `scss/loaders/_orbital-harmonic.scss` for defaults and geometry. Useful for:
+
+- Changing default colors used when no CSS variables are set
+- Changing ring sizes, marker size, or stroke thickness
+- Changing keyframe definitions (e.g. ease or turn counts)
+
+Key source variables (Sass):
+
+- `$oh-wrapper-size` — overall component width/height
+- `$oh-ring-border` — ring stroke thickness
+- `$oh-marker-size` — diameter of the orbiting dots
+- `$oh-inner-scale`, `$oh-middle-scale`, `$oh-outer-scale` — per-ring scale factors
+- `$oh-inner-duration`, `$oh-middle-duration`, `$oh-outer-duration` — default spin durations
+- `$oh-inner-dot-duration`, `$oh-middle-dot-duration`, `$oh-outer-dot-duration` — default dot orbit durations
+- `$oh-dot-offset` — extra offset for the dot relative to ring stroke
+
+## Theming examples
+
+- Fast subtle theme:
+
+```css
+.orbital-subtle {
+  --oh-inner-color: #9ad1ff;
+  --oh-middle-color: #cbb4ff;
+  --oh-outer-color: #ffb0c0;
+  --oh-inner-duration: 5s;
+  --oh-outer-dot-duration: 8s;
+  --oh-outer-glow-1: rgba(255, 176, 192, 0.12);
+  --oh-outer-glow-2: rgba(255, 176, 192, 0.06);
+}
+```
+
+## Build & test
+
+- `npm run build` — compile once
+- `npm run watch` — continuous compile during development
+- Open `demos/index.html` in a browser to preview
+
+## Distribution tips
+
+- Ship the compiled `css/motionforge.css` along with `demos/` as previews for customers.
+- Consider adding an example `themes.css` file containing a few themed classes to speed integration.

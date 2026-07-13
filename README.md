@@ -1,99 +1,141 @@
-# Orbital Harmonic Loader — Geometric Motion Pack
+# Geometric Motion Pack
 
-A compact, customizable CSS/Sass animation pack that contains a set of geometric motion components. This package includes the "Orbital Harmonic" loader — three concentric orbital rings with glowing markers — plus build tooling and demos.
+A growing collection of handcrafted geometric web animations built with HTML, Sass and CSS.
 
-## Quick install
+Geometric Motion Pack is designed to be **easy to use**.
 
-- Clone or include this repo in your project.
-- Install dependencies and build the CSS:
+Simply copy the HTML, include the compiled CSS file and you're ready to go. No JavaScript frameworks or animation libraries are required.
 
-```bash
+For advanced customization, the original Sass source is included.
+
+---
+
+## Current Components
+
+### Loaders
+
+- Orbital Harmonic
+- Ember Ring
+- Dr Strange Ring
+
+More loaders, hero animations, background loops and micro-interactions will be added in future releases.
+
+---
+
+## Features
+
+- Pure HTML + Sass + CSS
+- Ready-to-use compiled CSS
+- No external animation libraries
+- Easy copy & paste integration
+- Runtime customization with CSS Custom Properties
+- Sass source included
+- Demo pages included
+- Lightweight and reusable
+
+---
+
+# Quick Start (Recommended)
+
+The fastest way to use the animations:
+
+1. Download the project.
+2. Include `css/motionforge.css`.
+3. Copy the HTML of the animation you want.
+4. Customize colors and size if desired.
+
+Done.
+
+For complete examples and customization options, see **docs/USAGE.md**.
+
+---
+
+## Advanced Development
+
+If you want to modify the Sass source or create your own variants:
+
+Install dependencies:
+
+```bash id="92n7fw"
 npm install
-npm run build   # compile scss/motionforge.scss -> css/motionforge.css
-# or during development
-npm run watch   # watch and recompile when SCSS changes
 ```
 
-## Project structure
+Build the CSS:
 
-- `scss/` — source Sass partials and main entry (`scss/motionforge.scss`)
-- `scss/loaders/` — loader implementations (including `_orbital-harmonic.scss`)
-- `css/` — compiled stylesheet(s) (e.g. `css/motionforge.css`)
-- `demos/` — example HTML pages
-- `docs/` — documentation and usage notes
-
-## Usage
-
-Include the compiled CSS and add the component markup:
-
-```html
-<link rel="stylesheet" href="css/motionforge.css" />
-<div class="orbital-harmonic"></div>
-```
-
-## Customization (runtime)
-
-The component exposes a set of CSS custom properties you can override at runtime (no rebuild required). Example:
-
-```html
-<div
-  class="orbital-harmonic"
-  style="
-	--oh-outer-color:#ff6b6b;
-	--oh-outer-dot-duration:3s;
-	--oh-outer-glow-1: rgba(255,107,107,0.45);
-	--oh-outer-glow-2: rgba(255,107,107,0.18);
-"
-></div>
-```
-
-You can also make themed classes:
-
-```css
-.orbital-theme-warm {
-  --oh-inner-color: #1ee7ac;
-  --oh-middle-color: #ffd166;
-  --oh-outer-color: #ff6b6b;
-  --oh-inner-duration: 3s;
-}
-```
-
-## Customization (source)
-
-For structural changes or to change defaults, edit the Sass source `scss/loaders/_orbital-harmonic.scss` and rebuild. Key Sass variables:
-
-- `$oh-wrapper-size` — overall component size
-- `$oh-marker-size` — diameter of the orbiting dots
-- `$oh-*-scale` — relative radius per ring
-- `$oh-ring-border` — ring stroke thickness
-- `$oh-*-duration` and `$oh-*-dot-duration` — default durations
-
-Build after edits:
-
-```bash
+```bash id="j4u7jk"
 npm run build
 ```
 
-## Exposed CSS properties (runtime overrides)
+Watch for changes during development:
 
-- `--oh-inner-color`, `--oh-middle-color`, `--oh-outer-color` — ring & dot colors
-- `--oh-inner-duration`, `--oh-middle-duration`, `--oh-outer-duration` — ring spin durations
-- `--oh-inner-dot-duration`, `--oh-middle-dot-duration`, `--oh-outer-dot-duration` — dot orbit durations
-- `--oh-*-glow-1`, `--oh-*-glow-2` — ring glow RGBA layers
-- `--oh-*-dot-glow` — dot glow color/opacity
+```bash id="e1lwdz"
+npm run watch
+```
 
-## Files to inspect
+---
 
-- `scss/loaders/_orbital-harmonic.scss` — source defaults and geometry
-- `scss/motionforge.scss` — main SCSS entry
-- `css/motionforge.css` — compiled CSS
-- `demos/index.html` — live demo
+## What's Included
 
-## Distribution notes
+```text id="g2epnr"
+css/
+    Compiled CSS ready to use.
 
-- Include a license appropriate for your sales model (MIT for permissive, or a custom commercial license).
-- For distribution, include the compiled `css/motionforge.css` and `demos/` for previews.
+scss/
+    Original Sass source files.
 
-## Next steps
+demos/
+    Ready-to-run examples.
 
-I can add a `docs/themes.md` with preset theme classes and a `demos/demo-themes.html` preview for buyers — would you like that?
+docs/
+    Usage and customization documentation.
+```
+
+---
+
+## Documentation
+
+See **docs/USAGE.md** for:
+
+- HTML examples
+- CSS customization
+- Sass customization
+- CSS Custom Properties
+- Integration examples
+- Best practices
+
+---
+
+## Works With
+
+The generated CSS can be used in virtually any platform that supports HTML and CSS, including:
+
+- HTML websites
+- React
+- Next.js
+- Vue
+- Angular
+- Svelte
+- Astro
+- Tailwind CSS
+- WordPress
+- Webflow
+- Shopify
+- Framer
+- Any CMS with custom HTML/CSS support
+
+---
+
+## Browser Support
+
+Compatible with all modern browsers supporting:
+
+- CSS Custom Properties
+- CSS Animations
+- CSS Transforms
+- CSS Gradients
+
+---
+
+## License
+
+See the `LICENSE` file for licensing information.
