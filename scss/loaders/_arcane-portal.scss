@@ -1,14 +1,13 @@
-// loaders/_dr-strange-ring.scss
 @use "sass:math";
 
-// Dr Strange ring loader inspired by the Marvel Cinematic Universe character Doctor Strange. The loader features a glowing ring with mystical energy trails that form a sorcerer-style shimmer.
+// The loader features a glowing ring with mystical energy trails that form a sorcerer-style shimmer.
 // Variáveis de Configuração do Portal
 $animation-time: 0.15s;
 $ring-radius: 80px;
 $ring-color: #ffcc00;
 $ring-glow: rgba(255, 51, 0, 0.75);
 $total-particles-html: 80;
-$portal-opening-time: 3s;    //O tempo que o anel demora a formar-se completamente (3 segundos)
+$portal-opening-time: 3s; //O tempo que o anel demora a formar-se completamente (3 segundos)
 
 .particle-container {
   position: relative;
@@ -18,23 +17,23 @@ $portal-opening-time: 3s;    //O tempo que o anel demora a formar-se completamen
   place-items: center;
 }
 
-.dr-strange-preview {
+.ap-loader-preview {
   width: min(220px, 100%);
   height: min(220px, 100%);
   display: grid;
   place-items: center;
 }
 
-.dr-strange-ring {
+.ap-loader-ring {
   position: absolute;
   inset: 0;
   display: grid;
   place-items: center;
-  color: var(--ds-ring-color, #{$ring-color});
-  --ds-ring-radius: #{$ring-radius};
-  --ds-ring-color: #{$ring-color};
-  --ds-ring-glow: currentColor;
-  --ds-ring-scale: calc(var(--ds-ring-radius) / #{$ring-radius});
+  color: var(--ap-ring-color, #{$ring-color});
+  --ap-ring-radius: #{$ring-radius};
+  --ap-ring-color: #{$ring-color};
+  --ap-ring-glow: currentColor;
+  --ap-ring-scale: calc(var(--ap-ring-radius) / #{$ring-radius});
 }
 
 .particle {
@@ -43,7 +42,7 @@ $portal-opening-time: 3s;    //O tempo que o anel demora a formar-se completamen
   left: 50%;
   width: 1.25px;
   height: 10px;
-  background: var(--ds-ring-color, currentColor);
+  background: var(--ap-ring-color, currentColor);
   border-radius: 1px;
 
   // Começam totalmente invisíveis para irem aparecendo uma a uma à medida que o anel se forma
@@ -69,20 +68,31 @@ $portal-opening-time: 3s;    //O tempo que o anel demora a formar-se completamen
 
       // Cada partícula espera pela sua vez para nascer, desenhando o círculo perfeito no ecrã!
       // Após o anel estar todo formado (3s), o loop infinito assume o controlo caótico natural.
-      animation-delay: calc((#{$j} / #{$total-particles-html}) * #{$portal-opening-time});
+      animation-delay: calc(
+        (#{$j} / #{$total-particles-html}) * #{$portal-opening-time}
+      );
       /* animation-delay: math.random(2000) * -1ms; */
 
       @keyframes expandOut-#{$j} {
         0% {
-          transform: translate(calc(-50% + #{$start-x} * var(--ds-ring-scale)), calc(-50% + #{$start-y} * var(--ds-ring-scale))) rotate($deg) scale(0.6);
-          box-shadow: 0px 0px 12px 5px var(--ds-ring-glow, currentColor);
+          transform: translate(
+              calc(-50% + #{$start-x} * var(--ap-ring-scale)),
+              calc(-50% + #{$start-y} * var(--ap-ring-scale))
+            )
+            rotate($deg) scale(0.6);
+          box-shadow: 0px 0px 12px 5px var(--ap-ring-glow, currentColor);
           opacity: 0;
         }
         20% {
           opacity: 1;
         }
         100% {
-          transform: translate(calc(-50% + #{$start-x} * var(--ds-ring-scale)), calc(-50% + #{$start-y} * var(--ds-ring-scale))) rotate($deg) translateY(calc(#{$final-y} * var(--ds-ring-scale))) translateX(calc(#{$final-x} * var(--ds-ring-scale))) scale(1.1);
+          transform: translate(
+              calc(-50% + #{$start-x} * var(--ap-ring-scale)),
+              calc(-50% + #{$start-y} * var(--ap-ring-scale))
+            )
+            rotate($deg) translateY(calc(#{$final-y} * var(--ap-ring-scale)))
+            translateX(calc(#{$final-x} * var(--ap-ring-scale))) scale(1.1);
           opacity: 0;
         }
       }
@@ -91,6 +101,10 @@ $portal-opening-time: 3s;    //O tempo que o anel demora a formar-se completamen
 }
 
 @keyframes rotateRingSmooth {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

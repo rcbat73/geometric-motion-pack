@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Kaleidoscope — MotionForge Edition</title>
+    <link rel="stylesheet" href="../css/motionforge.css" />
+  </head>
+  <body>
+    <div class="nk-hero theme-rainbow">
+      <div class="nk-grid"></div>
+
+      <!-- CONTAINER DO CALEIDOSCÓPICO DE POLÍGONOS -->
+      <div class="nk-visual-container">
+        <div class="nk-halo"></div>
+
+        <svg
+          width="400"
+          height="400"
+          viewBox="0 0 400 400"
+          xmlns="http://w3.org"
+          class="nk-svg-canvas"
+        >
+          <defs>
+            <!-- Filtro de super glow padrão para as estrelas externas -->
+            <filter
+              id="super-neon-glow"
+              x="-50%"
+              y="-50%"
+              width="200%"
+              height="200%"
+            >
+              <feGaussianBlur stdDeviation="5" result="broad-blur" />
+              <feGaussianBlur stdDeviation="1" result="sharp-blur" />
+              <feMerge>
+                <feMergeNode in="broad-blur" />
+                <feMergeNode in="sharp-blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <!-- FILTRO DE FOGO CONCENTRADO ESTÁTICO: Glow vermelho encasulado -->
+            <filter
+              id="nk-fire-core-glow"
+              x="-30%"
+              y="-30%"
+              width="160%"
+              height="160%"
+            >
+              <feGaussianBlur stdDeviation="2.5" result="blur" />
+              <feColorMatrix
+                type="matrix"
+                values="
+                            1 0 0 0 1
+                            0 0.08 0 0 0.05
+                            0 0 0 0 0
+                            0 0 0 1 0"
+                in="blur"
+                result="fire-glow"
+              />
+              <feMerge>
+                <feMergeNode in="fire-glow" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <!-- Filtro de intensidade máxima para os raios laser exteriores -->
+            <filter
+              id="nk-beam-intense-glow"
+              x="-100%"
+              y="-100%"
+              width="300%"
+              height="300%"
+            >
+              <feGaussianBlur stdDeviation="8" result="heavy-blur" />
+              <feGaussianBlur stdDeviation="2" result="core-blur" />
+              <feMerge>
+                <feMergeNode in="heavy-blur" />
+                <feMergeNode in="core-blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <!-- GRADIENTES RADIAIS EXISTENTES -->
+            <radialGradient
+              id="radial-cyan"
+              gradientUnits="userSpaceOnUse"
+              cx="200"
+              cy="200"
+              r="150"
+            >
+              <stop offset="76%" stop-color="#00f0ff" stop-opacity="0" />
+              <stop offset="100%" stop-color="#00f0ff" stop-opacity="1" />
+            </radialGradient>
+            <radialGradient
+              id="radial-green"
+              gradientUnits="userSpaceOnUse"
+              cx="200"
+              cy="200"
+              r="170"
+            >
+              <stop offset="76%" stop-color="#39ff14" stop-opacity="0" />
+              <stop offset="100%" stop-color="#39ff14" stop-opacity="1" />
+            </radialGradient>
+            <radialGradient
+              id="radial-magenta"
+              gradientUnits="userSpaceOnUse"
+              cx="200"
+              cy="200"
+              r="120"
+            >
+              <stop offset="76%" stop-color="#ff007f" stop-opacity="0" />
+              <stop offset="100%" stop-color="#ff007f" stop-opacity="1" />
+            </radialGradient>
+            <radialGradient
+              id="radial-purple"
+              gradientUnits="userSpaceOnUse"
+              cx="200"
+              cy="200"
+              r="135"
+            >
+              <stop offset="76%" stop-color="#7b00ff" stop-opacity="0" />
+              <stop offset="100%" stop-color="#7b00ff" stop-opacity="1" />
+            </radialGradient>
+            <radialGradient
+              id="radial-orange"
+              gradientUnits="userSpaceOnUse"
+              cx="200"
+              cy="200"
+              r="90"
+            >
+              <stop offset="76%" stop-color="#ff6a00" stop-opacity="0" />
+              <stop offset="100%" stop-color="#ff6a00" stop-opacity="1" />
+            </radialGradient>
+          </defs>
+
+          <!-- GRUPO COM FILTRO GLOW PADRÃO PARA O CORPO -->
+          <g filter="url(#super-neon-glow)">
+            <!-- CAMADA 5 (MÁXIMA EXTERIOR) -->
+            <g class="nk-svg-layer nk-svg--outer">
+              <polygon
+                fill="url(#radial-cyan)"
+                stroke="none"
+                fill-rule="evenodd"
+                points="150,113.4 200,50 250,113.4 329.9,125 300,200 329.9,275 250,286.6 200,350 150,286.6 70.1,275 100,200 70.1,125 150,113.4 200,65 250,113.4 316.9,132.5 300,200 316.9,267.5 250,286.6 200,335 150,286.6 83.1,267.5 100,200 83.1,132.5"
+              />
+              <polygon
+                fill="url(#radial-green)"
+                stroke="none"
+                fill-rule="evenodd"
+                points="200.0,80.0 285.0,52.8 303.9,140.0 370.0,200.0 303.9,260.0 285.0,347.2 200.0,320.0 115.0,347.2 96.1,260.0 30.0,200.0 96.1,140.0 115.0,52.8 200.0,80.0 277.5,65.8 303.9,140.0 355.0,200.0 303.9,260.0 277.5,334.2 200.0,320.0 122.5,334.2 96.1,260.0 45.0,200.0 96.1,140.0 122.5,65.8"
+              />
+            </g>
+
+            <!-- CAMADA 4 (INTERMÉDIA EXTERIOR) -->
+            <g class="nk-svg-layer nk-svg--mid-3">
+              <polygon
+                fill="url(#radial-magenta)"
+                stroke="none"
+                fill-rule="evenodd"
+                points="160,130.7 200,80 240,130.7 303.9,140 280,200 303.9,260 240,269.3 200,320 160,269.3 96.1,260 120,200 96.1,140 160,130.7 200,92 240,130.7 293.5,146 280,200 293.5,254 240,269.3 200,308 160,269.3 106.5,254 120,200 106.5,146"
+              />
+              <polygon
+                fill="url(#radial-purple)"
+                stroke="none"
+                fill-rule="evenodd"
+                points="200.0,104.0 268.0,82.2 283.1,152.0 336.0,200.0 283.1,248.0 268.0,317.8 200.0,296.0 132.0,317.8 116.9,248.0 64.0,200.0 116.9,152.0 132.0,82.2 200.0,104.0 262.0,92.6 283.1,152.0 324.0,200.0 283.1,248.0 262.0,307.4 200.0,296.0 138.0,307.4 116.9,248.0 76.0,200.0 116.9,152.0 138.0,92.6"
+              />
+            </g>
+
+            <!-- CAMADA 3 (INTERMÉDIA INTERNA) -->
+            <g class="nk-svg-layer nk-svg--mid-2">
+              <polygon
+                fill="url(#radial-orange)"
+                stroke="none"
+                fill-rule="evenodd"
+                points="170,148.0 200,110 230,148.0 277.9,155 260,200 277.9,245 230,252.0 200,290 170,252.0 122.1,245 140,200 122.1,155 170,148.0 200,119 230,148.0 270.1,159.5 260,200 270.1,240.5 230,252.0 200,281 170,252.0 129.9,240.5 140,200 129.9,159.5"
+              />
+            </g>
+          </g>
+
+          <!-- ESTRELA CENTRAL DE 24 PONTAS PURAS (ÚNICA PATH CENTRALIZADA EM 200,200 — GLOW VERMELHO FIXO) -->
+          <!-- ESTRELA CENTRAL DE 24 PONTAS CORRIGIDA (CENTRALIZADA EM 200,200 — RODA NO CENTRO REAL) -->
+          <!-- ESTRELA CENTRAL DE 24 PONTAS ULTRA-SIMÉTRICA (GEOMETRIA RADIAL CORRIGIDA) -->
+          <!-- ESTRELA CENTRAL DE 24 PONTAS (A TUA PATH ORIGINAL INTEGRAL) -->
+          <g
+            filter="url(#radial-fire-core-glow)"
+            class="nk-svg-layer nk-svg--core-star-24"
+          >
+            <!-- Restaurado o teu código original exato com stroke="none" e preenchimento amarelo brilhante -->
+            <path
+              d="M 247 200 L 248.044 239.068 L 257.353 208.363 L 250.061 239.609 L 267 212.359 L 251.87 240.653 L 275.284 218.716 L 253.347 242.13 L 281.641 227 L 254.391 243.939 L 285.637 236.647 L 254.932 245.956 L 294 247 L 254.932 248.044 L 285.637 257.353 L 254.391 250.061 L 281.641 267 L 253.347 251.87 L 275.284 275.284 L 251.87 253.347 L 267 281.641 L 250.061 254.391 L 257.353 285.637 L 248.044 254.932 L 247 294 L 245.956 254.932 L 236.647 285.637 L 243.939 254.391 L 227 281.641 L 242.13 253.347 L 218.716 275.284 L 240.653 251.87 L 212.359 267 L 239.609 250.061 L 208.363 257.353 L 239.068 248.044 L 200 247 L 239.068 245.956 L 208.363 236.647 L 239.609 243.939 L 212.359 227 L 240.653 242.13 L 218.716 218.716 L 242.13 240.653 L 227 212.359 L 243.939 239.609 L 236.647 208.363 L 245.956 239.068 L 247 200 Z"
+              fill="#ffff00"
+              stroke="none"
+              class="nk-static-glow-path"
+            />
+          </g>
+
+          <!-- GRUPO ISOLADO SÓ PARA OS RAIOS EXTERIORES ULTRA-LONGOS -->
+          <g filter="url(#nk-beam-intense-glow)">
+            <g class="nk-svg-beams-layer">
+              <line
+                x1="200"
+                y1="50"
+                x2="200"
+                y2="-40"
+                stroke="#00f0ff"
+                class="nk-ray-line nk-ray-1"
+              />
+              <line
+                x1="329.9"
+                y1="200"
+                x2="420"
+                y2="200"
+                stroke="#00f0ff"
+                class="nk-ray-line nk-ray-2"
+              />
+              <line
+                x1="200"
+                y1="350"
+                x2="200"
+                y2="440"
+                stroke="#00f0ff"
+                class="nk-ray-line nk-ray-3"
+              />
+              <line
+                x1="70.1"
+                y1="200"
+                x2="-20"
+                y2="200"
+                stroke="#00f0ff"
+                class="nk-ray-line nk-ray-4"
+              />
+
+              <line
+                x1="303.9"
+                y1="140"
+                x2="368.9"
+                y2="75"
+                stroke="#39ff14"
+                class="nk-ray-line nk-ray-5"
+              />
+              <line
+                x1="303.9"
+                y1="260"
+                x2="368.9"
+                y2="325"
+                stroke="#39ff14"
+                class="nk-ray-line nk-ray-6"
+              />
+              <line
+                x1="96.1"
+                y1="260"
+                x2="31.1"
+                y2="325"
+                stroke="#39ff14"
+                class="nk-ray-line nk-ray-7"
+              />
+              <line
+                x1="96.1"
+                y1="140"
+                x2="31.1"
+                y2="75"
+                stroke="#39ff14"
+                class="nk-ray-line nk-ray-8"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- CONTEÚDO TEXTUAL DO HERO -->
+      <div class="nk-content">
+        <span class="nk-badge">MotionForge Edition</span>
+        <h1 class="nk-title">Neon Kaleidoscope</h1>
+        <p class="nk-description">
+          Uma mandala fractal com base em polígonos vazados e uma coroa
+          perimetral de 24 agulhas amarelas ultra-finas em contra-giro estável.
+        </p>
+        <div class="nk-actions">
+          <a href="#" class="nk-btn nk-btn-primary">Explorar Pack</a>
+          <a href="#" class="nk-btn nk-btn-secondary">Mudar Preset</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

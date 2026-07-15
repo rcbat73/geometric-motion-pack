@@ -74,14 +74,14 @@
       .preview-frame.small {
         min-height: 160px;
       }
-      .dr-strange-controls {
+      .ap-loader-controls {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 0.75rem;
         margin-top: 0.75rem;
       }
-      .dr-strange-controls label {
+      .ap-loader-controls label {
         display: inline-flex;
         align-items: center;
         gap: 0.6rem;
@@ -92,13 +92,13 @@
         color: #e5e7eb;
         font-size: 0.95rem;
       }
-      .dr-strange-controls input[type="color"],
-      .dr-strange-controls input[type="range"] {
+      .ap-loader-controls input[type="color"],
+      .ap-loader-controls input[type="range"] {
         border: none;
         background: transparent;
         color: inherit;
       }
-      #ds-radius-value {
+      #ap-radius-value {
         min-width: 3.5rem;
         text-align: right;
         display: inline-block;
@@ -208,34 +208,34 @@
             </p>
           </div>
           <div class="preview-card">
-            <h3>Dr Strange Ring</h3>
-            <div class="preview-frame" id="dr-strange-preview">
+            <h3>Arcane Portal</h3>
+            <div class="preview-frame" id="arcane-portal-preview">
               <div
-                class="particle-container dr-strange-preview"
-                aria-label="Dr Strange ring loader"
+                class="particle-container ap-loader-preview"
+                aria-label="Arcane portal loader"
               >
-                <div class="dr-strange-ring" data-total-particles="80"></div>
+                <div class="ap-loader-ring" data-total-particles="80"></div>
               </div>
             </div>
-            <div class="dr-strange-controls">
+            <div class="ap-loader-controls">
               <label>
                 Particle
-                <input id="ds-color-input" type="color" value="#ffcc00" />
+                <input id="ap-color-input" type="color" value="#ffcc00" />
               </label>
               <label>
                 Glow
-                <input id="ds-glow-input" type="color" value="#ff3300" />
+                <input id="ap-glow-input" type="color" value="#ff3300" />
               </label>
               <label>
                 Radius
                 <input
-                  id="ds-radius-input"
+                  id="ap-radius-input"
                   type="range"
                   min="40"
                   max="90"
                   value="80"
                 />
-                <span id="ds-radius-value">80px</span>
+                <span id="ap-radius-value">80px</span>
               </label>
             </div>
             <p class="preview-line">
@@ -338,15 +338,15 @@
         "#orbital-preview .orbital-harmonic",
       );
       const drStrangeRing = document.querySelector(
-        "#dr-strange-preview .dr-strange-ring",
+        "#arcane-portal-preview .ap-loader-ring",
       );
-      const dsColorInput = document.getElementById("ds-color-input");
-      const dsGlowInput = document.getElementById("ds-glow-input");
-      const dsRadiusInput = document.getElementById("ds-radius-input");
-      const dsRadiusValue = document.getElementById("ds-radius-value");
+      const dsColorInput = document.getElementById("ap-color-input");
+      const dsGlowInput = document.getElementById("ap-glow-input");
+      const dsRadiusInput = document.getElementById("ap-radius-input");
+      const dsRadiusValue = document.getElementById("ap-radius-value");
 
       function initDrStrangeParticles() {
-        document.querySelectorAll(".dr-strange-ring").forEach((container) => {
+        document.querySelectorAll(".ap-loader-ring").forEach((container) => {
           const targetCount = Number(container.dataset.totalParticles) || 80;
           container.innerHTML = "";
           for (let i = 0; i < targetCount; i += 1) {
@@ -359,10 +359,10 @@
 
       function updateDrStrangePreview() {
         if (!drStrangeRing) return;
-        drStrangeRing.style.setProperty("--ds-ring-color", dsColorInput.value);
-        drStrangeRing.style.setProperty("--ds-ring-glow", dsGlowInput.value);
+        drStrangeRing.style.setProperty("--ap-ring-color", dsColorInput.value);
+        drStrangeRing.style.setProperty("--ap-ring-glow", dsGlowInput.value);
         drStrangeRing.style.setProperty(
-          "--ds-ring-radius",
+          "--ap-ring-radius",
           `${dsRadiusInput.value}px`,
         );
         dsRadiusValue.textContent = `${dsRadiusInput.value}px`;
