@@ -252,68 +252,544 @@
           <div class="preview-card">
             <h3>Orbital Constellation</h3>
 
-            <div class="preview-frame preview-frame--hero">
+            <div
+              class="preview-frame preview-frame--hero"
+              style="padding: 0; overflow: hidden; min-height: 320px"
+            >
               <div
-                class="mf-orbital-network"
+                class="orbital-constellation select-theme-cyan"
                 aria-label="Orbital Constellation hero animation"
+                style="height: 320px"
               >
-                <div class="mf-orbital-network__scene" aria-hidden="true">
-                  <span
-                    class="mf-orbital-network__link mf-orbital-network__link--1"
-                  ></span>
-                  <span
-                    class="mf-orbital-network__link mf-orbital-network__link--2"
-                  ></span>
-                  <span
-                    class="mf-orbital-network__link mf-orbital-network__link--3"
-                  ></span>
-                  <span
-                    class="mf-orbital-network__link mf-orbital-network__link--4"
-                  ></span>
-                  <span
-                    class="mf-orbital-network__link mf-orbital-network__link--5"
-                  ></span>
-                  <span
-                    class="mf-orbital-network__link mf-orbital-network__link--6"
-                  ></span>
-
-                  <span
-                    class="mf-orbital-network__node mf-orbital-network__node--1"
-                  ></span>
-                  <span
-                    class="mf-orbital-network__node mf-orbital-network__node--2"
-                  ></span>
-                  <span
-                    class="mf-orbital-network__node mf-orbital-network__node--3"
-                  ></span>
-                  <span
-                    class="mf-orbital-network__node mf-orbital-network__node--4"
-                  ></span>
-                  <span
-                    class="mf-orbital-network__node mf-orbital-network__node--5"
-                  ></span>
-                  <span
-                    class="mf-orbital-network__node mf-orbital-network__node--6"
-                  ></span>
-                </div>
-
-                <div class="mf-orbital-network__content">
-                  <span class="mf-orbital-network__eyebrow"
-                    >Geometric Motion</span
-                  >
-                  <strong>Motion for modern interfaces</strong>
-                  <p>
-                    Pure CSS animations for landing pages and digital products.
-                  </p>
-                  <span class="mf-orbital-network__button"
-                    >Explore the pack</span
-                  >
+                <div class="oc-grid"></div>
+                <div class="oc-radial-glow"></div>
+                <div class="oc-network">
+                  <div class="oc-node oc-node-1">
+                    <div class="oc-packet"></div>
+                    <div class="oc-packet-2"></div>
+                  </div>
+                  <div class="oc-node oc-node-2">
+                    <div class="oc-packet"></div>
+                    <div class="oc-packet-2"></div>
+                  </div>
+                  <div class="oc-node oc-node-3"><div class="oc-packet"></div></div>
+                  <div class="oc-node oc-node-4">
+                    <div class="oc-packet"></div>
+                    <div class="oc-packet-2"></div>
+                  </div>
+                  <div class="oc-node oc-node-5">
+                    <div class="oc-packet"></div>
+                    <div class="oc-packet-2"></div>
+                  </div>
+                  <div class="oc-node oc-node-6"><div class="oc-packet"></div></div>
+                  <div class="oc-node oc-node-7">
+                    <div class="oc-packet"></div>
+                    <div class="oc-packet-2"></div>
+                  </div>
+                  <div class="oc-node oc-node-8"><div class="oc-packet"></div></div>
+                  <div class="oc-node oc-node-9">
+                    <div class="oc-packet"></div>
+                    <div class="oc-packet-2"></div>
+                  </div>
+                  <div class="oc-node oc-node-10">
+                    <div class="oc-packet"></div>
+                    <div class="oc-packet-2"></div>
+                  </div>
+                  <div class="oc-node oc-node-11"><div class="oc-packet"></div></div>
+                  <div class="oc-node oc-node-12">
+                    <div class="oc-packet"></div>
+                    <div class="oc-packet-2"></div>
+                  </div>
+                  <div class="oc-node oc-node-13">
+                    <div class="oc-packet"></div>
+                    <div class="oc-packet-2"></div>
+                  </div>
+                  <div class="oc-node oc-node-14"><div class="oc-packet"></div></div>
+                  <div class="oc-node oc-node-15">
+                    <div class="oc-packet"></div>
+                    <div class="oc-packet-2"></div>
+                  </div>
+                  <div class="oc-node oc-node-16"><div class="oc-packet"></div></div>
                 </div>
               </div>
             </div>
 
             <p class="preview-line">
-              Animated constellation for technology and SaaS hero sections.
+              Animated constellation for technology and SaaS hero sections. See
+              <code>demos/index-orbital.html</code> for the full hero.
+            </p>
+          </div>
+
+          <div class="preview-card">
+            <h3>Neon Kaleidoscope</h3>
+
+            <div
+              class="preview-frame preview-frame--hero"
+              style="background: #020204; padding: 0; overflow: hidden; min-height: 320px"
+            >
+              <div style="position: relative; width: 100%; height: 100%">
+                <div
+                  class="nk-visual-container"
+                  style="
+                    --nk-size: 300px;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                  "
+                >
+                  <div class="nk-halo"></div>
+                  <svg
+                    width="400"
+                    height="400"
+                    viewBox="0 0 400 400"
+                    xmlns="http://w3.org"
+                    class="nk-svg-canvas"
+                  >
+                    <defs>
+                      <filter
+                        id="super-neon-glow"
+                        x="-50%"
+                        y="-50%"
+                        width="200%"
+                        height="200%"
+                      >
+                        <feGaussianBlur stdDeviation="5" result="broad-blur" />
+                        <feGaussianBlur stdDeviation="1" result="sharp-blur" />
+                        <feMerge>
+                          <feMergeNode in="broad-blur" />
+                          <feMergeNode in="sharp-blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+
+                      <filter
+                        id="radial-fire-core-glow"
+                        x="-30%"
+                        y="-30%"
+                        width="160%"
+                        height="160%"
+                      >
+                        <feGaussianBlur stdDeviation="2.5" result="blur" />
+                        <feColorMatrix
+                          type="matrix"
+                          values="
+                            1 0 0 0 1
+                            0 0.08 0 0 0.05
+                            0 0 0 0 0
+                            0 0 0 1 0"
+                          in="blur"
+                          result="fire-glow"
+                        />
+                        <feMerge>
+                          <feMergeNode in="fire-glow" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+
+                      <filter
+                        id="nk-beam-intense-glow"
+                        x="-100%"
+                        y="-100%"
+                        width="300%"
+                        height="300%"
+                      >
+                        <feGaussianBlur stdDeviation="8" result="heavy-blur" />
+                        <feGaussianBlur stdDeviation="2" result="core-blur" />
+                        <feMerge>
+                          <feMergeNode in="heavy-blur" />
+                          <feMergeNode in="core-blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+
+                      <radialGradient
+                        id="radial-cyan"
+                        gradientUnits="userSpaceOnUse"
+                        cx="200"
+                        cy="200"
+                        r="150"
+                      >
+                        <stop
+                          offset="76%"
+                          stop-color="#00f0ff"
+                          stop-opacity="0"
+                        />
+                        <stop
+                          offset="100%"
+                          stop-color="#00f0ff"
+                          stop-opacity="1"
+                        />
+                      </radialGradient>
+                      <radialGradient
+                        id="radial-green"
+                        gradientUnits="userSpaceOnUse"
+                        cx="200"
+                        cy="200"
+                        r="170"
+                      >
+                        <stop
+                          offset="76%"
+                          stop-color="#39ff14"
+                          stop-opacity="0"
+                        />
+                        <stop
+                          offset="100%"
+                          stop-color="#39ff14"
+                          stop-opacity="1"
+                        />
+                      </radialGradient>
+                      <radialGradient
+                        id="radial-magenta"
+                        gradientUnits="userSpaceOnUse"
+                        cx="200"
+                        cy="200"
+                        r="120"
+                      >
+                        <stop
+                          offset="76%"
+                          stop-color="#ff007f"
+                          stop-opacity="0"
+                        />
+                        <stop
+                          offset="100%"
+                          stop-color="#ff007f"
+                          stop-opacity="1"
+                        />
+                      </radialGradient>
+                      <radialGradient
+                        id="radial-purple"
+                        gradientUnits="userSpaceOnUse"
+                        cx="200"
+                        cy="200"
+                        r="135"
+                      >
+                        <stop
+                          offset="76%"
+                          stop-color="#7b00ff"
+                          stop-opacity="0"
+                        />
+                        <stop
+                          offset="100%"
+                          stop-color="#7b00ff"
+                          stop-opacity="1"
+                        />
+                      </radialGradient>
+                      <radialGradient
+                        id="radial-orange"
+                        gradientUnits="userSpaceOnUse"
+                        cx="200"
+                        cy="200"
+                        r="90"
+                      >
+                        <stop
+                          offset="76%"
+                          stop-color="#ff6a00"
+                          stop-opacity="0"
+                        />
+                        <stop
+                          offset="100%"
+                          stop-color="#ff6a00"
+                          stop-opacity="1"
+                        />
+                      </radialGradient>
+                    </defs>
+
+                    <g filter="url(#super-neon-glow)">
+                      <g class="nk-svg-layer nk-svg--outer">
+                        <polygon
+                          fill="url(#radial-cyan)"
+                          stroke="none"
+                          fill-rule="evenodd"
+                          points="150,113.4 200,50 250,113.4 329.9,125 300,200 329.9,275 250,286.6 200,350 150,286.6 70.1,275 100,200 70.1,125 150,113.4 200,65 250,113.4 316.9,132.5 300,200 316.9,267.5 250,286.6 200,335 150,286.6 83.1,267.5 100,200 83.1,132.5"
+                        />
+                        <polygon
+                          fill="url(#radial-green)"
+                          stroke="none"
+                          fill-rule="evenodd"
+                          points="200.0,80.0 285.0,52.8 303.9,140.0 370.0,200.0 303.9,260.0 285.0,347.2 200.0,320.0 115.0,347.2 96.1,260.0 30.0,200.0 96.1,140.0 115.0,52.8 200.0,80.0 277.5,65.8 303.9,140.0 355.0,200.0 303.9,260.0 277.5,334.2 200.0,320.0 122.5,334.2 96.1,260.0 45.0,200.0 96.1,140.0 122.5,65.8"
+                        />
+                      </g>
+                      <g class="nk-svg-layer nk-svg--mid-3">
+                        <polygon
+                          fill="url(#radial-magenta)"
+                          stroke="none"
+                          fill-rule="evenodd"
+                          points="160,130.7 200,80 240,130.7 303.9,140 280,200 303.9,260 240,269.3 200,320 160,269.3 96.1,260 120,200 96.1,140 160,130.7 200,92 240,130.7 293.5,146 280,200 293.5,254 240,269.3 200,308 160,269.3 106.5,254 120,200 106.5,146"
+                        />
+                        <polygon
+                          fill="url(#radial-purple)"
+                          stroke="none"
+                          fill-rule="evenodd"
+                          points="200.0,104.0 268.0,82.2 283.1,152.0 336.0,200.0 283.1,248.0 268.0,317.8 200.0,296.0 132.0,317.8 116.9,248.0 64.0,200.0 116.9,152.0 132.0,82.2 200.0,104.0 262.0,92.6 283.1,152.0 324.0,200.0 283.1,248.0 262.0,307.4 200.0,296.0 138.0,307.4 116.9,248.0 76.0,200.0 116.9,152.0 138.0,92.6"
+                        />
+                      </g>
+                      <g class="nk-svg-layer nk-svg--mid-2">
+                        <polygon
+                          fill="url(#radial-orange)"
+                          stroke="none"
+                          fill-rule="evenodd"
+                          points="170,148.0 200,110 230,148.0 277.9,155 260,200 277.9,245 230,252.0 200,290 170,252.0 122.1,245 140,200 122.1,155 170,148.0 200,119 230,148.0 270.1,159.5 260,200 270.1,240.5 230,252.0 200,281 170,252.0 129.9,240.5 140,200 129.9,159.5"
+                        />
+                      </g>
+                    </g>
+
+                    <g
+                      filter="url(#nk-fire-core-glow)"
+                      class="nk-svg-layer nk-svg--core-star-24"
+                    >
+                      <path
+                        d="M 200 153 L 201.044 192.068 L 210.353 161.363 L 203.061 192.609 L 220 165.359 L 204.87 193.653 L 228.284 171.716 L 206.347 195.13 L 234.641 180 L 207.391 196.939 L 238.637 189.647 L 207.932 198.956 L 247 200 L 207.932 201.044 L 238.637 210.353 L 207.391 203.061 L 234.641 220 L 206.347 204.87 L 228.284 228.284 L 204.87 206.347 L 220 234.641 L 203.061 207.391 L 210.353 238.637 L 201.044 207.932 L 200 247 L 198.956 207.932 L 189.647 238.637 L 196.939 207.391 L 180 234.641 L 195.13 206.347 L 171.716 228.284 L 193.653 204.87 L 165.359 220 L 192.609 203.061 L 161.363 210.353 L 192.068 201.044 L 153 200 L 192.068 198.956 L 161.363 189.647 L 192.609 196.939 L 165.359 180 L 193.653 195.13 L 171.716 171.716 L 195.13 193.653 L 180 165.359 L 196.939 192.609 L 189.647 161.363 L 198.956 192.068 L 200 153 Z"
+                        fill="#ffff00"
+                        stroke="none"
+                        class="nk-static-glow-path"
+                      />
+                    </g>
+
+                    <g filter="url(#nk-beam-intense-glow)">
+                      <g class="nk-svg-beams-layer">
+                        <line
+                          x1="200"
+                          y1="50"
+                          x2="200"
+                          y2="-40"
+                          stroke="#00f0ff"
+                          class="nk-ray-line nk-ray-1"
+                        />
+                        <line
+                          x1="329.9"
+                          y1="200"
+                          x2="420"
+                          y2="200"
+                          stroke="#00f0ff"
+                          class="nk-ray-line nk-ray-2"
+                        />
+                        <line
+                          x1="200"
+                          y1="350"
+                          x2="200"
+                          y2="440"
+                          stroke="#00f0ff"
+                          class="nk-ray-line nk-ray-3"
+                        />
+                        <line
+                          x1="70.1"
+                          y1="200"
+                          x2="-20"
+                          y2="200"
+                          stroke="#00f0ff"
+                          class="nk-ray-line nk-ray-4"
+                        />
+                        <line
+                          x1="303.9"
+                          y1="140"
+                          x2="368.9"
+                          y2="75"
+                          stroke="#39ff14"
+                          class="nk-ray-line nk-ray-5"
+                        />
+                        <line
+                          x1="303.9"
+                          y1="260"
+                          x2="368.9"
+                          y2="325"
+                          stroke="#39ff14"
+                          class="nk-ray-line nk-ray-6"
+                        />
+                        <line
+                          x1="96.1"
+                          y1="260"
+                          x2="31.1"
+                          y2="325"
+                          stroke="#39ff14"
+                          class="nk-ray-line nk-ray-7"
+                        />
+                        <line
+                          x1="96.1"
+                          y1="140"
+                          x2="31.1"
+                          y2="75"
+                          stroke="#39ff14"
+                          class="nk-ray-line nk-ray-8"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <p class="preview-line">
+              Kaleidoscopic polygon layers wrapped around a 24-point cardinal
+              star in static fire plasma. See
+              <code>demos/neon-kaleidoscope.html</code> for the full hero
+              with content.
+            </p>
+          </div>
+
+          <div class="preview-card">
+            <h3>Arcane Portal</h3>
+
+            <div
+              class="preview-frame preview-frame--hero"
+              style="background: #050508; padding: 0; overflow: hidden; min-height: 320px"
+            >
+              <div
+                class="arcane-portal-hero theme--fire"
+                id="apHeroPreview"
+                style="--sr-size: 190px"
+              >
+                <!-- .particle elements are generated by initArcanePortalHeroParticles() below. -->
+
+                <div class="ring-3d-layer ring-3d-layer--glyphs">
+                  <svg viewBox="0 0 320 320" xmlns="http://w3.org">
+                    <defs>
+                      <rect
+                        id="ap-hero-mask-canvas"
+                        x="0"
+                        y="0"
+                        width="320"
+                        height="320"
+                        fill="white"
+                      />
+                      <mask id="ap-hero-glyphs-m">
+                        <use href="#ap-hero-mask-canvas" />
+                        <circle cx="160" cy="160" r="124" fill="black" />
+                      </mask>
+                      <path
+                        id="ap-hero-glyphCirclePath"
+                        d="M 160,160 m -134,0 a 134,134 0 1,1 268,0 a 134,134 0 1,1 -268,0"
+                      />
+                    </defs>
+                    <circle
+                      cx="160"
+                      cy="160"
+                      r="153"
+                      mask="url(#ap-hero-glyphs-m)"
+                      class="svg-ring-line"
+                    />
+                    <text class="text-vector">
+                      <textPath
+                        href="#ap-hero-glyphCirclePath"
+                        startOffset="0%"
+                      >
+                        ᛖ ᚾ ᚳ ᚥ ᚻ ᚨ ᚱ ᚳ ᚠ ᚾ ᛗ ᚨ ᚷ ᛁ ᚳ ✦ ᛖ ᚾ ᚳ ᚥ ᚻ ᚨ ᚱ ᚳ ᚠ ᚾ ᛗ ᚨ
+                        ᚷ ᛁ ᚳ ✦ ᛖ ᚾ ᚳ ᚥ ᚻ ᚨ ᚱ ᚳ ᚠ ᚾ ᚨ ᚷ ᛁ ᚳ ✦ ᛖ ᚾ ᚳ ᚥ ᚻ ᚨ ᚱ ᚳ ᚠ ᚾ
+                        ᛗ ᚨ ᚷ ᛁ ᚳ ✦
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+
+                <div class="ring-3d-layer ring-3d-layer--middle">
+                  <svg viewBox="0 0 320 320" xmlns="http://w3.org">
+                    <defs>
+                      <mask id="ap-hero-middle-m">
+                        <use href="#ap-hero-mask-canvas" />
+                        <circle cx="160" cy="160" r="95" fill="black" />
+                      </mask>
+                    </defs>
+                    <circle
+                      cx="160"
+                      cy="160"
+                      r="112"
+                      mask="url(#ap-hero-middle-m)"
+                      class="svg-ring-line"
+                    />
+                    <circle
+                      cx="160"
+                      cy="160"
+                      r="112"
+                      mask="url(#ap-hero-middle-m)"
+                      class="svg-ring-glow"
+                    />
+                  </svg>
+                </div>
+
+                <div class="ring-3d-layer ring-3d-layer--inner">
+                  <svg viewBox="0 0 320 320" xmlns="http://w3.org">
+                    <defs>
+                      <mask id="ap-hero-inner-m">
+                        <use href="#ap-hero-mask-canvas" />
+                        <circle cx="160" cy="160" r="70" fill="black" />
+                      </mask>
+                    </defs>
+                    <circle
+                      cx="160"
+                      cy="160"
+                      r="84"
+                      mask="url(#ap-hero-inner-m)"
+                      class="svg-ring-line"
+                    />
+                    <circle
+                      cx="160"
+                      cy="160"
+                      r="84"
+                      mask="url(#ap-hero-inner-m)"
+                      class="svg-ring-glow"
+                    />
+                  </svg>
+                </div>
+
+                <div class="ring-3d-layer ring-3d-layer--mini">
+                  <svg viewBox="0 0 320 320" xmlns="http://w3.org">
+                    <defs>
+                      <mask id="ap-hero-mini-m">
+                        <use href="#ap-hero-mask-canvas" />
+                        <circle cx="160" cy="160" r="45" fill="black" />
+                      </mask>
+                    </defs>
+                    <circle
+                      cx="160"
+                      cy="160"
+                      r="58"
+                      mask="url(#ap-hero-mini-m)"
+                      class="svg-ring-line"
+                    />
+                    <circle
+                      cx="160"
+                      cy="160"
+                      r="58"
+                      mask="url(#ap-hero-mini-m)"
+                      class="svg-ring-glow"
+                    />
+                  </svg>
+                </div>
+
+                <div class="ring-3d-layer ring-3d-layer--core-ring">
+                  <svg viewBox="0 0 320 320" xmlns="http://w3.org">
+                    <defs>
+                      <mask id="ap-hero-core-m">
+                        <use href="#ap-hero-mask-canvas" />
+                        <circle cx="160" cy="160" r="20" fill="black" />
+                      </mask>
+                    </defs>
+                    <circle
+                      cx="160"
+                      cy="160"
+                      r="34"
+                      mask="url(#ap-hero-core-m)"
+                      class="svg-ring-line"
+                    />
+                    <circle
+                      cx="160"
+                      cy="160"
+                      r="34"
+                      mask="url(#ap-hero-core-m)"
+                      class="svg-ring-glow"
+                    />
+                  </svg>
+                </div>
+
+                <div class="ring-layer ring-layer--core"></div>
+                <div class="pulse-wave"></div>
+              </div>
+            </div>
+
+            <p class="preview-line">
+              Doctor Strange–style mystical portal: masked concentric rings,
+              a rune-glyph band and 80 orbiting particles. See
+              <code>demos/index.html</code> for the full hero with theme
+              selector.
             </p>
           </div>
         </div>
@@ -323,7 +799,115 @@
         <h2>Background Loops</h2>
 
         <div class="preview-grid">
-          <!-- depois entram os 2 backgrounds -->
+          <div class="preview-card">
+            <h3>Aurora Grid</h3>
+            <div
+              class="preview-frame"
+              style="padding: 0; overflow: hidden; min-height: 220px"
+            >
+              <div
+                class="aurora-grid"
+                style="min-height: 220px; width: 100%"
+                aria-label="Aurora Grid background loop"
+              ></div>
+            </div>
+            <p class="preview-line">
+              Triangular mesh with slow-drifting aurora light. See
+              <code>demos/aurora-grid.html</code> for the full showcase and
+              theme switcher.
+            </p>
+          </div>
+
+          <div class="preview-card">
+            <h3>Zodiac Flow</h3>
+            <div
+              class="preview-frame"
+              style="padding: 0; overflow: hidden; min-height: 220px"
+            >
+              <div
+                class="zodiac-flow"
+                style="min-height: 220px; width: 100%"
+                aria-label="Zodiac Flow background loop"
+              >
+                <div
+                  class="zf-card zf-card--spin-y"
+                  style="--zf-depth: 0.35; --zf-lane: 12%; --zf-delay: -11s; --zf-spin-duration: 18s"
+                >
+                  <div class="zf-card__depth">
+                    <div class="zf-card__spin">
+                      <div class="zf-card__face">
+                        <span class="zf-card__symbol">♎</span>
+                        <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                          <line x1="20" y1="60" x2="80" y2="60" />
+                          <polyline points="35,60 50,25 65,60 35,60" />
+                          <circle cx="20" cy="60" r="2.4" />
+                          <circle cx="80" cy="60" r="2.4" />
+                          <circle cx="35" cy="60" r="2.6" />
+                          <circle cx="50" cy="25" r="3.2" />
+                          <circle cx="65" cy="60" r="2.6" />
+                        </svg>
+                        <span class="zf-card__name">Libra</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="zf-card zf-card--spin-x"
+                  style="--zf-depth: 0.8; --zf-lane: 46%; --zf-delay: -23s; --zf-spin-duration: 10s"
+                >
+                  <div class="zf-card__depth">
+                    <div class="zf-card__spin">
+                      <div class="zf-card__face">
+                        <span class="zf-card__symbol">♉</span>
+                        <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                          <polyline points="15,20 35,45 55,40 75,60 90,80" />
+                          <polyline points="35,45 20,65" />
+                          <circle cx="15" cy="20" r="2.4" />
+                          <circle cx="35" cy="45" r="3.6" />
+                          <circle cx="55" cy="40" r="2.6" />
+                          <circle cx="75" cy="60" r="2.8" />
+                          <circle cx="90" cy="80" r="3" />
+                          <circle cx="20" cy="65" r="2.4" />
+                        </svg>
+                        <span class="zf-card__name">Taurus</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="zf-card zf-card--spin-z"
+                  style="--zf-depth: 0.55; --zf-lane: 78%; --zf-delay: -40s; --zf-spin-duration: 14s"
+                >
+                  <div class="zf-card__depth">
+                    <div class="zf-card__spin">
+                      <div class="zf-card__face">
+                        <span class="zf-card__symbol">♌</span>
+                        <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                          <polyline points="15,30 25,15 40,20 45,40 35,50" />
+                          <polyline points="35,50 60,55 85,45" />
+                          <polyline points="85,45 90,25" />
+                          <circle cx="15" cy="30" r="2.6" />
+                          <circle cx="25" cy="15" r="2.6" />
+                          <circle cx="40" cy="20" r="2.6" />
+                          <circle cx="45" cy="40" r="3" />
+                          <circle cx="35" cy="50" r="2.6" />
+                          <circle cx="60" cy="55" r="2.8" />
+                          <circle cx="85" cy="45" r="3.4" />
+                          <circle cx="90" cy="25" r="2.4" />
+                        </svg>
+                        <span class="zf-card__name">Leo</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="preview-line">
+              Glowing zodiac cards drifting right to left at varying depth
+              and speed, with a twinkling starfield and nebula behind them.
+              See <code>demos/zodiac-flow.html</code> for the full showcase.
+            </p>
+          </div>
         </div>
       </section>
       <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.75)">
@@ -357,6 +941,18 @@
         });
       }
 
+      function initArcanePortalHeroParticles() {
+        const hero = document.getElementById("apHeroPreview");
+        if (!hero) return;
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < 80; i += 1) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+          fragment.appendChild(particle);
+        }
+        hero.prepend(fragment);
+      }
+
       function updateDrStrangePreview() {
         if (!drStrangeRing) return;
         drStrangeRing.style.setProperty("--ap-ring-color", dsColorInput.value);
@@ -381,6 +977,7 @@
 
       document.addEventListener("DOMContentLoaded", () => {
         initDrStrangeParticles();
+        initArcanePortalHeroParticles();
         updateDrStrangePreview();
       });
 

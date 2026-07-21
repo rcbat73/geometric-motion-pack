@@ -205,31 +205,31 @@
 
 .ember-ring span:nth-child(1)::before {
   --rs-start: 0deg;
-  --rs-offset: 13deg;
+  --rs-offset: 37deg;
   animation-delay: 0s;
 }
 
 .ember-ring span:nth-child(2)::before {
   --rs-start: 72deg;
-  --rs-offset: 16deg;
+  --rs-offset: 14deg;
   animation-delay: -0.75s;
 }
 
 .ember-ring span:nth-child(3)::before {
   --rs-start: 144deg;
-  --rs-offset: 36deg;
+  --rs-offset: 27deg;
   animation-delay: -1.5s;
 }
 
 .ember-ring span:nth-child(4)::before {
   --rs-start: 216deg;
-  --rs-offset: 39deg;
+  --rs-offset: 29deg;
   animation-delay: -2.25s;
 }
 
 .ember-ring span:nth-child(5)::before {
   --rs-start: 288deg;
-  --rs-offset: 22deg;
+  --rs-offset: 34deg;
   animation-delay: -3s;
 }
 
@@ -319,7 +319,7 @@
   opacity: 0;
 }
 .particle:nth-child(1) {
-  animation: expandOut-1 527ms infinite ease-out;
+  animation: expandOut-1 489ms infinite ease-out;
   animation-delay: calc(1 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -338,7 +338,7 @@
   }
 }
 .particle:nth-child(2) {
-  animation: expandOut-2 571ms infinite ease-out;
+  animation: expandOut-2 443ms infinite ease-out;
   animation-delay: calc(2 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -357,7 +357,7 @@
   }
 }
 .particle:nth-child(3) {
-  animation: expandOut-3 418ms infinite ease-out;
+  animation: expandOut-3 585ms infinite ease-out;
   animation-delay: calc(3 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -376,7 +376,7 @@
   }
 }
 .particle:nth-child(4) {
-  animation: expandOut-4 442ms infinite ease-out;
+  animation: expandOut-4 528ms infinite ease-out;
   animation-delay: calc(4 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -395,7 +395,7 @@
   }
 }
 .particle:nth-child(5) {
-  animation: expandOut-5 474ms infinite ease-out;
+  animation: expandOut-5 438ms infinite ease-out;
   animation-delay: calc(5 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -414,7 +414,7 @@
   }
 }
 .particle:nth-child(6) {
-  animation: expandOut-6 514ms infinite ease-out;
+  animation: expandOut-6 537ms infinite ease-out;
   animation-delay: calc(6 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -433,7 +433,7 @@
   }
 }
 .particle:nth-child(7) {
-  animation: expandOut-7 492ms infinite ease-out;
+  animation: expandOut-7 510ms infinite ease-out;
   animation-delay: calc(7 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -452,7 +452,7 @@
   }
 }
 .particle:nth-child(8) {
-  animation: expandOut-8 600ms infinite ease-out;
+  animation: expandOut-8 489ms infinite ease-out;
   animation-delay: calc(8 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -471,7 +471,7 @@
   }
 }
 .particle:nth-child(9) {
-  animation: expandOut-9 404ms infinite ease-out;
+  animation: expandOut-9 554ms infinite ease-out;
   animation-delay: calc(9 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -490,7 +490,7 @@
   }
 }
 .particle:nth-child(10) {
-  animation: expandOut-10 527ms infinite ease-out;
+  animation: expandOut-10 420ms infinite ease-out;
   animation-delay: calc(10 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -509,7 +509,7 @@
   }
 }
 .particle:nth-child(11) {
-  animation: expandOut-11 506ms infinite ease-out;
+  animation: expandOut-11 596ms infinite ease-out;
   animation-delay: calc(11 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -528,7 +528,7 @@
   }
 }
 .particle:nth-child(12) {
-  animation: expandOut-12 476ms infinite ease-out;
+  animation: expandOut-12 444ms infinite ease-out;
   animation-delay: calc(12 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -547,7 +547,7 @@
   }
 }
 .particle:nth-child(13) {
-  animation: expandOut-13 595ms infinite ease-out;
+  animation: expandOut-13 489ms infinite ease-out;
   animation-delay: calc(13 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -566,7 +566,7 @@
   }
 }
 .particle:nth-child(14) {
-  animation: expandOut-14 556ms infinite ease-out;
+  animation: expandOut-14 455ms infinite ease-out;
   animation-delay: calc(14 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -585,7 +585,7 @@
   }
 }
 .particle:nth-child(15) {
-  animation: expandOut-15 481ms infinite ease-out;
+  animation: expandOut-15 596ms infinite ease-out;
   animation-delay: calc(15 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -604,7 +604,7 @@
   }
 }
 .particle:nth-child(16) {
-  animation: expandOut-16 536ms infinite ease-out;
+  animation: expandOut-16 554ms infinite ease-out;
   animation-delay: calc(16 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -623,7 +623,7 @@
   }
 }
 .particle:nth-child(17) {
-  animation: expandOut-17 569ms infinite ease-out;
+  animation: expandOut-17 571ms infinite ease-out;
   animation-delay: calc(17 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -642,7 +642,7 @@
   }
 }
 .particle:nth-child(18) {
-  animation: expandOut-18 532ms infinite ease-out;
+  animation: expandOut-18 424ms infinite ease-out;
   animation-delay: calc(18 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -661,7 +661,7 @@
   }
 }
 .particle:nth-child(19) {
-  animation: expandOut-19 475ms infinite ease-out;
+  animation: expandOut-19 465ms infinite ease-out;
   animation-delay: calc(19 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -680,7 +680,7 @@
   }
 }
 .particle:nth-child(20) {
-  animation: expandOut-20 561ms infinite ease-out;
+  animation: expandOut-20 523ms infinite ease-out;
   animation-delay: calc(20 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -699,7 +699,7 @@
   }
 }
 .particle:nth-child(21) {
-  animation: expandOut-21 505ms infinite ease-out;
+  animation: expandOut-21 534ms infinite ease-out;
   animation-delay: calc(21 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -718,7 +718,7 @@
   }
 }
 .particle:nth-child(22) {
-  animation: expandOut-22 475ms infinite ease-out;
+  animation: expandOut-22 541ms infinite ease-out;
   animation-delay: calc(22 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -737,7 +737,7 @@
   }
 }
 .particle:nth-child(23) {
-  animation: expandOut-23 597ms infinite ease-out;
+  animation: expandOut-23 459ms infinite ease-out;
   animation-delay: calc(23 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -756,7 +756,7 @@
   }
 }
 .particle:nth-child(24) {
-  animation: expandOut-24 412ms infinite ease-out;
+  animation: expandOut-24 444ms infinite ease-out;
   animation-delay: calc(24 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -775,7 +775,7 @@
   }
 }
 .particle:nth-child(25) {
-  animation: expandOut-25 504ms infinite ease-out;
+  animation: expandOut-25 569ms infinite ease-out;
   animation-delay: calc(25 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -794,7 +794,7 @@
   }
 }
 .particle:nth-child(26) {
-  animation: expandOut-26 490ms infinite ease-out;
+  animation: expandOut-26 516ms infinite ease-out;
   animation-delay: calc(26 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -813,7 +813,7 @@
   }
 }
 .particle:nth-child(27) {
-  animation: expandOut-27 443ms infinite ease-out;
+  animation: expandOut-27 487ms infinite ease-out;
   animation-delay: calc(27 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -832,7 +832,7 @@
   }
 }
 .particle:nth-child(28) {
-  animation: expandOut-28 543ms infinite ease-out;
+  animation: expandOut-28 587ms infinite ease-out;
   animation-delay: calc(28 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -851,7 +851,7 @@
   }
 }
 .particle:nth-child(29) {
-  animation: expandOut-29 588ms infinite ease-out;
+  animation: expandOut-29 491ms infinite ease-out;
   animation-delay: calc(29 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -870,7 +870,7 @@
   }
 }
 .particle:nth-child(30) {
-  animation: expandOut-30 456ms infinite ease-out;
+  animation: expandOut-30 460ms infinite ease-out;
   animation-delay: calc(30 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -889,7 +889,7 @@
   }
 }
 .particle:nth-child(31) {
-  animation: expandOut-31 508ms infinite ease-out;
+  animation: expandOut-31 417ms infinite ease-out;
   animation-delay: calc(31 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -908,7 +908,7 @@
   }
 }
 .particle:nth-child(32) {
-  animation: expandOut-32 508ms infinite ease-out;
+  animation: expandOut-32 542ms infinite ease-out;
   animation-delay: calc(32 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -927,7 +927,7 @@
   }
 }
 .particle:nth-child(33) {
-  animation: expandOut-33 485ms infinite ease-out;
+  animation: expandOut-33 576ms infinite ease-out;
   animation-delay: calc(33 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -946,7 +946,7 @@
   }
 }
 .particle:nth-child(34) {
-  animation: expandOut-34 445ms infinite ease-out;
+  animation: expandOut-34 408ms infinite ease-out;
   animation-delay: calc(34 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -965,7 +965,7 @@
   }
 }
 .particle:nth-child(35) {
-  animation: expandOut-35 538ms infinite ease-out;
+  animation: expandOut-35 418ms infinite ease-out;
   animation-delay: calc(35 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -984,7 +984,7 @@
   }
 }
 .particle:nth-child(36) {
-  animation: expandOut-36 595ms infinite ease-out;
+  animation: expandOut-36 403ms infinite ease-out;
   animation-delay: calc(36 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1003,7 +1003,7 @@
   }
 }
 .particle:nth-child(37) {
-  animation: expandOut-37 438ms infinite ease-out;
+  animation: expandOut-37 500ms infinite ease-out;
   animation-delay: calc(37 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1022,7 +1022,7 @@
   }
 }
 .particle:nth-child(38) {
-  animation: expandOut-38 521ms infinite ease-out;
+  animation: expandOut-38 477ms infinite ease-out;
   animation-delay: calc(38 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1041,7 +1041,7 @@
   }
 }
 .particle:nth-child(39) {
-  animation: expandOut-39 405ms infinite ease-out;
+  animation: expandOut-39 567ms infinite ease-out;
   animation-delay: calc(39 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1060,7 +1060,7 @@
   }
 }
 .particle:nth-child(40) {
-  animation: expandOut-40 529ms infinite ease-out;
+  animation: expandOut-40 519ms infinite ease-out;
   animation-delay: calc(40 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1079,7 +1079,7 @@
   }
 }
 .particle:nth-child(41) {
-  animation: expandOut-41 451ms infinite ease-out;
+  animation: expandOut-41 555ms infinite ease-out;
   animation-delay: calc(41 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1098,7 +1098,7 @@
   }
 }
 .particle:nth-child(42) {
-  animation: expandOut-42 452ms infinite ease-out;
+  animation: expandOut-42 463ms infinite ease-out;
   animation-delay: calc(42 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1117,7 +1117,7 @@
   }
 }
 .particle:nth-child(43) {
-  animation: expandOut-43 520ms infinite ease-out;
+  animation: expandOut-43 599ms infinite ease-out;
   animation-delay: calc(43 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1136,7 +1136,7 @@
   }
 }
 .particle:nth-child(44) {
-  animation: expandOut-44 519ms infinite ease-out;
+  animation: expandOut-44 494ms infinite ease-out;
   animation-delay: calc(44 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1155,7 +1155,7 @@
   }
 }
 .particle:nth-child(45) {
-  animation: expandOut-45 472ms infinite ease-out;
+  animation: expandOut-45 544ms infinite ease-out;
   animation-delay: calc(45 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1174,7 +1174,7 @@
   }
 }
 .particle:nth-child(46) {
-  animation: expandOut-46 581ms infinite ease-out;
+  animation: expandOut-46 401ms infinite ease-out;
   animation-delay: calc(46 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1193,7 +1193,7 @@
   }
 }
 .particle:nth-child(47) {
-  animation: expandOut-47 556ms infinite ease-out;
+  animation: expandOut-47 547ms infinite ease-out;
   animation-delay: calc(47 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1212,7 +1212,7 @@
   }
 }
 .particle:nth-child(48) {
-  animation: expandOut-48 471ms infinite ease-out;
+  animation: expandOut-48 552ms infinite ease-out;
   animation-delay: calc(48 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1231,7 +1231,7 @@
   }
 }
 .particle:nth-child(49) {
-  animation: expandOut-49 518ms infinite ease-out;
+  animation: expandOut-49 419ms infinite ease-out;
   animation-delay: calc(49 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1250,7 +1250,7 @@
   }
 }
 .particle:nth-child(50) {
-  animation: expandOut-50 591ms infinite ease-out;
+  animation: expandOut-50 588ms infinite ease-out;
   animation-delay: calc(50 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1269,7 +1269,7 @@
   }
 }
 .particle:nth-child(51) {
-  animation: expandOut-51 428ms infinite ease-out;
+  animation: expandOut-51 533ms infinite ease-out;
   animation-delay: calc(51 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1288,7 +1288,7 @@
   }
 }
 .particle:nth-child(52) {
-  animation: expandOut-52 405ms infinite ease-out;
+  animation: expandOut-52 479ms infinite ease-out;
   animation-delay: calc(52 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1326,7 +1326,7 @@
   }
 }
 .particle:nth-child(54) {
-  animation: expandOut-54 558ms infinite ease-out;
+  animation: expandOut-54 497ms infinite ease-out;
   animation-delay: calc(54 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1364,7 +1364,7 @@
   }
 }
 .particle:nth-child(56) {
-  animation: expandOut-56 525ms infinite ease-out;
+  animation: expandOut-56 491ms infinite ease-out;
   animation-delay: calc(56 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1383,7 +1383,7 @@
   }
 }
 .particle:nth-child(57) {
-  animation: expandOut-57 499ms infinite ease-out;
+  animation: expandOut-57 549ms infinite ease-out;
   animation-delay: calc(57 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1402,7 +1402,7 @@
   }
 }
 .particle:nth-child(58) {
-  animation: expandOut-58 575ms infinite ease-out;
+  animation: expandOut-58 463ms infinite ease-out;
   animation-delay: calc(58 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1421,7 +1421,7 @@
   }
 }
 .particle:nth-child(59) {
-  animation: expandOut-59 584ms infinite ease-out;
+  animation: expandOut-59 456ms infinite ease-out;
   animation-delay: calc(59 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1440,7 +1440,7 @@
   }
 }
 .particle:nth-child(60) {
-  animation: expandOut-60 563ms infinite ease-out;
+  animation: expandOut-60 408ms infinite ease-out;
   animation-delay: calc(60 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1459,7 +1459,7 @@
   }
 }
 .particle:nth-child(61) {
-  animation: expandOut-61 578ms infinite ease-out;
+  animation: expandOut-61 536ms infinite ease-out;
   animation-delay: calc(61 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1497,7 +1497,7 @@
   }
 }
 .particle:nth-child(63) {
-  animation: expandOut-63 418ms infinite ease-out;
+  animation: expandOut-63 461ms infinite ease-out;
   animation-delay: calc(63 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1516,7 +1516,7 @@
   }
 }
 .particle:nth-child(64) {
-  animation: expandOut-64 402ms infinite ease-out;
+  animation: expandOut-64 510ms infinite ease-out;
   animation-delay: calc(64 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1535,7 +1535,7 @@
   }
 }
 .particle:nth-child(65) {
-  animation: expandOut-65 415ms infinite ease-out;
+  animation: expandOut-65 459ms infinite ease-out;
   animation-delay: calc(65 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1554,7 +1554,7 @@
   }
 }
 .particle:nth-child(66) {
-  animation: expandOut-66 412ms infinite ease-out;
+  animation: expandOut-66 587ms infinite ease-out;
   animation-delay: calc(66 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1573,7 +1573,7 @@
   }
 }
 .particle:nth-child(67) {
-  animation: expandOut-67 429ms infinite ease-out;
+  animation: expandOut-67 544ms infinite ease-out;
   animation-delay: calc(67 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1592,7 +1592,7 @@
   }
 }
 .particle:nth-child(68) {
-  animation: expandOut-68 554ms infinite ease-out;
+  animation: expandOut-68 592ms infinite ease-out;
   animation-delay: calc(68 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1611,7 +1611,7 @@
   }
 }
 .particle:nth-child(69) {
-  animation: expandOut-69 530ms infinite ease-out;
+  animation: expandOut-69 485ms infinite ease-out;
   animation-delay: calc(69 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1630,7 +1630,7 @@
   }
 }
 .particle:nth-child(70) {
-  animation: expandOut-70 524ms infinite ease-out;
+  animation: expandOut-70 572ms infinite ease-out;
   animation-delay: calc(70 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1649,7 +1649,7 @@
   }
 }
 .particle:nth-child(71) {
-  animation: expandOut-71 497ms infinite ease-out;
+  animation: expandOut-71 450ms infinite ease-out;
   animation-delay: calc(71 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1668,7 +1668,7 @@
   }
 }
 .particle:nth-child(72) {
-  animation: expandOut-72 446ms infinite ease-out;
+  animation: expandOut-72 587ms infinite ease-out;
   animation-delay: calc(72 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1687,7 +1687,7 @@
   }
 }
 .particle:nth-child(73) {
-  animation: expandOut-73 446ms infinite ease-out;
+  animation: expandOut-73 419ms infinite ease-out;
   animation-delay: calc(73 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1706,7 +1706,7 @@
   }
 }
 .particle:nth-child(74) {
-  animation: expandOut-74 482ms infinite ease-out;
+  animation: expandOut-74 413ms infinite ease-out;
   animation-delay: calc(74 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1725,7 +1725,7 @@
   }
 }
 .particle:nth-child(75) {
-  animation: expandOut-75 531ms infinite ease-out;
+  animation: expandOut-75 486ms infinite ease-out;
   animation-delay: calc(75 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1744,7 +1744,7 @@
   }
 }
 .particle:nth-child(76) {
-  animation: expandOut-76 492ms infinite ease-out;
+  animation: expandOut-76 547ms infinite ease-out;
   animation-delay: calc(76 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1763,7 +1763,7 @@
   }
 }
 .particle:nth-child(77) {
-  animation: expandOut-77 547ms infinite ease-out;
+  animation: expandOut-77 423ms infinite ease-out;
   animation-delay: calc(77 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1782,7 +1782,7 @@
   }
 }
 .particle:nth-child(78) {
-  animation: expandOut-78 411ms infinite ease-out;
+  animation: expandOut-78 573ms infinite ease-out;
   animation-delay: calc(78 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1801,7 +1801,7 @@
   }
 }
 .particle:nth-child(79) {
-  animation: expandOut-79 485ms infinite ease-out;
+  animation: expandOut-79 494ms infinite ease-out;
   animation-delay: calc(79 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -1820,7 +1820,7 @@
   }
 }
 .particle:nth-child(80) {
-  animation: expandOut-80 482ms infinite ease-out;
+  animation: expandOut-80 546ms infinite ease-out;
   animation-delay: calc(80 / 80 * 3s);
   /* animation-delay: math.random(2000) * -1ms; */
 }
@@ -2544,7 +2544,7 @@ body {
   z-index: 5;
 }
 .arcane-portal-hero .particle:nth-child(1) {
-  animation: mfExpandHeroOut-1 489ms infinite ease-out;
+  animation: mfExpandHeroOut-1 517ms infinite ease-out;
   animation-delay: calc(1 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-1 {
@@ -2562,7 +2562,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(2) {
-  animation: mfExpandHeroOut-2 579ms infinite ease-out;
+  animation: mfExpandHeroOut-2 469ms infinite ease-out;
   animation-delay: calc(2 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-2 {
@@ -2580,7 +2580,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(3) {
-  animation: mfExpandHeroOut-3 436ms infinite ease-out;
+  animation: mfExpandHeroOut-3 549ms infinite ease-out;
   animation-delay: calc(3 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-3 {
@@ -2598,7 +2598,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(4) {
-  animation: mfExpandHeroOut-4 434ms infinite ease-out;
+  animation: mfExpandHeroOut-4 563ms infinite ease-out;
   animation-delay: calc(4 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-4 {
@@ -2616,7 +2616,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(5) {
-  animation: mfExpandHeroOut-5 436ms infinite ease-out;
+  animation: mfExpandHeroOut-5 426ms infinite ease-out;
   animation-delay: calc(5 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-5 {
@@ -2634,7 +2634,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(6) {
-  animation: mfExpandHeroOut-6 449ms infinite ease-out;
+  animation: mfExpandHeroOut-6 576ms infinite ease-out;
   animation-delay: calc(6 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-6 {
@@ -2652,7 +2652,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(7) {
-  animation: mfExpandHeroOut-7 484ms infinite ease-out;
+  animation: mfExpandHeroOut-7 460ms infinite ease-out;
   animation-delay: calc(7 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-7 {
@@ -2670,7 +2670,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(8) {
-  animation: mfExpandHeroOut-8 531ms infinite ease-out;
+  animation: mfExpandHeroOut-8 593ms infinite ease-out;
   animation-delay: calc(8 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-8 {
@@ -2688,7 +2688,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(9) {
-  animation: mfExpandHeroOut-9 598ms infinite ease-out;
+  animation: mfExpandHeroOut-9 418ms infinite ease-out;
   animation-delay: calc(9 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-9 {
@@ -2706,7 +2706,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(10) {
-  animation: mfExpandHeroOut-10 459ms infinite ease-out;
+  animation: mfExpandHeroOut-10 585ms infinite ease-out;
   animation-delay: calc(10 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-10 {
@@ -2724,7 +2724,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(11) {
-  animation: mfExpandHeroOut-11 507ms infinite ease-out;
+  animation: mfExpandHeroOut-11 408ms infinite ease-out;
   animation-delay: calc(11 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-11 {
@@ -2742,7 +2742,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(12) {
-  animation: mfExpandHeroOut-12 436ms infinite ease-out;
+  animation: mfExpandHeroOut-12 560ms infinite ease-out;
   animation-delay: calc(12 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-12 {
@@ -2760,7 +2760,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(13) {
-  animation: mfExpandHeroOut-13 469ms infinite ease-out;
+  animation: mfExpandHeroOut-13 499ms infinite ease-out;
   animation-delay: calc(13 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-13 {
@@ -2778,7 +2778,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(14) {
-  animation: mfExpandHeroOut-14 429ms infinite ease-out;
+  animation: mfExpandHeroOut-14 432ms infinite ease-out;
   animation-delay: calc(14 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-14 {
@@ -2796,7 +2796,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(15) {
-  animation: mfExpandHeroOut-15 422ms infinite ease-out;
+  animation: mfExpandHeroOut-15 460ms infinite ease-out;
   animation-delay: calc(15 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-15 {
@@ -2814,7 +2814,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(16) {
-  animation: mfExpandHeroOut-16 496ms infinite ease-out;
+  animation: mfExpandHeroOut-16 523ms infinite ease-out;
   animation-delay: calc(16 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-16 {
@@ -2832,7 +2832,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(17) {
-  animation: mfExpandHeroOut-17 549ms infinite ease-out;
+  animation: mfExpandHeroOut-17 542ms infinite ease-out;
   animation-delay: calc(17 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-17 {
@@ -2850,7 +2850,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(18) {
-  animation: mfExpandHeroOut-18 531ms infinite ease-out;
+  animation: mfExpandHeroOut-18 432ms infinite ease-out;
   animation-delay: calc(18 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-18 {
@@ -2868,7 +2868,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(19) {
-  animation: mfExpandHeroOut-19 470ms infinite ease-out;
+  animation: mfExpandHeroOut-19 524ms infinite ease-out;
   animation-delay: calc(19 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-19 {
@@ -2886,7 +2886,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(20) {
-  animation: mfExpandHeroOut-20 575ms infinite ease-out;
+  animation: mfExpandHeroOut-20 556ms infinite ease-out;
   animation-delay: calc(20 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-20 {
@@ -2904,7 +2904,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(21) {
-  animation: mfExpandHeroOut-21 488ms infinite ease-out;
+  animation: mfExpandHeroOut-21 452ms infinite ease-out;
   animation-delay: calc(21 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-21 {
@@ -2922,7 +2922,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(22) {
-  animation: mfExpandHeroOut-22 547ms infinite ease-out;
+  animation: mfExpandHeroOut-22 479ms infinite ease-out;
   animation-delay: calc(22 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-22 {
@@ -2940,7 +2940,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(23) {
-  animation: mfExpandHeroOut-23 423ms infinite ease-out;
+  animation: mfExpandHeroOut-23 560ms infinite ease-out;
   animation-delay: calc(23 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-23 {
@@ -2958,7 +2958,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(24) {
-  animation: mfExpandHeroOut-24 467ms infinite ease-out;
+  animation: mfExpandHeroOut-24 443ms infinite ease-out;
   animation-delay: calc(24 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-24 {
@@ -2976,7 +2976,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(25) {
-  animation: mfExpandHeroOut-25 427ms infinite ease-out;
+  animation: mfExpandHeroOut-25 438ms infinite ease-out;
   animation-delay: calc(25 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-25 {
@@ -2994,7 +2994,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(26) {
-  animation: mfExpandHeroOut-26 482ms infinite ease-out;
+  animation: mfExpandHeroOut-26 448ms infinite ease-out;
   animation-delay: calc(26 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-26 {
@@ -3012,7 +3012,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(27) {
-  animation: mfExpandHeroOut-27 489ms infinite ease-out;
+  animation: mfExpandHeroOut-27 579ms infinite ease-out;
   animation-delay: calc(27 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-27 {
@@ -3030,7 +3030,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(28) {
-  animation: mfExpandHeroOut-28 470ms infinite ease-out;
+  animation: mfExpandHeroOut-28 404ms infinite ease-out;
   animation-delay: calc(28 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-28 {
@@ -3048,7 +3048,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(29) {
-  animation: mfExpandHeroOut-29 540ms infinite ease-out;
+  animation: mfExpandHeroOut-29 402ms infinite ease-out;
   animation-delay: calc(29 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-29 {
@@ -3066,7 +3066,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(30) {
-  animation: mfExpandHeroOut-30 508ms infinite ease-out;
+  animation: mfExpandHeroOut-30 590ms infinite ease-out;
   animation-delay: calc(30 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-30 {
@@ -3084,7 +3084,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(31) {
-  animation: mfExpandHeroOut-31 519ms infinite ease-out;
+  animation: mfExpandHeroOut-31 434ms infinite ease-out;
   animation-delay: calc(31 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-31 {
@@ -3102,7 +3102,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(32) {
-  animation: mfExpandHeroOut-32 510ms infinite ease-out;
+  animation: mfExpandHeroOut-32 494ms infinite ease-out;
   animation-delay: calc(32 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-32 {
@@ -3120,7 +3120,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(33) {
-  animation: mfExpandHeroOut-33 552ms infinite ease-out;
+  animation: mfExpandHeroOut-33 568ms infinite ease-out;
   animation-delay: calc(33 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-33 {
@@ -3138,7 +3138,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(34) {
-  animation: mfExpandHeroOut-34 466ms infinite ease-out;
+  animation: mfExpandHeroOut-34 404ms infinite ease-out;
   animation-delay: calc(34 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-34 {
@@ -3156,7 +3156,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(35) {
-  animation: mfExpandHeroOut-35 553ms infinite ease-out;
+  animation: mfExpandHeroOut-35 498ms infinite ease-out;
   animation-delay: calc(35 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-35 {
@@ -3174,7 +3174,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(36) {
-  animation: mfExpandHeroOut-36 584ms infinite ease-out;
+  animation: mfExpandHeroOut-36 597ms infinite ease-out;
   animation-delay: calc(36 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-36 {
@@ -3192,7 +3192,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(37) {
-  animation: mfExpandHeroOut-37 475ms infinite ease-out;
+  animation: mfExpandHeroOut-37 432ms infinite ease-out;
   animation-delay: calc(37 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-37 {
@@ -3210,7 +3210,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(38) {
-  animation: mfExpandHeroOut-38 572ms infinite ease-out;
+  animation: mfExpandHeroOut-38 476ms infinite ease-out;
   animation-delay: calc(38 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-38 {
@@ -3228,7 +3228,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(39) {
-  animation: mfExpandHeroOut-39 473ms infinite ease-out;
+  animation: mfExpandHeroOut-39 600ms infinite ease-out;
   animation-delay: calc(39 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-39 {
@@ -3246,7 +3246,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(40) {
-  animation: mfExpandHeroOut-40 461ms infinite ease-out;
+  animation: mfExpandHeroOut-40 474ms infinite ease-out;
   animation-delay: calc(40 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-40 {
@@ -3264,7 +3264,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(41) {
-  animation: mfExpandHeroOut-41 457ms infinite ease-out;
+  animation: mfExpandHeroOut-41 464ms infinite ease-out;
   animation-delay: calc(41 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-41 {
@@ -3282,7 +3282,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(42) {
-  animation: mfExpandHeroOut-42 502ms infinite ease-out;
+  animation: mfExpandHeroOut-42 496ms infinite ease-out;
   animation-delay: calc(42 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-42 {
@@ -3300,7 +3300,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(43) {
-  animation: mfExpandHeroOut-43 481ms infinite ease-out;
+  animation: mfExpandHeroOut-43 508ms infinite ease-out;
   animation-delay: calc(43 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-43 {
@@ -3318,7 +3318,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(44) {
-  animation: mfExpandHeroOut-44 535ms infinite ease-out;
+  animation: mfExpandHeroOut-44 444ms infinite ease-out;
   animation-delay: calc(44 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-44 {
@@ -3336,7 +3336,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(45) {
-  animation: mfExpandHeroOut-45 591ms infinite ease-out;
+  animation: mfExpandHeroOut-45 437ms infinite ease-out;
   animation-delay: calc(45 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-45 {
@@ -3354,7 +3354,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(46) {
-  animation: mfExpandHeroOut-46 487ms infinite ease-out;
+  animation: mfExpandHeroOut-46 433ms infinite ease-out;
   animation-delay: calc(46 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-46 {
@@ -3372,7 +3372,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(47) {
-  animation: mfExpandHeroOut-47 520ms infinite ease-out;
+  animation: mfExpandHeroOut-47 511ms infinite ease-out;
   animation-delay: calc(47 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-47 {
@@ -3390,7 +3390,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(48) {
-  animation: mfExpandHeroOut-48 415ms infinite ease-out;
+  animation: mfExpandHeroOut-48 519ms infinite ease-out;
   animation-delay: calc(48 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-48 {
@@ -3408,7 +3408,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(49) {
-  animation: mfExpandHeroOut-49 472ms infinite ease-out;
+  animation: mfExpandHeroOut-49 525ms infinite ease-out;
   animation-delay: calc(49 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-49 {
@@ -3426,7 +3426,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(50) {
-  animation: mfExpandHeroOut-50 436ms infinite ease-out;
+  animation: mfExpandHeroOut-50 405ms infinite ease-out;
   animation-delay: calc(50 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-50 {
@@ -3444,7 +3444,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(51) {
-  animation: mfExpandHeroOut-51 516ms infinite ease-out;
+  animation: mfExpandHeroOut-51 597ms infinite ease-out;
   animation-delay: calc(51 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-51 {
@@ -3462,7 +3462,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(52) {
-  animation: mfExpandHeroOut-52 494ms infinite ease-out;
+  animation: mfExpandHeroOut-52 519ms infinite ease-out;
   animation-delay: calc(52 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-52 {
@@ -3480,7 +3480,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(53) {
-  animation: mfExpandHeroOut-53 526ms infinite ease-out;
+  animation: mfExpandHeroOut-53 578ms infinite ease-out;
   animation-delay: calc(53 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-53 {
@@ -3498,7 +3498,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(54) {
-  animation: mfExpandHeroOut-54 519ms infinite ease-out;
+  animation: mfExpandHeroOut-54 443ms infinite ease-out;
   animation-delay: calc(54 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-54 {
@@ -3516,7 +3516,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(55) {
-  animation: mfExpandHeroOut-55 580ms infinite ease-out;
+  animation: mfExpandHeroOut-55 435ms infinite ease-out;
   animation-delay: calc(55 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-55 {
@@ -3534,7 +3534,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(56) {
-  animation: mfExpandHeroOut-56 460ms infinite ease-out;
+  animation: mfExpandHeroOut-56 462ms infinite ease-out;
   animation-delay: calc(56 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-56 {
@@ -3552,7 +3552,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(57) {
-  animation: mfExpandHeroOut-57 402ms infinite ease-out;
+  animation: mfExpandHeroOut-57 425ms infinite ease-out;
   animation-delay: calc(57 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-57 {
@@ -3570,7 +3570,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(58) {
-  animation: mfExpandHeroOut-58 465ms infinite ease-out;
+  animation: mfExpandHeroOut-58 434ms infinite ease-out;
   animation-delay: calc(58 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-58 {
@@ -3588,7 +3588,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(59) {
-  animation: mfExpandHeroOut-59 486ms infinite ease-out;
+  animation: mfExpandHeroOut-59 586ms infinite ease-out;
   animation-delay: calc(59 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-59 {
@@ -3606,7 +3606,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(60) {
-  animation: mfExpandHeroOut-60 577ms infinite ease-out;
+  animation: mfExpandHeroOut-60 437ms infinite ease-out;
   animation-delay: calc(60 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-60 {
@@ -3624,7 +3624,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(61) {
-  animation: mfExpandHeroOut-61 421ms infinite ease-out;
+  animation: mfExpandHeroOut-61 444ms infinite ease-out;
   animation-delay: calc(61 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-61 {
@@ -3642,7 +3642,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(62) {
-  animation: mfExpandHeroOut-62 508ms infinite ease-out;
+  animation: mfExpandHeroOut-62 581ms infinite ease-out;
   animation-delay: calc(62 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-62 {
@@ -3660,7 +3660,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(63) {
-  animation: mfExpandHeroOut-63 407ms infinite ease-out;
+  animation: mfExpandHeroOut-63 405ms infinite ease-out;
   animation-delay: calc(63 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-63 {
@@ -3678,7 +3678,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(64) {
-  animation: mfExpandHeroOut-64 448ms infinite ease-out;
+  animation: mfExpandHeroOut-64 519ms infinite ease-out;
   animation-delay: calc(64 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-64 {
@@ -3696,7 +3696,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(65) {
-  animation: mfExpandHeroOut-65 418ms infinite ease-out;
+  animation: mfExpandHeroOut-65 598ms infinite ease-out;
   animation-delay: calc(65 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-65 {
@@ -3714,7 +3714,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(66) {
-  animation: mfExpandHeroOut-66 425ms infinite ease-out;
+  animation: mfExpandHeroOut-66 539ms infinite ease-out;
   animation-delay: calc(66 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-66 {
@@ -3732,7 +3732,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(67) {
-  animation: mfExpandHeroOut-67 520ms infinite ease-out;
+  animation: mfExpandHeroOut-67 422ms infinite ease-out;
   animation-delay: calc(67 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-67 {
@@ -3750,7 +3750,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(68) {
-  animation: mfExpandHeroOut-68 510ms infinite ease-out;
+  animation: mfExpandHeroOut-68 576ms infinite ease-out;
   animation-delay: calc(68 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-68 {
@@ -3768,7 +3768,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(69) {
-  animation: mfExpandHeroOut-69 503ms infinite ease-out;
+  animation: mfExpandHeroOut-69 573ms infinite ease-out;
   animation-delay: calc(69 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-69 {
@@ -3786,7 +3786,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(70) {
-  animation: mfExpandHeroOut-70 427ms infinite ease-out;
+  animation: mfExpandHeroOut-70 532ms infinite ease-out;
   animation-delay: calc(70 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-70 {
@@ -3804,7 +3804,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(71) {
-  animation: mfExpandHeroOut-71 592ms infinite ease-out;
+  animation: mfExpandHeroOut-71 545ms infinite ease-out;
   animation-delay: calc(71 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-71 {
@@ -3822,7 +3822,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(72) {
-  animation: mfExpandHeroOut-72 407ms infinite ease-out;
+  animation: mfExpandHeroOut-72 544ms infinite ease-out;
   animation-delay: calc(72 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-72 {
@@ -3840,7 +3840,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(73) {
-  animation: mfExpandHeroOut-73 538ms infinite ease-out;
+  animation: mfExpandHeroOut-73 411ms infinite ease-out;
   animation-delay: calc(73 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-73 {
@@ -3858,7 +3858,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(74) {
-  animation: mfExpandHeroOut-74 559ms infinite ease-out;
+  animation: mfExpandHeroOut-74 402ms infinite ease-out;
   animation-delay: calc(74 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-74 {
@@ -3876,7 +3876,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(75) {
-  animation: mfExpandHeroOut-75 415ms infinite ease-out;
+  animation: mfExpandHeroOut-75 597ms infinite ease-out;
   animation-delay: calc(75 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-75 {
@@ -3894,7 +3894,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(76) {
-  animation: mfExpandHeroOut-76 576ms infinite ease-out;
+  animation: mfExpandHeroOut-76 418ms infinite ease-out;
   animation-delay: calc(76 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-76 {
@@ -3912,7 +3912,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(77) {
-  animation: mfExpandHeroOut-77 483ms infinite ease-out;
+  animation: mfExpandHeroOut-77 466ms infinite ease-out;
   animation-delay: calc(77 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-77 {
@@ -3930,7 +3930,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(78) {
-  animation: mfExpandHeroOut-78 587ms infinite ease-out;
+  animation: mfExpandHeroOut-78 411ms infinite ease-out;
   animation-delay: calc(78 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-78 {
@@ -3948,7 +3948,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(79) {
-  animation: mfExpandHeroOut-79 597ms infinite ease-out;
+  animation: mfExpandHeroOut-79 520ms infinite ease-out;
   animation-delay: calc(79 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-79 {
@@ -3966,7 +3966,7 @@ body {
   }
 }
 .arcane-portal-hero .particle:nth-child(80) {
-  animation: mfExpandHeroOut-80 480ms infinite ease-out;
+  animation: mfExpandHeroOut-80 501ms infinite ease-out;
   animation-delay: calc(80 / 80 * 3s);
 }
 @keyframes mfExpandHeroOut-80 {
@@ -4145,7 +4145,7 @@ body {
   }
 }
 /* ==========================================================================
-   HEROES / _NEON-KALEIDOSCOPE.SCSS — CONFIGURAÇÃO NÚCLEO 24 PONTAS PERFEITO
+   HEROES / _NEON-KALEIDOSCOPE.SCSS — CORREÇÃO DE FLUXO VERTICAL (V15)
    ========================================================================== */
 .nk-hero {
   --nk-size: 460px;
@@ -4183,7 +4183,7 @@ body {
   height: var(--nk-size);
   aspect-ratio: 1/1 !important;
   flex-shrink: 0 !important;
-  right: 6%;
+  left: 6%;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
@@ -4194,6 +4194,8 @@ body {
   width: 100%;
   height: 100%;
   overflow: visible;
+  transform: scale(calc(var(--nk-size) / 400px));
+  transform-origin: center center;
 }
 
 .nk-svg-layer {
@@ -4207,7 +4209,7 @@ body {
   mix-blend-mode: screen;
 }
 
-/* --- EJEÇÃO DE RAIOS LASER ULTRA-BRILHANTES --- */
+/* --- EJEÇÃO DE RAIOS LASER --- */
 .nk-svg-beams-layer {
   transform-origin: 200px 200px;
   animation: nkGiroDireto var(--nk-speed-base) linear infinite;
@@ -4274,16 +4276,24 @@ body {
   animation: nkGiroDireto calc(var(--nk-speed-base) * 1.7) linear infinite;
 }
 
-/* --- ESTRELA CENTRAL DE 24 PONTAS ESTÁVEL (ANIMAÇÃO CONCÊNTRICA REAL) --- */
+/* --- ESTRELA CENTRAL DE 24 PONTAS --- */
 .nk-svg--core-star-24 {
   transform-origin: 247px 247px !important;
   animation: nkGiroReversoCardinal calc(var(--nk-speed-base) * 0.45) linear infinite;
 }
 .nk-svg--core-star-24 .nk-static-glow-path {
   transform-origin: 247px 247px !important;
-  filter: drop-shadow(0 0 2px #fffb00) drop-shadow(0 0 2px #ffee00);
+  filter: drop-shadow(0 0 5px #ff1a00) drop-shadow(0 0 1px #ff0000);
 }
 
+@keyframes nkGiroReversoCardinal {
+  0% {
+    transform: translate(-47px, -47px) scale(1.35) rotate(0deg);
+  }
+  100% {
+    transform: translate(-47px, -47px) scale(1.35) rotate(-360deg);
+  }
+}
 .nk-halo {
   position: absolute;
   inset: -40px;
@@ -4296,7 +4306,7 @@ body {
 /* --- CONTEÚDO TEXTUAL DO HERO --- */
 .nk-content {
   position: absolute;
-  left: 8%;
+  right: 8%;
   max-width: 520px;
   color: #ffffff;
   z-index: 20;
@@ -4365,7 +4375,6 @@ body {
   background-color: rgba(255, 255, 255, 0.06);
 }
 
-/* --- MOTORES DE ANIMAÇÃO DA PLACA GRÁFICA --- */
 @keyframes nkGiroDireto {
   0% {
     transform: rotate(0deg);
@@ -4408,25 +4417,26 @@ body {
     transform: scale(1.04);
   }
 }
-/* --- COMPOSIÇÃO RESPONSIVA COESSA --- */
+/* --- REGRAS RESPONSIVAS REESTRUTURADAS --- */
 @media (max-width: 992px) {
   .nk-hero {
     height: auto;
-    padding: 80px 24px;
-    flex-direction: column-reverse;
-    gap: 60px;
+    padding: 60px 24px;
+    flex-direction: column;
+    gap: 40px;
     justify-content: flex-start;
   }
   .nk-visual-container {
     position: relative;
-    right: auto;
+    left: auto;
     top: auto;
     transform: none;
     margin: 0 auto;
+    --nk-size: clamp(300px, 45vw, 380px);
   }
   .nk-content {
     position: relative;
-    left: auto;
+    right: auto;
     max-width: 600px;
     text-align: center;
     margin: 0 auto;
@@ -4435,33 +4445,429 @@ body {
     justify-content: center;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 550px) {
   .nk-hero {
-    transform: scale(0.65);
+    padding: 40px 16px;
   }
-  .nk-svg-beams-layer {
-    display: none !important;
+  .nk-visual-container {
+    --nk-size: clamp(240px, 72vw, 290px) !important;
+    margin-bottom: 10px;
+  }
+  .nk-title {
+    font-size: 28px;
   }
   .nk-actions {
     flex-direction: column;
     width: 100%;
+    gap: 10px;
   }
   .nk-btn {
     text-align: center;
     width: 100%;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .nk-svg-layer,
-  .nk-svg-beams-layer {
-    animation: none !important;
+/* ==========================================================================
+   BACKGROUNDS / _AURORA-GRID.SCSS
+   Premium ambient triangular-mesh background with slow-drifting aurora light.
+   Pure CSS: base element + ::before (aurora/glow/vignette) + ::after (grid).
+   ========================================================================== */
+.aurora-grid {
+  --ag-background: #0b1020;
+  --ag-line-color: rgba(120, 180, 255, 0.12);
+  --ag-glow-1: rgba(59, 130, 246, 0.58);
+  --ag-glow-2: rgba(139, 92, 246, 0.58);
+  --ag-glow-3: rgba(6, 182, 212, 0.54);
+  --ag-grid-size: 56px;
+  --ag-duration: 32s;
+  --grid-color: rgba(255, 255, 255, 0.21);
+  --dots-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, var(--ag-glow-1), transparent 35%) top right/200% 200%, radial-gradient(circle at 80% 60%, var(--ag-glow-2), transparent 40%) top right/200% 200%, radial-gradient(circle at 45% 80%, var(--ag-glow-3), transparent 35%) top right/200% 200%;
+  background-blend-mode: hard-light;
+  animation: mf-aurora-grid-drift 10s infinite alternate;
+}
+
+.aurora-grid::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--grid-color) 1px, transparent 0.21px);
+  background-size: 40.5px 50px;
+  background-position: 0 0;
+}
+
+.aurora-grid::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  filter: brightness(1.75) drop-shadow(0 0 30px red);
+  background: linear-gradient(30deg, transparent 49%, var(--grid-color) 1px, var(--grid-color) 1px, transparent 50%), linear-gradient(150deg, transparent 49%, var(--grid-color) 1px, var(--grid-color) 1px, transparent 50%), radial-gradient(circle at center, var(--dots-color) 1px, transparent 2px, transparent 50%), radial-gradient(circle at left top, var(--dots-color) 1px, transparent 2px, transparent 50%), radial-gradient(circle at right top, var(--dots-color) 1px, transparent 2px, transparent 50%), radial-gradient(circle at left bottom, var(--dots-color) 1px, transparent 2px, transparent 50%), radial-gradient(circle at right bottom, var(--dots-color) 1px, transparent 2px, transparent 50%);
+  background-blend-mode: hard-light;
+  background-size: 81px 48px;
+  background-position: 0 0;
+}
+
+@keyframes mf-aurora-grid-drift {
+  to {
+    background-position: top left;
   }
 }
-@keyframes nkGiroReversoCardinal {
+@media (prefers-reduced-motion: reduce) {
+  .aurora-grid {
+    animation: none;
+  }
+}
+/* --- THEMES --------------------------------------------------------------- */
+.aurora-grid.ag-theme-emerald {
+  --ag-glow-1: rgba(16, 185, 129, 0.58);
+  --ag-glow-2: rgba(20, 184, 166, 0.58);
+  --ag-glow-3: rgba(59, 130, 246, 0.54);
+}
+
+.aurora-grid.ag-theme-sunset {
+  --ag-glow-1: rgba(244, 114, 182, 0.58);
+  --ag-glow-2: rgba(251, 146, 60, 0.58);
+  --ag-glow-3: rgba(168, 85, 247, 0.54);
+}
+
+.aurora-grid.ag-theme-fire {
+  --ag-background: #120a08;
+  --ag-line-color: rgba(255, 160, 100, 0.12);
+  --ag-glow-1: rgba(249, 115, 22, 0.58);
+  --ag-glow-2: rgba(245, 158, 11, 0.58);
+  --ag-glow-3: rgba(239, 68, 68, 0.54);
+}
+
+.aurora-grid.ag-theme-arctic {
+  --ag-background: #0a1420;
+  --ag-line-color: rgba(200, 230, 255, 0.12);
+  --ag-glow-1: rgba(224, 242, 254, 0.58);
+  --ag-glow-2: rgba(125, 211, 252, 0.58);
+  --ag-glow-3: rgba(34, 211, 238, 0.54);
+}
+
+.aurora-grid.ag-theme-cosmic {
+  --ag-background: #07071a;
+  --ag-line-color: rgba(180, 140, 255, 0.12);
+  --ag-glow-1: rgba(30, 58, 138, 0.58);
+  --ag-glow-2: rgba(217, 70, 239, 0.58);
+  --ag-glow-3: rgba(124, 58, 237, 0.54);
+}
+
+/* --- RESPONSIVE ------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  .aurora-grid {
+    --ag-grid-size: 40px;
+  }
+}
+@media (max-width: 640px) {
+  .aurora-grid {
+    --ag-grid-size: 32px;
+  }
+}
+/* ==========================================================================
+   BACKGROUNDS / _ZODIAC-FLOW.SCSS
+   Glowing zodiac cards drifting right-to-left at varying depth and speed.
+   Structure per card (each layer owns exactly one transform, so flight,
+   depth and spin never fight over the same `transform` property):
+     .zf-card         → animated translate (wind-blown right-to-left flight)
+     .zf-card__depth  → static scale/opacity/blur derived from --zf-depth
+     .zf-card__spin   → animated rotateX/Y/Z (tumble)
+     .zf-card__face   → the visible glowing panel (symbol, stars, name)
+   ========================================================================== */
+.zodiac-flow {
+  --zf-card-bg: rgba(12, 18, 38, 0.55);
+  --zf-border-color: rgba(157, 216, 255, 0.35);
+  --zf-content-color: #bfe4ff;
+  --zf-glow-color: #7dd3fc;
+  --zf-card-width: 72px;
+  --zf-card-height: 98px;
+  --zf-min-duration: 44s;
+  --zf-max-duration: 60s;
+  --zf-blur-max: 3px;
+  --zf-background: #060912;
+  --zf-star-opacity: 0.8;
+  --zf-twinkle-duration: 4s;
+  --zf-nebula-1: rgba(99, 102, 241, 0.35);
+  --zf-nebula-2: rgba(6, 182, 212, 0.28);
+  --zf-nebula-3: rgba(217, 70, 239, 0.32);
+  --zf-nebula-blur: 60px;
+  --zf-nebula-duration: 90s;
+  perspective: 550px;
+  transform: perspective(23rem);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  container-type: inline-size;
+  width: 100%;
+  min-height: clamp(420px, 70vh, 720px);
+  background-color: var(--zf-background);
+}
+.zodiac-flow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: var(--zf-star-opacity);
+  box-shadow: 75cqw 719.7px 0 0.6px rgba(255, 255, 255, 0.52), 90.4cqw 305.1px 0 1px rgba(255, 255, 255, 0.44), 98.6cqw 654.5px 0 1.1px rgba(255, 255, 255, 0.89), 25.1cqw 415.3px 0 0.8px rgba(255, 255, 255, 0.97), 5.7cqw 242.9px 0 0.8px rgba(255, 255, 255, 0.75), 79.9cqw 332.4px 0 1.2px rgba(255, 255, 255, 0.9), 1.5cqw 0.8px 0 1px rgba(255, 255, 255, 0.83), 74.1cqw 528.6px 0 0.7px rgba(255, 255, 255, 0.93), 85.1cqw 233.8px 0 1px rgba(255, 255, 255, 0.76), 74.4cqw 19.2px 0 0.9px rgba(255, 255, 255, 0.76), 34.3cqw 13.5px 0 0.6px rgba(255, 255, 255, 0.65), 64.7cqw 292.3px 0 1.1px rgba(255, 255, 255, 0.69), 29.3cqw 173.7px 0 0.7px rgba(255, 255, 255, 0.47), 52.3cqw 431.4px 0 0.6px rgba(255, 255, 255, 0.74), 5.7cqw 455.5px 0 1.1px rgba(255, 255, 255, 0.97), 30.1cqw 154.9px 0 1.2px rgba(255, 255, 255, 0.74), 83.1cqw 297.9px 0 0.5px rgba(255, 255, 255, 0.54), 29.6cqw 175.5px 0 1px rgba(255, 255, 255, 0.81), 31cqw 448.7px 0 1.2px rgba(255, 255, 255, 0.81), 69.5cqw 197px 0 0.7px rgba(255, 255, 255, 0.99), 24.9cqw 363.2px 0 0.7px rgba(255, 255, 255, 0.82), 11.6cqw 356.2px 0 0.4px rgba(255, 255, 255, 0.76), 46.1cqw 633.4px 0 0.4px rgba(255, 255, 255, 0.58), 58.6cqw 598.3px 0 1.1px rgba(255, 255, 255, 0.76), 40.8cqw 650.1px 0 0.5px rgba(255, 255, 255, 0.91), 46.5cqw 150.4px 0 0.9px rgba(255, 255, 255, 0.42), 4.5cqw 497.6px 0 1.2px rgba(255, 255, 255, 0.75), 18.4cqw 541.6px 0 0.4px rgba(255, 255, 255, 0.81), 78.5cqw 300.5px 0 1.1px rgba(255, 255, 255, 0.78), 83.3cqw 280.4px 0 0.5px rgba(255, 255, 255, 0.52), 64.8cqw 688.4px 0 0.4px rgba(255, 255, 255, 0.97), 9.1cqw 6.3px 0 1px rgba(255, 255, 255, 0.92), 38.8cqw 478.6px 0 1.1px rgba(255, 255, 255, 0.94), 11cqw 444px 0 1.2px rgba(255, 255, 255, 0.47), 59.8cqw 679.3px 0 0.7px rgba(255, 255, 255, 0.85), 90.7cqw 150.7px 0 1px rgba(255, 255, 255, 0.94), 50.8cqw 462.3px 0 0.8px rgba(255, 255, 255, 0.6), 68.9cqw 198.9px 0 0.6px rgba(255, 255, 255, 0.87), 1.1cqw 343.9px 0 1px rgba(255, 255, 255, 0.63), 28.6cqw 101.3px 0 0.5px rgba(255, 255, 255, 0.97), 62.9cqw 396.7px 0 0.5px rgba(255, 255, 255, 0.72), 92.5cqw 198.1px 0 0.4px rgba(255, 255, 255, 0.79), 51.9cqw 174.9px 0 1.1px rgba(255, 255, 255, 0.45), 49.6cqw 168.4px 0 0.7px rgba(255, 255, 255, 0.5), 70.6cqw 312.2px 0 0.8px rgba(255, 255, 255, 0.49), 21.6cqw 389.5px 0 0.9px rgba(255, 255, 255, 0.51), 36.3cqw 672.6px 0 0.5px rgba(255, 255, 255, 0.68), 66.8cqw 652.6px 0 0.9px rgba(255, 255, 255, 0.94), 94.3cqw 31.8px 0 0.8px rgba(255, 255, 255, 0.8), 1.6cqw 120.6px 0 0.9px rgba(255, 255, 255, 0.55), 15.1cqw 149px 0 1.2px rgba(255, 255, 255, 0.59), 36.7cqw 238.9px 0 1px rgba(255, 255, 255, 0.51), 77.8cqw 576.6px 0 0.8px rgba(255, 255, 255, 0.93), 64.9cqw 188.7px 0 1.1px rgba(255, 255, 255, 0.98), 24.7cqw 653.9px 0 0.4px rgba(255, 255, 255, 0.46), 19.7cqw 466.1px 0 0.4px rgba(255, 255, 255, 0.74), 19.6cqw 133.5px 0 0.9px rgba(255, 255, 255, 0.76), 63.1cqw 105.8px 0 0.5px rgba(255, 255, 255, 0.59), 96.1cqw 695.4px 0 0.6px rgba(255, 255, 255, 0.72), 6.2cqw 386.6px 0 1.2px rgba(255, 255, 255, 0.61), 12.8cqw 269.9px 0 1px rgba(255, 255, 255, 0.76), 25.5cqw 47.7px 0 0.6px rgb(255, 255, 255), 27.9cqw 239.9px 0 0.7px rgba(255, 255, 255, 0.97), 16.5cqw 487.2px 0 1.2px rgb(255, 255, 255), 54.5cqw 602.3px 0 0.9px rgba(255, 255, 255, 0.96), 65.5cqw 281.3px 0 1px rgba(255, 255, 255, 0.97), 41.4cqw 663.8px 0 0.5px rgba(255, 255, 255, 0.82), 58.2cqw 93.7px 0 1px rgba(255, 255, 255, 0.88), 34.3cqw 423.3px 0 1.1px rgba(255, 255, 255, 0.74), 8.3cqw 118.1px 0 0.6px rgba(255, 255, 255, 0.71), 6.8cqw 295px 0 0.4px rgba(255, 255, 255, 0.53), 56.1cqw 273.6px 0 1.1px rgba(255, 255, 255, 0.95), 20.6cqw 10px 0 1px rgba(255, 255, 255, 0.76), 70.7cqw 302.8px 0 0.4px rgba(255, 255, 255, 0.76), 73.6cqw 645.2px 0 1px rgba(255, 255, 255, 0.61), 12cqw 421.6px 0 1.2px rgba(255, 255, 255, 0.68), 99.9cqw 235.4px 0 1.2px rgba(255, 255, 255, 0.55), 70.2cqw 171.7px 0 0.6px rgba(255, 255, 255, 0.86), 4.4cqw 656.7px 0 0.4px rgba(255, 255, 255, 0.95), 80.7cqw 117.3px 0 0.5px rgba(255, 255, 255, 0.56), 44.5cqw 680.9px 0 0.9px rgba(255, 255, 255, 0.69), 82.8cqw 556.6px 0 1.2px rgba(255, 255, 255, 0.48), 1.9cqw 200.8px 0 0.7px rgba(255, 255, 255, 0.9), 1.1cqw 550.6px 0 0.4px rgba(255, 255, 255, 0.93), 4.8cqw 200.6px 0 0.8px rgba(255, 255, 255, 0.83), 27.7cqw 643.7px 0 0.5px rgba(255, 255, 255, 0.68), 77.6cqw 47.3px 0 0.7px rgba(255, 255, 255, 0.75), 59.6cqw 420px 0 0.8px rgba(255, 255, 255, 0.56), 12.5cqw 503.1px 0 1px rgba(255, 255, 255, 0.88), 86.4cqw 431.9px 0 0.8px rgba(255, 255, 255, 0.99), 69.4cqw 283.3px 0 0.9px rgba(255, 255, 255, 0.72), 30.2cqw 706.8px 0 1.2px rgb(255, 255, 255), 48.4cqw 196.9px 0 1.1px rgba(255, 255, 255, 0.43), 2.4cqw 683.3px 0 1px rgba(255, 255, 255, 0.83), 6.5cqw 233.3px 0 0.5px rgba(255, 255, 255, 0.65), 41.8cqw 272.4px 0 0.5px rgba(255, 255, 255, 0.72), 80.4cqw 60.5px 0 0.6px rgba(255, 255, 255, 0.75), 13.9cqw 338.4px 0 1.1px rgba(255, 255, 255, 0.45), 29.5cqw 76.7px 0 1px rgba(255, 255, 255, 0.77), 95.5cqw 552.6px 0 0.6px rgba(255, 255, 255, 0.87), 49.5cqw 178.3px 0 0.5px rgba(255, 255, 255, 0.99), 19.1cqw 490.2px 0 1.1px rgba(255, 255, 255, 0.82), 84.4cqw 655.2px 0 0.9px rgba(255, 255, 255, 0.53), 49.9cqw 505.5px 0 0.6px rgba(255, 255, 255, 0.61), 73.1cqw 211.3px 0 1.2px rgba(255, 255, 255, 0.84), 15.9cqw 655.9px 0 1.2px rgba(255, 255, 255, 0.59), 23.2cqw 437.2px 0 1px rgba(255, 255, 255, 0.93), 94.8cqw 309.4px 0 0.5px rgba(255, 255, 255, 0.82), 70.7cqw 187.9px 0 0.5px rgba(255, 255, 255, 0.9), 55.3cqw 682.4px 0 1.2px rgba(255, 255, 255, 0.86), 26cqw 575.5px 0 0.9px rgba(255, 255, 255, 0.93), 61.7cqw 86.6px 0 0.9px rgba(255, 255, 255, 0.85), 6.9cqw 147px 0 0.6px rgba(255, 255, 255, 0.83), 56.4cqw 377px 0 1px rgba(255, 255, 255, 0.54), 71.9cqw 442.9px 0 1px rgba(255, 255, 255, 0.92), 35.2cqw 518.8px 0 1.1px rgba(255, 255, 255, 0.99), 52.3cqw 353px 0 1.1px rgba(255, 255, 255, 0.55), 94.5cqw 192.8px 0 1.2px rgba(255, 255, 255, 0.41), 39.8cqw 380.3px 0 0.4px rgba(255, 255, 255, 0.62), 29.4cqw 464.5px 0 0.7px rgba(255, 255, 255, 0.59), 9.8cqw 255px 0 0.7px rgba(255, 255, 255, 0.48), 1.5cqw 227.6px 0 0.9px rgba(255, 255, 255, 0.81), 60.1cqw 170.1px 0 0.5px rgba(255, 255, 255, 0.68), 80.7cqw 346px 0 0.9px rgba(255, 255, 255, 0.44), 71.7cqw 508.8px 0 0.9px rgba(255, 255, 255, 0.42), 70.2cqw 504.1px 0 1px rgba(255, 255, 255, 0.96), 95.4cqw 516px 0 0.5px rgba(255, 255, 255, 0.87), 90.1cqw 438.2px 0 1.2px rgba(255, 255, 255, 0.73), 40.2cqw 238.1px 0 0.4px rgba(255, 255, 255, 0.64), 10.1cqw 551.2px 0 0.7px rgba(255, 255, 255, 0.56), 18.4cqw 283.4px 0 0.8px rgba(255, 255, 255, 0.63), 83.6cqw 430px 0 1.1px rgba(255, 255, 255, 0.56), 57.8cqw 668.4px 0 1.2px rgba(255, 255, 255, 0.76), 33.6cqw 623.9px 0 0.5px rgba(255, 255, 255, 0.41), 27.7cqw 282.8px 0 1.2px rgba(255, 255, 255, 0.66), 42.1cqw 5.3px 0 1px rgba(255, 255, 255, 0.93), 2.4cqw 64.8px 0 0.6px rgba(255, 255, 255, 0.83), 89.1cqw 45.4px 0 1.2px rgba(255, 255, 255, 0.49), 12.5cqw 483.9px 0 0.4px rgba(255, 255, 255, 0.77), 34.3cqw 538.3px 0 0.9px rgba(255, 255, 255, 0.52), 18.3cqw 157.6px 0 1.1px rgba(255, 255, 255, 0.64), 35.1cqw 506.7px 0 0.6px rgba(255, 255, 255, 0.67), 90.6cqw 656.6px 0 0.8px rgba(255, 255, 255, 0.63), 71.5cqw 28.4px 0 0.9px rgba(255, 255, 255, 0.64), 22.4cqw 386.3px 0 0.9px rgba(255, 255, 255, 0.5), 80.2cqw 387.3px 0 0.5px rgba(255, 255, 255, 0.94), 18.8cqw 182.4px 0 0.9px rgba(255, 255, 255, 0.59), 22.5cqw 700.8px 0 0.7px rgba(255, 255, 255, 0.77), 28.5cqw 166.8px 0 1px rgba(255, 255, 255, 0.46), 79.5cqw 375px 0 0.4px rgba(255, 255, 255, 0.74), 43.1cqw 542.2px 0 0.4px rgba(255, 255, 255, 0.57), 32cqw 654.3px 0 0.9px rgba(255, 255, 255, 0.59), 0.8cqw 508.2px 0 0.8px rgba(255, 255, 255, 0.74), 28.5cqw 379.3px 0 0.7px rgba(255, 255, 255, 0.75), 85.9cqw 348.2px 0 0.8px rgba(255, 255, 255, 0.63), 91.4cqw 271.7px 0 1px rgba(255, 255, 255, 0.5), 3.6cqw 587.1px 0 0.8px rgba(255, 255, 255, 0.78), 45.3cqw 284.4px 0 1.1px rgba(255, 255, 255, 0.44), 36.3cqw 88.3px 0 1.1px rgba(255, 255, 255, 0.58), 74.4cqw 175.1px 0 1.1px rgba(255, 255, 255, 0.45), 83.8cqw 573.1px 0 0.6px rgba(255, 255, 255, 0.97), 54.2cqw 425.3px 0 1.2px rgba(255, 255, 255, 0.77), 5.3cqw 371.7px 0 0.7px rgba(255, 255, 255, 0.83), 95.7cqw 341.6px 0 0.5px rgba(255, 255, 255, 0.86), 1.3cqw 477.9px 0 0.7px rgba(255, 255, 255, 0.99), 50.2cqw 230.8px 0 0.8px rgba(255, 255, 255, 0.73), 65.3cqw 344.6px 0 1.2px rgba(255, 255, 255, 0.86), 37.5cqw 300.2px 0 0.6px rgba(255, 255, 255, 0.64), 40.4cqw 434px 0 0.8px rgba(255, 255, 255, 0.62), 35.5cqw 442.4px 0 0.9px rgba(255, 255, 255, 0.49), 99.1cqw 111.5px 0 0.7px rgba(255, 255, 255, 0.78), 23.6cqw 595.9px 0 0.5px rgba(255, 255, 255, 0.76), 86cqw 514.5px 0 1px rgba(255, 255, 255, 0.89), 43cqw 688.7px 0 0.6px rgba(255, 255, 255, 0.98), 12.7cqw 664.9px 0 1px rgba(255, 255, 255, 0.6), 21.8cqw 347.2px 0 1.1px rgba(255, 255, 255, 0.82), 92.6cqw 211.7px 0 1px rgba(255, 255, 255, 0.85), 80.9cqw 312.3px 0 1.2px rgba(255, 255, 255, 0.62), 11.1cqw 627.2px 0 1px rgba(255, 255, 255, 0.66), 35cqw 427.2px 0 1.1px rgba(255, 255, 255, 0.96), 56cqw 343.3px 0 0.8px rgba(255, 255, 255, 0.86), 90.9cqw 93.6px 0 0.7px rgba(255, 255, 255, 0.86), 28.6cqw 72.3px 0 0.4px rgba(255, 255, 255, 0.45), 88.5cqw 476.9px 0 0.6px rgba(255, 255, 255, 0.43), 28.9cqw 169.7px 0 1.1px rgba(255, 255, 255, 0.79), 39.5cqw 511.2px 0 1px rgba(255, 255, 255, 0.9), 21.5cqw 72.7px 0 1.1px rgba(255, 255, 255, 0.48), 79.8cqw 575.1px 0 1px rgba(255, 255, 255, 0.73), 52.1cqw 648px 0 1px rgba(255, 255, 255, 0.69), 52.7cqw 396.4px 0 0.5px rgba(255, 255, 255, 0.54), 69.5cqw 353.2px 0 0.9px rgba(255, 255, 255, 0.45), 97.9cqw 659.3px 0 0.5px rgba(255, 255, 255, 0.88), 14.4cqw 469.5px 0 0.4px rgba(255, 255, 255, 0.9), 32cqw 38.3px 0 0.9px rgba(255, 255, 255, 0.43), 36.8cqw 572.1px 0 1px rgba(255, 255, 255, 0.77), 93.7cqw 197px 0 0.8px rgba(255, 255, 255, 0.86), 64.6cqw 59.6px 0 0.8px rgba(255, 255, 255, 0.66), 74.8cqw 708.9px 0 0.5px rgba(255, 255, 255, 0.62), 57.2cqw 568.1px 0 0.9px rgba(255, 255, 255, 0.72), 0.6cqw 381.6px 0 0.4px rgba(255, 255, 255, 0.81), 53.5cqw 635.9px 0 0.6px rgba(255, 255, 255, 0.5), 12.9cqw 681.6px 0 0.6px rgba(255, 255, 255, 0.47), 17.3cqw 96.6px 0 1.2px rgba(255, 255, 255, 0.44), 78.3cqw 408.9px 0 1.2px rgba(255, 255, 255, 0.71), 77.6cqw 648.6px 0 0.8px rgba(255, 255, 255, 0.43), 66.6cqw 618.1px 0 0.8px rgba(255, 255, 255, 0.41), 79.2cqw 632.1px 0 0.7px rgba(255, 255, 255, 0.76), 92.6cqw 482.7px 0 0.6px rgba(255, 255, 255, 0.8), 68.6cqw 152.1px 0 0.9px rgba(255, 255, 255, 0.76), 58cqw 309.4px 0 0.5px rgba(255, 255, 255, 0.49), 9.2cqw 201.2px 0 0.6px rgba(255, 255, 255, 0.61), 22.1cqw 399.5px 0 0.9px rgba(255, 255, 255, 0.87), 79.6cqw 202.3px 0 1px rgba(255, 255, 255, 0.94), 87.9cqw 13.7px 0 0.8px rgba(255, 255, 255, 0.71), 37.9cqw 511.5px 0 0.9px rgba(255, 255, 255, 0.99), 28.5cqw 472.1px 0 0.9px rgba(255, 255, 255, 0.84), 10cqw 605.9px 0 0.8px rgba(255, 255, 255, 0.97), 89cqw 54.2px 0 0.5px rgba(255, 255, 255, 0.83), 72.3cqw 578.4px 0 0.9px rgba(255, 255, 255, 0.83), 43cqw 448px 0 0.7px rgba(255, 255, 255, 0.44);
+  animation: zf-star-twinkle var(--zf-twinkle-duration, 4s) ease-in-out infinite;
+}
+.zodiac-flow::before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--zf-nebula-blur) * -1);
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(var(--zf-nebula-blur));
+  background-repeat: no-repeat;
+  background-image: radial-gradient(ellipse 55% 50% at 50% 50%, var(--zf-nebula-1) 0%, transparent 72%), radial-gradient(ellipse 50% 45% at 50% 50%, var(--zf-nebula-2) 0%, transparent 72%), radial-gradient(ellipse 65% 55% at 70% 50%, var(--zf-nebula-3) 0%, transparent 72%);
+  background-size: 70% 70%, 65% 65%, 60% 60%;
+  background-position: 20% 35%, 70% 60%, 45% 80%;
+  animation: zf-nebula-drift var(--zf-nebula-duration) ease-in-out infinite alternate;
+}
+.zodiac-flow > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes zf-star-twinkle {
+  0%, 100% {
+    box-shadow: 75cqw 719.7px 0 0.6px rgba(255, 255, 255, 0.52), 90.4cqw 305.1px 0 1px rgba(255, 255, 255, 0.44), 98.6cqw 654.5px 0 1.1px rgba(255, 255, 255, 0.89), 25.1cqw 415.3px 0 0.8px rgba(255, 255, 255, 0.97), 5.7cqw 242.9px 0 0.8px rgba(255, 255, 255, 0.75), 79.9cqw 332.4px 0 1.2px rgba(255, 255, 255, 0.9), 1.5cqw 0.8px 0 1px rgba(255, 255, 255, 0.83), 74.1cqw 528.6px 0 0.7px rgba(255, 255, 255, 0.93), 85.1cqw 233.8px 0 1px rgba(255, 255, 255, 0.76), 74.4cqw 19.2px 0 0.9px rgba(255, 255, 255, 0.76), 34.3cqw 13.5px 0 0.6px rgba(255, 255, 255, 0.65), 64.7cqw 292.3px 0 1.1px rgba(255, 255, 255, 0.69), 29.3cqw 173.7px 0 0.7px rgba(255, 255, 255, 0.47), 52.3cqw 431.4px 0 0.6px rgba(255, 255, 255, 0.74), 5.7cqw 455.5px 0 1.1px rgba(255, 255, 255, 0.97), 30.1cqw 154.9px 0 1.2px rgba(255, 255, 255, 0.74), 83.1cqw 297.9px 0 0.5px rgba(255, 255, 255, 0.54), 29.6cqw 175.5px 0 1px rgba(255, 255, 255, 0.81), 31cqw 448.7px 0 1.2px rgba(255, 255, 255, 0.81), 69.5cqw 197px 0 0.7px rgba(255, 255, 255, 0.99), 24.9cqw 363.2px 0 0.7px rgba(255, 255, 255, 0.82), 11.6cqw 356.2px 0 0.4px rgba(255, 255, 255, 0.76), 46.1cqw 633.4px 0 0.4px rgba(255, 255, 255, 0.58), 58.6cqw 598.3px 0 1.1px rgba(255, 255, 255, 0.76), 40.8cqw 650.1px 0 0.5px rgba(255, 255, 255, 0.91), 46.5cqw 150.4px 0 0.9px rgba(255, 255, 255, 0.42), 4.5cqw 497.6px 0 1.2px rgba(255, 255, 255, 0.75), 18.4cqw 541.6px 0 0.4px rgba(255, 255, 255, 0.81), 78.5cqw 300.5px 0 1.1px rgba(255, 255, 255, 0.78), 83.3cqw 280.4px 0 0.5px rgba(255, 255, 255, 0.52), 64.8cqw 688.4px 0 0.4px rgba(255, 255, 255, 0.97), 9.1cqw 6.3px 0 1px rgba(255, 255, 255, 0.92), 38.8cqw 478.6px 0 1.1px rgba(255, 255, 255, 0.94), 11cqw 444px 0 1.2px rgba(255, 255, 255, 0.47), 59.8cqw 679.3px 0 0.7px rgba(255, 255, 255, 0.85), 90.7cqw 150.7px 0 1px rgba(255, 255, 255, 0.94), 50.8cqw 462.3px 0 0.8px rgba(255, 255, 255, 0.6), 68.9cqw 198.9px 0 0.6px rgba(255, 255, 255, 0.87), 1.1cqw 343.9px 0 1px rgba(255, 255, 255, 0.63), 28.6cqw 101.3px 0 0.5px rgba(255, 255, 255, 0.97), 62.9cqw 396.7px 0 0.5px rgba(255, 255, 255, 0.72), 92.5cqw 198.1px 0 0.4px rgba(255, 255, 255, 0.79), 51.9cqw 174.9px 0 1.1px rgba(255, 255, 255, 0.45), 49.6cqw 168.4px 0 0.7px rgba(255, 255, 255, 0.5), 70.6cqw 312.2px 0 0.8px rgba(255, 255, 255, 0.49), 21.6cqw 389.5px 0 0.9px rgba(255, 255, 255, 0.51), 36.3cqw 672.6px 0 0.5px rgba(255, 255, 255, 0.68), 66.8cqw 652.6px 0 0.9px rgba(255, 255, 255, 0.94), 94.3cqw 31.8px 0 0.8px rgba(255, 255, 255, 0.8), 1.6cqw 120.6px 0 0.9px rgba(255, 255, 255, 0.55), 15.1cqw 149px 0 1.2px rgba(255, 255, 255, 0.59), 36.7cqw 238.9px 0 1px rgba(255, 255, 255, 0.51), 77.8cqw 576.6px 0 0.8px rgba(255, 255, 255, 0.93), 64.9cqw 188.7px 0 1.1px rgba(255, 255, 255, 0.98), 24.7cqw 653.9px 0 0.4px rgba(255, 255, 255, 0.46), 19.7cqw 466.1px 0 0.4px rgba(255, 255, 255, 0.74), 19.6cqw 133.5px 0 0.9px rgba(255, 255, 255, 0.76), 63.1cqw 105.8px 0 0.5px rgba(255, 255, 255, 0.59), 96.1cqw 695.4px 0 0.6px rgba(255, 255, 255, 0.72), 6.2cqw 386.6px 0 1.2px rgba(255, 255, 255, 0.61), 12.8cqw 269.9px 0 1px rgba(255, 255, 255, 0.76), 25.5cqw 47.7px 0 0.6px rgb(255, 255, 255), 27.9cqw 239.9px 0 0.7px rgba(255, 255, 255, 0.97), 16.5cqw 487.2px 0 1.2px rgb(255, 255, 255), 54.5cqw 602.3px 0 0.9px rgba(255, 255, 255, 0.96), 65.5cqw 281.3px 0 1px rgba(255, 255, 255, 0.97), 41.4cqw 663.8px 0 0.5px rgba(255, 255, 255, 0.82), 58.2cqw 93.7px 0 1px rgba(255, 255, 255, 0.88), 34.3cqw 423.3px 0 1.1px rgba(255, 255, 255, 0.74), 8.3cqw 118.1px 0 0.6px rgba(255, 255, 255, 0.71), 6.8cqw 295px 0 0.4px rgba(255, 255, 255, 0.53), 56.1cqw 273.6px 0 1.1px rgba(255, 255, 255, 0.95), 20.6cqw 10px 0 1px rgba(255, 255, 255, 0.76), 70.7cqw 302.8px 0 0.4px rgba(255, 255, 255, 0.76), 73.6cqw 645.2px 0 1px rgba(255, 255, 255, 0.61), 12cqw 421.6px 0 1.2px rgba(255, 255, 255, 0.68), 99.9cqw 235.4px 0 1.2px rgba(255, 255, 255, 0.55), 70.2cqw 171.7px 0 0.6px rgba(255, 255, 255, 0.86), 4.4cqw 656.7px 0 0.4px rgba(255, 255, 255, 0.95), 80.7cqw 117.3px 0 0.5px rgba(255, 255, 255, 0.56), 44.5cqw 680.9px 0 0.9px rgba(255, 255, 255, 0.69), 82.8cqw 556.6px 0 1.2px rgba(255, 255, 255, 0.48), 1.9cqw 200.8px 0 0.7px rgba(255, 255, 255, 0.9), 1.1cqw 550.6px 0 0.4px rgba(255, 255, 255, 0.93), 4.8cqw 200.6px 0 0.8px rgba(255, 255, 255, 0.83), 27.7cqw 643.7px 0 0.5px rgba(255, 255, 255, 0.68), 77.6cqw 47.3px 0 0.7px rgba(255, 255, 255, 0.75), 59.6cqw 420px 0 0.8px rgba(255, 255, 255, 0.56), 12.5cqw 503.1px 0 1px rgba(255, 255, 255, 0.88), 86.4cqw 431.9px 0 0.8px rgba(255, 255, 255, 0.99), 69.4cqw 283.3px 0 0.9px rgba(255, 255, 255, 0.72), 30.2cqw 706.8px 0 1.2px rgb(255, 255, 255), 48.4cqw 196.9px 0 1.1px rgba(255, 255, 255, 0.43), 2.4cqw 683.3px 0 1px rgba(255, 255, 255, 0.83), 6.5cqw 233.3px 0 0.5px rgba(255, 255, 255, 0.65), 41.8cqw 272.4px 0 0.5px rgba(255, 255, 255, 0.72), 80.4cqw 60.5px 0 0.6px rgba(255, 255, 255, 0.75), 13.9cqw 338.4px 0 1.1px rgba(255, 255, 255, 0.45), 29.5cqw 76.7px 0 1px rgba(255, 255, 255, 0.77), 95.5cqw 552.6px 0 0.6px rgba(255, 255, 255, 0.87), 49.5cqw 178.3px 0 0.5px rgba(255, 255, 255, 0.99), 19.1cqw 490.2px 0 1.1px rgba(255, 255, 255, 0.82), 84.4cqw 655.2px 0 0.9px rgba(255, 255, 255, 0.53), 49.9cqw 505.5px 0 0.6px rgba(255, 255, 255, 0.61), 73.1cqw 211.3px 0 1.2px rgba(255, 255, 255, 0.84), 15.9cqw 655.9px 0 1.2px rgba(255, 255, 255, 0.59), 23.2cqw 437.2px 0 1px rgba(255, 255, 255, 0.93), 94.8cqw 309.4px 0 0.5px rgba(255, 255, 255, 0.82), 70.7cqw 187.9px 0 0.5px rgba(255, 255, 255, 0.9), 55.3cqw 682.4px 0 1.2px rgba(255, 255, 255, 0.86), 26cqw 575.5px 0 0.9px rgba(255, 255, 255, 0.93), 61.7cqw 86.6px 0 0.9px rgba(255, 255, 255, 0.85), 6.9cqw 147px 0 0.6px rgba(255, 255, 255, 0.83), 56.4cqw 377px 0 1px rgba(255, 255, 255, 0.54), 71.9cqw 442.9px 0 1px rgba(255, 255, 255, 0.92), 35.2cqw 518.8px 0 1.1px rgba(255, 255, 255, 0.99), 52.3cqw 353px 0 1.1px rgba(255, 255, 255, 0.55), 94.5cqw 192.8px 0 1.2px rgba(255, 255, 255, 0.41), 39.8cqw 380.3px 0 0.4px rgba(255, 255, 255, 0.62), 29.4cqw 464.5px 0 0.7px rgba(255, 255, 255, 0.59), 9.8cqw 255px 0 0.7px rgba(255, 255, 255, 0.48), 1.5cqw 227.6px 0 0.9px rgba(255, 255, 255, 0.81), 60.1cqw 170.1px 0 0.5px rgba(255, 255, 255, 0.68), 80.7cqw 346px 0 0.9px rgba(255, 255, 255, 0.44), 71.7cqw 508.8px 0 0.9px rgba(255, 255, 255, 0.42), 70.2cqw 504.1px 0 1px rgba(255, 255, 255, 0.96), 95.4cqw 516px 0 0.5px rgba(255, 255, 255, 0.87), 90.1cqw 438.2px 0 1.2px rgba(255, 255, 255, 0.73), 40.2cqw 238.1px 0 0.4px rgba(255, 255, 255, 0.64), 10.1cqw 551.2px 0 0.7px rgba(255, 255, 255, 0.56), 18.4cqw 283.4px 0 0.8px rgba(255, 255, 255, 0.63), 83.6cqw 430px 0 1.1px rgba(255, 255, 255, 0.56), 57.8cqw 668.4px 0 1.2px rgba(255, 255, 255, 0.76), 33.6cqw 623.9px 0 0.5px rgba(255, 255, 255, 0.41), 27.7cqw 282.8px 0 1.2px rgba(255, 255, 255, 0.66), 42.1cqw 5.3px 0 1px rgba(255, 255, 255, 0.93), 2.4cqw 64.8px 0 0.6px rgba(255, 255, 255, 0.83), 89.1cqw 45.4px 0 1.2px rgba(255, 255, 255, 0.49), 12.5cqw 483.9px 0 0.4px rgba(255, 255, 255, 0.77), 34.3cqw 538.3px 0 0.9px rgba(255, 255, 255, 0.52), 18.3cqw 157.6px 0 1.1px rgba(255, 255, 255, 0.64), 35.1cqw 506.7px 0 0.6px rgba(255, 255, 255, 0.67), 90.6cqw 656.6px 0 0.8px rgba(255, 255, 255, 0.63), 71.5cqw 28.4px 0 0.9px rgba(255, 255, 255, 0.64), 22.4cqw 386.3px 0 0.9px rgba(255, 255, 255, 0.5), 80.2cqw 387.3px 0 0.5px rgba(255, 255, 255, 0.94), 18.8cqw 182.4px 0 0.9px rgba(255, 255, 255, 0.59), 22.5cqw 700.8px 0 0.7px rgba(255, 255, 255, 0.77), 28.5cqw 166.8px 0 1px rgba(255, 255, 255, 0.46), 79.5cqw 375px 0 0.4px rgba(255, 255, 255, 0.74), 43.1cqw 542.2px 0 0.4px rgba(255, 255, 255, 0.57), 32cqw 654.3px 0 0.9px rgba(255, 255, 255, 0.59), 0.8cqw 508.2px 0 0.8px rgba(255, 255, 255, 0.74), 28.5cqw 379.3px 0 0.7px rgba(255, 255, 255, 0.75), 85.9cqw 348.2px 0 0.8px rgba(255, 255, 255, 0.63), 91.4cqw 271.7px 0 1px rgba(255, 255, 255, 0.5), 3.6cqw 587.1px 0 0.8px rgba(255, 255, 255, 0.78), 45.3cqw 284.4px 0 1.1px rgba(255, 255, 255, 0.44), 36.3cqw 88.3px 0 1.1px rgba(255, 255, 255, 0.58), 74.4cqw 175.1px 0 1.1px rgba(255, 255, 255, 0.45), 83.8cqw 573.1px 0 0.6px rgba(255, 255, 255, 0.97), 54.2cqw 425.3px 0 1.2px rgba(255, 255, 255, 0.77), 5.3cqw 371.7px 0 0.7px rgba(255, 255, 255, 0.83), 95.7cqw 341.6px 0 0.5px rgba(255, 255, 255, 0.86), 1.3cqw 477.9px 0 0.7px rgba(255, 255, 255, 0.99), 50.2cqw 230.8px 0 0.8px rgba(255, 255, 255, 0.73), 65.3cqw 344.6px 0 1.2px rgba(255, 255, 255, 0.86), 37.5cqw 300.2px 0 0.6px rgba(255, 255, 255, 0.64), 40.4cqw 434px 0 0.8px rgba(255, 255, 255, 0.62), 35.5cqw 442.4px 0 0.9px rgba(255, 255, 255, 0.49), 99.1cqw 111.5px 0 0.7px rgba(255, 255, 255, 0.78), 23.6cqw 595.9px 0 0.5px rgba(255, 255, 255, 0.76), 86cqw 514.5px 0 1px rgba(255, 255, 255, 0.89), 43cqw 688.7px 0 0.6px rgba(255, 255, 255, 0.98), 12.7cqw 664.9px 0 1px rgba(255, 255, 255, 0.6), 21.8cqw 347.2px 0 1.1px rgba(255, 255, 255, 0.82), 92.6cqw 211.7px 0 1px rgba(255, 255, 255, 0.85), 80.9cqw 312.3px 0 1.2px rgba(255, 255, 255, 0.62), 11.1cqw 627.2px 0 1px rgba(255, 255, 255, 0.66), 35cqw 427.2px 0 1.1px rgba(255, 255, 255, 0.96), 56cqw 343.3px 0 0.8px rgba(255, 255, 255, 0.86), 90.9cqw 93.6px 0 0.7px rgba(255, 255, 255, 0.86), 28.6cqw 72.3px 0 0.4px rgba(255, 255, 255, 0.45), 88.5cqw 476.9px 0 0.6px rgba(255, 255, 255, 0.43), 28.9cqw 169.7px 0 1.1px rgba(255, 255, 255, 0.79), 39.5cqw 511.2px 0 1px rgba(255, 255, 255, 0.9), 21.5cqw 72.7px 0 1.1px rgba(255, 255, 255, 0.48), 79.8cqw 575.1px 0 1px rgba(255, 255, 255, 0.73), 52.1cqw 648px 0 1px rgba(255, 255, 255, 0.69), 52.7cqw 396.4px 0 0.5px rgba(255, 255, 255, 0.54), 69.5cqw 353.2px 0 0.9px rgba(255, 255, 255, 0.45), 97.9cqw 659.3px 0 0.5px rgba(255, 255, 255, 0.88), 14.4cqw 469.5px 0 0.4px rgba(255, 255, 255, 0.9), 32cqw 38.3px 0 0.9px rgba(255, 255, 255, 0.43), 36.8cqw 572.1px 0 1px rgba(255, 255, 255, 0.77), 93.7cqw 197px 0 0.8px rgba(255, 255, 255, 0.86), 64.6cqw 59.6px 0 0.8px rgba(255, 255, 255, 0.66), 74.8cqw 708.9px 0 0.5px rgba(255, 255, 255, 0.62), 57.2cqw 568.1px 0 0.9px rgba(255, 255, 255, 0.72), 0.6cqw 381.6px 0 0.4px rgba(255, 255, 255, 0.81), 53.5cqw 635.9px 0 0.6px rgba(255, 255, 255, 0.5), 12.9cqw 681.6px 0 0.6px rgba(255, 255, 255, 0.47), 17.3cqw 96.6px 0 1.2px rgba(255, 255, 255, 0.44), 78.3cqw 408.9px 0 1.2px rgba(255, 255, 255, 0.71), 77.6cqw 648.6px 0 0.8px rgba(255, 255, 255, 0.43), 66.6cqw 618.1px 0 0.8px rgba(255, 255, 255, 0.41), 79.2cqw 632.1px 0 0.7px rgba(255, 255, 255, 0.76), 92.6cqw 482.7px 0 0.6px rgba(255, 255, 255, 0.8), 68.6cqw 152.1px 0 0.9px rgba(255, 255, 255, 0.76), 58cqw 309.4px 0 0.5px rgba(255, 255, 255, 0.49), 9.2cqw 201.2px 0 0.6px rgba(255, 255, 255, 0.61), 22.1cqw 399.5px 0 0.9px rgba(255, 255, 255, 0.87), 79.6cqw 202.3px 0 1px rgba(255, 255, 255, 0.94), 87.9cqw 13.7px 0 0.8px rgba(255, 255, 255, 0.71), 37.9cqw 511.5px 0 0.9px rgba(255, 255, 255, 0.99), 28.5cqw 472.1px 0 0.9px rgba(255, 255, 255, 0.84), 10cqw 605.9px 0 0.8px rgba(255, 255, 255, 0.97), 89cqw 54.2px 0 0.5px rgba(255, 255, 255, 0.83), 72.3cqw 578.4px 0 0.9px rgba(255, 255, 255, 0.83), 43cqw 448px 0 0.7px rgba(255, 255, 255, 0.44);
+  }
+  50% {
+    box-shadow: 75cqw 719.7px 0 0.6px rgba(255, 255, 255, 0.52), 90.4cqw 305.1px 0 1px rgba(255, 255, 255, 0.44), 98.6cqw 654.5px 0 1.1px rgba(255, 255, 255, 0.89), 25.1cqw 415.3px 0 0.8px rgba(255, 255, 255, 0.97), 5.7cqw 242.9px 0 0.8px rgba(255, 255, 255, 0.75), 79.9cqw 332.4px 0 1.2px rgba(255, 255, 255, 0.9), 1.5cqw 0.8px 0 1.7px rgba(255, 255, 255, 0.83), 74.1cqw 528.6px 0 0.7px rgba(255, 255, 255, 0.93), 85.1cqw 233.8px 0 1px rgba(255, 255, 255, 0.76), 74.4cqw 19.2px 0 0.9px rgba(255, 255, 255, 0.76), 34.3cqw 13.5px 0 1.2px rgba(255, 255, 255, 0.65), 64.7cqw 292.3px 0 1.1px rgba(255, 255, 255, 0.69), 29.3cqw 173.7px 0 0.7px rgba(255, 255, 255, 0.47), 52.3cqw 431.4px 0 0.6px rgba(255, 255, 255, 0.74), 5.7cqw 455.5px 0 1.1px rgba(255, 255, 255, 0.97), 30.1cqw 154.9px 0 1.2px rgba(255, 255, 255, 0.74), 83.1cqw 297.9px 0 0.5px rgba(255, 255, 255, 0.54), 29.6cqw 175.5px 0 1px rgba(255, 255, 255, 0.81), 31cqw 448.7px 0 1.2px rgba(255, 255, 255, 0.81), 69.5cqw 197px 0 0.7px rgba(255, 255, 255, 0.99), 24.9cqw 363.2px 0 0.7px rgba(255, 255, 255, 0.82), 11.6cqw 356.2px 0 0.4px rgba(255, 255, 255, 0.76), 46.1cqw 633.4px 0 0.4px rgba(255, 255, 255, 0.58), 58.6cqw 598.3px 0 1.1px rgba(255, 255, 255, 0.76), 40.8cqw 650.1px 0 0.5px rgba(255, 255, 255, 0.91), 46.5cqw 150.4px 0 0.9px rgba(255, 255, 255, 0.42), 4.5cqw 497.6px 0 1.2px rgba(255, 255, 255, 0.75), 18.4cqw 541.6px 0 0.4px rgba(255, 255, 255, 0.81), 78.5cqw 300.5px 0 1.87px rgba(255, 255, 255, 0.78), 83.3cqw 280.4px 0 0.5px rgba(255, 255, 255, 0.52), 64.8cqw 688.4px 0 0.4px rgba(255, 255, 255, 0.97), 9.1cqw 6.3px 0 1px rgba(255, 255, 255, 0.92), 38.8cqw 478.6px 0 2.64px rgba(255, 255, 255, 0.94), 11cqw 444px 0 1.2px rgba(255, 255, 255, 0.47), 59.8cqw 679.3px 0 0.7px rgba(255, 255, 255, 0.85), 90.7cqw 150.7px 0 1.7px rgba(255, 255, 255, 0.94), 50.8cqw 462.3px 0 0.8px rgba(255, 255, 255, 0.6), 68.9cqw 198.9px 0 0.6px rgba(255, 255, 255, 0.87), 1.1cqw 343.9px 0 1px rgba(255, 255, 255, 0.63), 28.6cqw 101.3px 0 0.5px rgba(255, 255, 255, 0.97), 62.9cqw 396.7px 0 0.5px rgba(255, 255, 255, 0.72), 92.5cqw 198.1px 0 0.4px rgba(255, 255, 255, 0.79), 51.9cqw 174.9px 0 1.1px rgba(255, 255, 255, 0.45), 49.6cqw 168.4px 0 0.7px rgba(255, 255, 255, 0.5), 70.6cqw 312.2px 0 0.8px rgba(255, 255, 255, 0.49), 21.6cqw 389.5px 0 0.9px rgba(255, 255, 255, 0.51), 36.3cqw 672.6px 0 0.5px rgba(255, 255, 255, 0.68), 66.8cqw 652.6px 0 0.9px rgba(255, 255, 255, 0.94), 94.3cqw 31.8px 0 0.8px rgba(255, 255, 255, 0.8), 1.6cqw 120.6px 0 0.9px rgba(255, 255, 255, 0.55), 15.1cqw 149px 0 1.2px rgba(255, 255, 255, 0.59), 36.7cqw 238.9px 0 1px rgba(255, 255, 255, 0.51), 77.8cqw 576.6px 0 0.8px rgba(255, 255, 255, 0.93), 64.9cqw 188.7px 0 1.1px rgba(255, 255, 255, 0.98), 24.7cqw 653.9px 0 0.4px rgba(255, 255, 255, 0.46), 19.7cqw 466.1px 0 0.4px rgba(255, 255, 255, 0.74), 19.6cqw 133.5px 0 1.53px rgba(255, 255, 255, 0.76), 63.1cqw 105.8px 0 0.5px rgba(255, 255, 255, 0.59), 96.1cqw 695.4px 0 0.6px rgba(255, 255, 255, 0.72), 6.2cqw 386.6px 0 1.2px rgba(255, 255, 255, 0.61), 12.8cqw 269.9px 0 1px rgba(255, 255, 255, 0.76), 25.5cqw 47.7px 0 0.6px rgb(255, 255, 255), 27.9cqw 239.9px 0 0.7px rgba(255, 255, 255, 0.97), 16.5cqw 487.2px 0 1.2px rgb(255, 255, 255), 54.5cqw 602.3px 0 0.9px rgba(255, 255, 255, 0.96), 65.5cqw 281.3px 0 1px rgba(255, 255, 255, 0.97), 41.4cqw 663.8px 0 0.5px rgba(255, 255, 255, 0.82), 58.2cqw 93.7px 0 1px rgba(255, 255, 255, 0.88), 34.3cqw 423.3px 0 1.1px rgba(255, 255, 255, 0.74), 8.3cqw 118.1px 0 0.6px rgba(255, 255, 255, 0.71), 6.8cqw 295px 0 0.4px rgba(255, 255, 255, 0.53), 56.1cqw 273.6px 0 1.1px rgba(255, 255, 255, 0.95), 20.6cqw 10px 0 1px rgba(255, 255, 255, 0.76), 70.7cqw 302.8px 0 0.4px rgba(255, 255, 255, 0.76), 73.6cqw 645.2px 0 1px rgba(255, 255, 255, 0.61), 12cqw 421.6px 0 1.2px rgba(255, 255, 255, 0.68), 99.9cqw 235.4px 0 1.2px rgba(255, 255, 255, 0.55), 70.2cqw 171.7px 0 0.72px rgba(255, 255, 255, 0.86), 4.4cqw 656.7px 0 0.4px rgba(255, 255, 255, 0.95), 80.7cqw 117.3px 0 0.6px rgba(255, 255, 255, 0.56), 44.5cqw 680.9px 0 0.99px rgba(255, 255, 255, 0.69), 82.8cqw 556.6px 0 1.2px rgba(255, 255, 255, 0.48), 1.9cqw 200.8px 0 0.7px rgba(255, 255, 255, 0.9), 1.1cqw 550.6px 0 0.4px rgba(255, 255, 255, 0.93), 4.8cqw 200.6px 0 0.8px rgba(255, 255, 255, 0.83), 27.7cqw 643.7px 0 0.5px rgba(255, 255, 255, 0.68), 77.6cqw 47.3px 0 0.7px rgba(255, 255, 255, 0.75), 59.6cqw 420px 0 0.8px rgba(255, 255, 255, 0.56), 12.5cqw 503.1px 0 1px rgba(255, 255, 255, 0.88), 86.4cqw 431.9px 0 0.8px rgba(255, 255, 255, 0.99), 69.4cqw 283.3px 0 0.9px rgba(255, 255, 255, 0.72), 30.2cqw 706.8px 0 2.52px rgb(255, 255, 255), 48.4cqw 196.9px 0 1.1px rgba(255, 255, 255, 0.43), 2.4cqw 683.3px 0 1px rgba(255, 255, 255, 0.83), 6.5cqw 233.3px 0 1.05px rgba(255, 255, 255, 0.65), 41.8cqw 272.4px 0 0.5px rgba(255, 255, 255, 0.72), 80.4cqw 60.5px 0 0.6px rgba(255, 255, 255, 0.75), 13.9cqw 338.4px 0 1.1px rgba(255, 255, 255, 0.45), 29.5cqw 76.7px 0 1px rgba(255, 255, 255, 0.77), 95.5cqw 552.6px 0 0.6px rgba(255, 255, 255, 0.87), 49.5cqw 178.3px 0 0.5px rgba(255, 255, 255, 0.99), 19.1cqw 490.2px 0 1.1px rgba(255, 255, 255, 0.82), 84.4cqw 655.2px 0 1.44px rgba(255, 255, 255, 0.53), 49.9cqw 505.5px 0 1.44px rgba(255, 255, 255, 0.61), 73.1cqw 211.3px 0 1.8px rgba(255, 255, 255, 0.84), 15.9cqw 655.9px 0 1.2px rgba(255, 255, 255, 0.59), 23.2cqw 437.2px 0 1px rgba(255, 255, 255, 0.93), 94.8cqw 309.4px 0 0.5px rgba(255, 255, 255, 0.82), 70.7cqw 187.9px 0 0.5px rgba(255, 255, 255, 0.9), 55.3cqw 682.4px 0 1.2px rgba(255, 255, 255, 0.86), 26cqw 575.5px 0 0.9px rgba(255, 255, 255, 0.93), 61.7cqw 86.6px 0 1.71px rgba(255, 255, 255, 0.85), 6.9cqw 147px 0 1.44px rgba(255, 255, 255, 0.83), 56.4cqw 377px 0 1px rgba(255, 255, 255, 0.54), 71.9cqw 442.9px 0 1px rgba(255, 255, 255, 0.92), 35.2cqw 518.8px 0 1.1px rgba(255, 255, 255, 0.99), 52.3cqw 353px 0 1.1px rgba(255, 255, 255, 0.55), 94.5cqw 192.8px 0 1.32px rgba(255, 255, 255, 0.41), 39.8cqw 380.3px 0 0.4px rgba(255, 255, 255, 0.62), 29.4cqw 464.5px 0 0.7px rgba(255, 255, 255, 0.59), 9.8cqw 255px 0 0.7px rgba(255, 255, 255, 0.48), 1.5cqw 227.6px 0 0.9px rgba(255, 255, 255, 0.81), 60.1cqw 170.1px 0 1.05px rgba(255, 255, 255, 0.68), 80.7cqw 346px 0 0.9px rgba(255, 255, 255, 0.44), 71.7cqw 508.8px 0 0.9px rgba(255, 255, 255, 0.42), 70.2cqw 504.1px 0 1px rgba(255, 255, 255, 0.96), 95.4cqw 516px 0 0.5px rgba(255, 255, 255, 0.87), 90.1cqw 438.2px 0 1.2px rgba(255, 255, 255, 0.73), 40.2cqw 238.1px 0 0.4px rgba(255, 255, 255, 0.64), 10.1cqw 551.2px 0 0.7px rgba(255, 255, 255, 0.56), 18.4cqw 283.4px 0 1.68px rgba(255, 255, 255, 0.63), 83.6cqw 430px 0 1.43px rgba(255, 255, 255, 0.56), 57.8cqw 668.4px 0 1.2px rgba(255, 255, 255, 0.76), 33.6cqw 623.9px 0 0.5px rgba(255, 255, 255, 0.41), 27.7cqw 282.8px 0 1.2px rgba(255, 255, 255, 0.66), 42.1cqw 5.3px 0 1px rgba(255, 255, 255, 0.93), 2.4cqw 64.8px 0 0.6px rgba(255, 255, 255, 0.83), 89.1cqw 45.4px 0 1.32px rgba(255, 255, 255, 0.49), 12.5cqw 483.9px 0 0.4px rgba(255, 255, 255, 0.77), 34.3cqw 538.3px 0 0.9px rgba(255, 255, 255, 0.52), 18.3cqw 157.6px 0 1.87px rgba(255, 255, 255, 0.64), 35.1cqw 506.7px 0 0.6px rgba(255, 255, 255, 0.67), 90.6cqw 656.6px 0 0.8px rgba(255, 255, 255, 0.63), 71.5cqw 28.4px 0 1.8px rgba(255, 255, 255, 0.64), 22.4cqw 386.3px 0 0.9px rgba(255, 255, 255, 0.5), 80.2cqw 387.3px 0 0.5px rgba(255, 255, 255, 0.94), 18.8cqw 182.4px 0 0.9px rgba(255, 255, 255, 0.59), 22.5cqw 700.8px 0 0.7px rgba(255, 255, 255, 0.77), 28.5cqw 166.8px 0 1px rgba(255, 255, 255, 0.46), 79.5cqw 375px 0 0.84px rgba(255, 255, 255, 0.74), 43.1cqw 542.2px 0 0.4px rgba(255, 255, 255, 0.57), 32cqw 654.3px 0 0.9px rgba(255, 255, 255, 0.59), 0.8cqw 508.2px 0 0.8px rgba(255, 255, 255, 0.74), 28.5cqw 379.3px 0 0.7px rgba(255, 255, 255, 0.75), 85.9cqw 348.2px 0 0.8px rgba(255, 255, 255, 0.63), 91.4cqw 271.7px 0 1px rgba(255, 255, 255, 0.5), 3.6cqw 587.1px 0 0.8px rgba(255, 255, 255, 0.78), 45.3cqw 284.4px 0 1.1px rgba(255, 255, 255, 0.44), 36.3cqw 88.3px 0 1.1px rgba(255, 255, 255, 0.58), 74.4cqw 175.1px 0 1.1px rgba(255, 255, 255, 0.45), 83.8cqw 573.1px 0 0.6px rgba(255, 255, 255, 0.97), 54.2cqw 425.3px 0 1.2px rgba(255, 255, 255, 0.77), 5.3cqw 371.7px 0 1.33px rgba(255, 255, 255, 0.83), 95.7cqw 341.6px 0 1.25px rgba(255, 255, 255, 0.86), 1.3cqw 477.9px 0 0.7px rgba(255, 255, 255, 0.99), 50.2cqw 230.8px 0 0.8px rgba(255, 255, 255, 0.73), 65.3cqw 344.6px 0 1.2px rgba(255, 255, 255, 0.86), 37.5cqw 300.2px 0 0.6px rgba(255, 255, 255, 0.64), 40.4cqw 434px 0 0.8px rgba(255, 255, 255, 0.62), 35.5cqw 442.4px 0 0.9px rgba(255, 255, 255, 0.49), 99.1cqw 111.5px 0 1.12px rgba(255, 255, 255, 0.78), 23.6cqw 595.9px 0 0.5px rgba(255, 255, 255, 0.76), 86cqw 514.5px 0 1px rgba(255, 255, 255, 0.89), 43cqw 688.7px 0 0.6px rgba(255, 255, 255, 0.98), 12.7cqw 664.9px 0 1px rgba(255, 255, 255, 0.6), 21.8cqw 347.2px 0 1.1px rgba(255, 255, 255, 0.82), 92.6cqw 211.7px 0 1px rgba(255, 255, 255, 0.85), 80.9cqw 312.3px 0 1.2px rgba(255, 255, 255, 0.62), 11.1cqw 627.2px 0 1px rgba(255, 255, 255, 0.66), 35cqw 427.2px 0 1.1px rgba(255, 255, 255, 0.96), 56cqw 343.3px 0 0.8px rgba(255, 255, 255, 0.86), 90.9cqw 93.6px 0 0.7px rgba(255, 255, 255, 0.86), 28.6cqw 72.3px 0 0.4px rgba(255, 255, 255, 0.45), 88.5cqw 476.9px 0 0.6px rgba(255, 255, 255, 0.43), 28.9cqw 169.7px 0 1.1px rgba(255, 255, 255, 0.79), 39.5cqw 511.2px 0 1px rgba(255, 255, 255, 0.9), 21.5cqw 72.7px 0 1.1px rgba(255, 255, 255, 0.48), 79.8cqw 575.1px 0 1px rgba(255, 255, 255, 0.73), 52.1cqw 648px 0 1px rgba(255, 255, 255, 0.69), 52.7cqw 396.4px 0 0.5px rgba(255, 255, 255, 0.54), 69.5cqw 353.2px 0 0.9px rgba(255, 255, 255, 0.45), 97.9cqw 659.3px 0 0.5px rgba(255, 255, 255, 0.88), 14.4cqw 469.5px 0 0.4px rgba(255, 255, 255, 0.9), 32cqw 38.3px 0 0.9px rgba(255, 255, 255, 0.43), 36.8cqw 572.1px 0 1px rgba(255, 255, 255, 0.77), 93.7cqw 197px 0 0.8px rgba(255, 255, 255, 0.86), 64.6cqw 59.6px 0 0.8px rgba(255, 255, 255, 0.66), 74.8cqw 708.9px 0 0.5px rgba(255, 255, 255, 0.62), 57.2cqw 568.1px 0 2.07px rgba(255, 255, 255, 0.72), 0.6cqw 381.6px 0 0.88px rgba(255, 255, 255, 0.81), 53.5cqw 635.9px 0 0.6px rgba(255, 255, 255, 0.5), 12.9cqw 681.6px 0 0.6px rgba(255, 255, 255, 0.47), 17.3cqw 96.6px 0 1.2px rgba(255, 255, 255, 0.44), 78.3cqw 408.9px 0 1.2px rgba(255, 255, 255, 0.71), 77.6cqw 648.6px 0 0.8px rgba(255, 255, 255, 0.43), 66.6cqw 618.1px 0 0.8px rgba(255, 255, 255, 0.41), 79.2cqw 632.1px 0 0.7px rgba(255, 255, 255, 0.76), 92.6cqw 482.7px 0 0.78px rgba(255, 255, 255, 0.8), 68.6cqw 152.1px 0 0.9px rgba(255, 255, 255, 0.76), 58cqw 309.4px 0 0.5px rgba(255, 255, 255, 0.49), 9.2cqw 201.2px 0 0.6px rgba(255, 255, 255, 0.61), 22.1cqw 399.5px 0 0.9px rgba(255, 255, 255, 0.87), 79.6cqw 202.3px 0 1px rgba(255, 255, 255, 0.94), 87.9cqw 13.7px 0 0.8px rgba(255, 255, 255, 0.71), 37.9cqw 511.5px 0 1.35px rgba(255, 255, 255, 0.99), 28.5cqw 472.1px 0 0.9px rgba(255, 255, 255, 0.84), 10cqw 605.9px 0 0.8px rgba(255, 255, 255, 0.97), 89cqw 54.2px 0 0.5px rgba(255, 255, 255, 0.83), 72.3cqw 578.4px 0 0.9px rgba(255, 255, 255, 0.83), 43cqw 448px 0 0.7px rgba(255, 255, 255, 0.44);
+  }
+}
+@keyframes zf-nebula-drift {
+  from {
+    transform: translate(0%, 0%) scale(1);
+  }
+  to {
+    transform: translate(4%, -3%) scale(1.06);
+  }
+}
+.zf-card {
+  position: absolute;
+  top: var(--zf-lane, 50%);
+  left: 0;
+  width: var(--zf-card-width);
+  height: var(--zf-card-height);
+  will-change: transform;
+  animation: zf-fly calc(var(--zf-max-duration) - var(--zf-depth) * (var(--zf-max-duration) - var(--zf-min-duration))) linear infinite;
+  animation-delay: var(--zf-delay, 0s);
+}
+
+.zf-card__depth {
+  width: 100%;
+  height: 100%;
+  perspective: 800px;
+  transform: scale(calc(0.45 + var(--zf-depth) * 0.55));
+  /* opacity: calc(0.15 + var(--zf-depth) * 0.65); */
+  /* filter: blur(calc((1 - var(--zf-depth)) * var(--zf-blur-max))); */
+}
+
+.zf-card__spin {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: zf-spin-z var(--zf-spin-duration, 12s) linear infinite;
+}
+
+.zf-card--spin-x > .zf-card__spin {
+  animation-name: zf-spin-x;
+}
+
+.zf-card--spin-y > .zf-card__spin {
+  animation-name: zf-spin-y;
+}
+
+.zf-card--spin-z > .zf-card__spin {
+  animation-name: zf-spin-z;
+}
+
+.zf-card__face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid var(--zf-border-color);
+  background: var(--zf-card-bg);
+  /* backdrop-filter: blur(6px); */
+  /* box-shadow:
+    0 0 10px 1px var(--zf-glow-color),
+    inset 0 0 10px 3px rgba(255, 255, 255, 0.04); */
+  color: var(--zf-content-color);
+}
+
+.zf-card__symbol {
+  font-family: "Segoe UI Symbol", "Noto Sans Symbols", "Noto Sans Symbols2", "DejaVu Sans", sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  font-variant-emoji: text;
+  color: var(--zf-content-color);
+  text-shadow: 0 0 8px var(--zf-glow-color), 0 0 18px var(--zf-glow-color);
+}
+
+.zf-card__constellation {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  color: var(--zf-content-color);
+  filter: drop-shadow(0 0 4px var(--zf-glow-color));
+}
+.zf-card__constellation circle {
+  fill: currentColor;
+}
+.zf-card__constellation polyline,
+.zf-card__constellation line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.85;
+}
+
+.zf-card__name {
+  font-size: 7px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--zf-content-color);
+  text-shadow: 0 0 8px var(--zf-glow-color);
+}
+
+@keyframes zf-fly {
   0% {
-    transform: translate(-47px, -47px) scale(1.55) rotate(0deg);
+    transform: translate(115cqw, 0%) rotate3d(1, 0, 0, 36.4047884886deg);
+  }
+  14% {
+    transform: translate(85cqw, -22%) rotate3d(1, 1, 1, 223.8561449835deg);
+  }
+  30% {
+    transform: translate(54cqw, 14%) rotate3d(1, 0, 1, 99.3852317964deg);
+  }
+  46% {
+    transform: translate(29cqw, -18%) rotate3d(1, 1, 1, 320.1858570389deg);
+  }
+  62% {
+    transform: translate(3cqw, 20%) rotate3d(1, 0, 1, 0deg);
+  }
+  78% {
+    transform: translate(-24cqw, -12%) rotate3d(0, 1, 1, 120deg);
   }
   100% {
-    transform: translate(-47px, -47px) scale(1.55) rotate(-360deg);
+    transform: translate(calc(-1 * var(--zf-card-width) - 143cqw), 8%) rotate3d(1, 0, 0, 30deg);
+  }
+}
+@keyframes zf-spin-x {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(360deg);
+  }
+}
+@keyframes zf-spin-y {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes zf-spin-z {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zf-card {
+    animation: none;
+    left: var(--zf-lane, 50%);
+  }
+  .zf-card__spin {
+    animation: none;
+  }
+  .zodiac-flow::before,
+  .zodiac-flow::after {
+    animation: none;
+  }
+}
+/* --- THEMES --------------------------------------------------------------- */
+.zodiac-flow.zf-theme-gold {
+  --zf-content-color: #ffe8b3;
+  --zf-glow-color: #fbbf24;
+  --zf-border-color: rgba(251, 191, 36, 0.35);
+  --zf-card-bg: rgba(28, 20, 6, 0.55);
+}
+
+.zodiac-flow.zf-theme-violet {
+  --zf-content-color: #e4d4ff;
+  --zf-glow-color: #a855f7;
+  --zf-border-color: rgba(168, 85, 247, 0.35);
+  --zf-card-bg: rgba(20, 12, 32, 0.55);
+}
+
+.zodiac-flow.zf-theme-rose {
+  --zf-content-color: #ffd6e5;
+  --zf-glow-color: #fb7185;
+  --zf-border-color: rgba(251, 113, 133, 0.35);
+  --zf-card-bg: rgba(30, 12, 18, 0.55);
+}
+
+/* --- RESPONSIVE ------------------------------------------------------------ */
+@media (max-width: 900px) {
+  .zodiac-flow {
+    --zf-card-width: 74px;
+    --zf-card-height: 94px;
+  }
+  .zf-card__face {
+    padding: 8px;
+    gap: 5px;
+  }
+  .zf-card__symbol {
+    font-size: 14px;
+  }
+  .zf-card__name {
+    font-size: 7px;
+  }
+}
+@media (max-width: 560px) {
+  .zodiac-flow {
+    --zf-card-width: 60px;
+    --zf-card-height: 76px;
+  }
+  .zf-card__face {
+    padding: 6px;
+    gap: 4px;
+  }
+  .zf-card__symbol {
+    font-size: 12px;
+  }
+  .zf-card__name {
+    font-size: 6px;
+    letter-spacing: 1px;
   }
 }

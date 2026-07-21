@@ -10,7 +10,7 @@
     <div class="nk-hero theme-rainbow">
       <div class="nk-grid"></div>
 
-      <!-- CONTAINER DO CALEIDOSCÓPICO DE POLÍGONOS -->
+      <!-- 1. O CALEIDOSCÓPICO: No topo em ecrãs pequenos e à esquerda no desktop -->
       <div class="nk-visual-container">
         <div class="nk-halo"></div>
 
@@ -22,7 +22,6 @@
           class="nk-svg-canvas"
         >
           <defs>
-            <!-- Filtro de super glow padrão para as estrelas externas -->
             <filter
               id="super-neon-glow"
               x="-50%"
@@ -39,9 +38,8 @@
               </feMerge>
             </filter>
 
-            <!-- FILTRO DE FOGO CONCENTRADO ESTÁTICO: Glow vermelho encasulado -->
             <filter
-              id="nk-fire-core-glow"
+              id="radial-fire-core-glow"
               x="-30%"
               y="-30%"
               width="160%"
@@ -64,7 +62,6 @@
               </feMerge>
             </filter>
 
-            <!-- Filtro de intensidade máxima para os raios laser exteriores -->
             <filter
               id="nk-beam-intense-glow"
               x="-100%"
@@ -81,7 +78,6 @@
               </feMerge>
             </filter>
 
-            <!-- GRADIENTES RADIAIS EXISTENTES -->
             <radialGradient
               id="radial-cyan"
               gradientUnits="userSpaceOnUse"
@@ -134,9 +130,7 @@
             </radialGradient>
           </defs>
 
-          <!-- GRUPO COM FILTRO GLOW PADRÃO PARA O CORPO -->
           <g filter="url(#super-neon-glow)">
-            <!-- CAMADA 5 (MÁXIMA EXTERIOR) -->
             <g class="nk-svg-layer nk-svg--outer">
               <polygon
                 fill="url(#radial-cyan)"
@@ -151,8 +145,6 @@
                 points="200.0,80.0 285.0,52.8 303.9,140.0 370.0,200.0 303.9,260.0 285.0,347.2 200.0,320.0 115.0,347.2 96.1,260.0 30.0,200.0 96.1,140.0 115.0,52.8 200.0,80.0 277.5,65.8 303.9,140.0 355.0,200.0 303.9,260.0 277.5,334.2 200.0,320.0 122.5,334.2 96.1,260.0 45.0,200.0 96.1,140.0 122.5,65.8"
               />
             </g>
-
-            <!-- CAMADA 4 (INTERMÉDIA EXTERIOR) -->
             <g class="nk-svg-layer nk-svg--mid-3">
               <polygon
                 fill="url(#radial-magenta)"
@@ -167,8 +159,6 @@
                 points="200.0,104.0 268.0,82.2 283.1,152.0 336.0,200.0 283.1,248.0 268.0,317.8 200.0,296.0 132.0,317.8 116.9,248.0 64.0,200.0 116.9,152.0 132.0,82.2 200.0,104.0 262.0,92.6 283.1,152.0 324.0,200.0 283.1,248.0 262.0,307.4 200.0,296.0 138.0,307.4 116.9,248.0 76.0,200.0 116.9,152.0 138.0,92.6"
               />
             </g>
-
-            <!-- CAMADA 3 (INTERMÉDIA INTERNA) -->
             <g class="nk-svg-layer nk-svg--mid-2">
               <polygon
                 fill="url(#radial-orange)"
@@ -179,24 +169,18 @@
             </g>
           </g>
 
-          <!-- ESTRELA CENTRAL DE 24 PONTAS PURAS (ÚNICA PATH CENTRALIZADA EM 200,200 — GLOW VERMELHO FIXO) -->
-          <!-- ESTRELA CENTRAL DE 24 PONTAS CORRIGIDA (CENTRALIZADA EM 200,200 — RODA NO CENTRO REAL) -->
-          <!-- ESTRELA CENTRAL DE 24 PONTAS ULTRA-SIMÉTRICA (GEOMETRIA RADIAL CORRIGIDA) -->
-          <!-- ESTRELA CENTRAL DE 24 PONTAS (A TUA PATH ORIGINAL INTEGRAL) -->
           <g
-            filter="url(#radial-fire-core-glow)"
+            filter="url(#nk-fire-core-glow)"
             class="nk-svg-layer nk-svg--core-star-24"
           >
-            <!-- Restaurado o teu código original exato com stroke="none" e preenchimento amarelo brilhante -->
             <path
-              d="M 247 200 L 248.044 239.068 L 257.353 208.363 L 250.061 239.609 L 267 212.359 L 251.87 240.653 L 275.284 218.716 L 253.347 242.13 L 281.641 227 L 254.391 243.939 L 285.637 236.647 L 254.932 245.956 L 294 247 L 254.932 248.044 L 285.637 257.353 L 254.391 250.061 L 281.641 267 L 253.347 251.87 L 275.284 275.284 L 251.87 253.347 L 267 281.641 L 250.061 254.391 L 257.353 285.637 L 248.044 254.932 L 247 294 L 245.956 254.932 L 236.647 285.637 L 243.939 254.391 L 227 281.641 L 242.13 253.347 L 218.716 275.284 L 240.653 251.87 L 212.359 267 L 239.609 250.061 L 208.363 257.353 L 239.068 248.044 L 200 247 L 239.068 245.956 L 208.363 236.647 L 239.609 243.939 L 212.359 227 L 240.653 242.13 L 218.716 218.716 L 242.13 240.653 L 227 212.359 L 243.939 239.609 L 236.647 208.363 L 245.956 239.068 L 247 200 Z"
+              d="M 200 153 L 201.044 192.068 L 210.353 161.363 L 203.061 192.609 L 220 165.359 L 204.87 193.653 L 228.284 171.716 L 206.347 195.13 L 234.641 180 L 207.391 196.939 L 238.637 189.647 L 207.932 198.956 L 247 200 L 207.932 201.044 L 238.637 210.353 L 207.391 203.061 L 234.641 220 L 206.347 204.87 L 228.284 228.284 L 204.87 206.347 L 220 234.641 L 203.061 207.391 L 210.353 238.637 L 201.044 207.932 L 200 247 L 198.956 207.932 L 189.647 238.637 L 196.939 207.391 L 180 234.641 L 195.13 206.347 L 171.716 228.284 L 193.653 204.87 L 165.359 220 L 192.609 203.061 L 161.363 210.353 L 192.068 201.044 L 153 200 L 192.068 198.956 L 161.363 189.647 L 192.609 196.939 L 165.359 180 L 193.653 195.13 L 171.716 171.716 L 195.13 193.653 L 180 165.359 L 196.939 192.609 L 189.647 161.363 L 198.956 192.068 L 200 153 Z"
               fill="#ffff00"
               stroke="none"
               class="nk-static-glow-path"
             />
           </g>
 
-          <!-- GRUPO ISOLADO SÓ PARA OS RAIOS EXTERIORES ULTRA-LONGOS -->
           <g filter="url(#nk-beam-intense-glow)">
             <g class="nk-svg-beams-layer">
               <line
@@ -231,7 +215,6 @@
                 stroke="#00f0ff"
                 class="nk-ray-line nk-ray-4"
               />
-
               <line
                 x1="303.9"
                 y1="140"
@@ -269,13 +252,14 @@
         </svg>
       </div>
 
-      <!-- CONTEÚDO TEXTUAL DO HERO -->
+      <!-- 2. O TEXTO: Abaixo em telemóveis e à direita no desktop -->
       <div class="nk-content">
         <span class="nk-badge">MotionForge Edition</span>
         <h1 class="nk-title">Neon Kaleidoscope</h1>
         <p class="nk-description">
-          Uma mandala fractal com base em polígonos vazados e uma coroa
-          perimetral de 24 agulhas amarelas ultra-finas em contra-giro estável.
+          Uma composição caleidoscópica com base em polígonos vazados e uma
+          estrela cardinal de 24 agulhas amarelas envolta por plasma de fogo
+          estático.
         </p>
         <div class="nk-actions">
           <a href="#" class="nk-btn nk-btn-primary">Explorar Pack</a>

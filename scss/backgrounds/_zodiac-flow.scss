@@ -1,0 +1,418 @@
+/* ==========================================================================
+   BACKGROUNDS / _ZODIAC-FLOW.SCSS
+   Glowing zodiac cards drifting right-to-left at varying depth and speed.
+   Structure per card (each layer owns exactly one transform, so flight,
+   depth and spin never fight over the same `transform` property):
+     .zf-card         → animated translate (wind-blown right-to-left flight)
+     .zf-card__depth  → static scale/opacity/blur derived from --zf-depth
+     .zf-card__spin   → animated rotateX/Y/Z (tumble)
+     .zf-card__face   → the visible glowing panel (symbol, stars, name)
+   ========================================================================== */
+
+@use "sass:math";
+@use "sass:list";
+
+// Generates a *pair* of parallel `box-shadow` value lists of $count randomly
+// placed, randomly sized stars — chosen over stacking $count
+// radial-gradient() layers after benchmarking both (CDP
+// Performance.getMetrics, sustained 3s window): box-shadow stayed flat at
+// ~3-4ms of task time from 300 through 2000 shadows with ~0ms style-recalc
+// cost, while radial-gradient's style-recalc cost roughly doubled per
+// +1000 layers (1.2ms → 2.2ms) and then, at 3000 layers, exploded to 6.5s
+// of task time in a 3s window — effectively hanging the page.
+//
+// Every star gets identical $x/$y/$alpha in both lists; only $twinkle-share
+// of them get a bigger $radius in the "peak" list, same radius as the base
+// list for the rest. Animating `box-shadow` from the base list to the peak
+// list and back then only visibly changes size on that subset — the
+// non-twinkling majority's shadow entries are byte-identical between
+// keyframes, so nothing about them changes on screen — all from ONE
+// property animating on the existing element, no extra DOM.
+@function zf-star-frames($count, $twinkle-share: 0.16) {
+  $base: ();
+  $peak: ();
+  @for $i from 1 through $count {
+    $x: math.div(math.random(1000), 10) * 1cqw;
+    $y: math.div(math.random(7200), 10) * 1px;
+    $radius: math.div(math.random(9) + 3, 10) * 1px;
+    $alpha: math.div(math.random(60) + 40, 100);
+    $color: rgba(255, 255, 255, $alpha);
+
+    $base-shadow: $x $y 0 $radius $color;
+    $base: list.append($base, $base-shadow, comma);
+
+    $peak-shadow: $base-shadow;
+    @if math.random(1000) <= $twinkle-share * 1000 {
+      $peak-radius: $radius * math.div(math.random(15) + 10, 10);
+      $peak-shadow: $x $y 0 $peak-radius $color;
+    }
+    $peak: list.append($peak, $peak-shadow, comma);
+  }
+  @return ($base, $peak);
+}
+
+$zf-star-frames: zf-star-frames(220);
+$zf-stars-base: list.nth($zf-star-frames, 1);
+$zf-stars-peak: list.nth($zf-star-frames, 2);
+
+.zodiac-flow {
+  --zf-card-bg: rgba(12, 18, 38, 0.55);
+  --zf-border-color: rgba(157, 216, 255, 0.35);
+  --zf-content-color: #bfe4ff;
+  --zf-glow-color: #7dd3fc;
+  --zf-card-width: 72px;
+  --zf-card-height: 98px;
+  --zf-min-duration: 44s;
+  --zf-max-duration: 60s;
+  --zf-blur-max: 3px;
+  --zf-background: #060912;
+  --zf-star-opacity: 0.8;
+  --zf-twinkle-duration: 4s;
+  --zf-nebula-1: rgba(99, 102, 241, 0.35);
+  --zf-nebula-2: rgba(6, 182, 212, 0.28);
+  --zf-nebula-3: rgba(217, 70, 239, 0.32);
+  --zf-nebula-blur: 60px;
+  --zf-nebula-duration: 90s;
+
+  perspective: 550px;
+  transform: perspective(23rem);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  container-type: inline-size;
+  width: 100%;
+  min-height: clamp(420px, 70vh, 720px);
+  background-color: var(--zf-background);
+
+  // Starfield: a single 0×0 box whose only visible content is its
+  // box-shadow list — each shadow is a small circular "copy" of that
+  // invisible point, so 220 stars cost one paint of one shadow list rather
+  // than 220 separate gradients. z-index:0 keeps it behind the z-index:1
+  // cards despite ::after normally painting after real children. Animating
+  // box-shadow itself (base list ↔ peak list, see zf-star-frames above)
+  // gives a subset of stars a size-blink "twinkle" for free.
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: var(--zf-star-opacity);
+    box-shadow: $zf-stars-base;
+    animation: zf-star-twinkle var(--zf-twinkle-duration, 4s) ease-in-out
+      infinite;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: calc(var(--zf-nebula-blur) * -1);
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(var(--zf-nebula-blur));
+    background-repeat: no-repeat;
+    background-image:
+      radial-gradient(
+        ellipse 55% 50% at 50% 50%,
+        var(--zf-nebula-1) 0%,
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 50% 45% at 50% 50%,
+        var(--zf-nebula-2) 0%,
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 65% 55% at 70% 50%,
+        var(--zf-nebula-3) 0%,
+        transparent 72%
+      );
+    background-size:
+      70% 70%,
+      65% 65%,
+      60% 60%;
+    background-position:
+      20% 35%,
+      70% 60%,
+      45% 80%;
+    animation: zf-nebula-drift var(--zf-nebula-duration) ease-in-out infinite
+      alternate;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// Base list ↔ peak list (see zf-star-frames above) — identical shadow
+// entries stay identical across the animation and so read as static;
+// only the twinkle-share subset actually changes size.
+@keyframes zf-star-twinkle {
+  0%,
+  100% {
+    box-shadow: $zf-stars-base;
+  }
+  50% {
+    box-shadow: $zf-stars-peak;
+  }
+}
+
+@keyframes zf-nebula-drift {
+  from {
+    transform: translate(0%, 0%) scale(1);
+  }
+  to {
+    transform: translate(4%, -3%) scale(1.06);
+  }
+}
+
+.zf-card {
+  position: absolute;
+  top: var(--zf-lane, 50%);
+  left: 0;
+  width: var(--zf-card-width);
+  height: var(--zf-card-height);
+  will-change: transform;
+  animation: zf-fly
+    calc(
+      var(--zf-max-duration) - var(--zf-depth) *
+        (var(--zf-max-duration) - var(--zf-min-duration))
+    )
+    linear infinite;
+  animation-delay: var(--zf-delay, 0s);
+}
+
+.zf-card__depth {
+  width: 100%;
+  height: 100%;
+  perspective: 800px;
+  transform: scale(calc(0.45 + var(--zf-depth) * 0.55));
+  /* opacity: calc(0.15 + var(--zf-depth) * 0.65); */
+  /* filter: blur(calc((1 - var(--zf-depth)) * var(--zf-blur-max))); */
+}
+
+.zf-card__spin {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: zf-spin-z var(--zf-spin-duration, 12s) linear infinite;
+}
+
+.zf-card--spin-x > .zf-card__spin {
+  animation-name: zf-spin-x;
+}
+.zf-card--spin-y > .zf-card__spin {
+  animation-name: zf-spin-y;
+}
+.zf-card--spin-z > .zf-card__spin {
+  animation-name: zf-spin-z;
+}
+
+.zf-card__face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid var(--zf-border-color);
+  background: var(--zf-card-bg);
+  /* backdrop-filter: blur(6px); */
+  /* box-shadow:
+    0 0 10px 1px var(--zf-glow-color),
+    inset 0 0 10px 3px rgba(255, 255, 255, 0.04); */
+  color: var(--zf-content-color);
+}
+
+.zf-card__symbol {
+  font-family:
+    "Segoe UI Symbol", "Noto Sans Symbols", "Noto Sans Symbols2", "DejaVu Sans",
+    sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  // Astrological glyphs (U+2648–U+2653) fall back to a color emoji font on
+  // some platforms, which ignores `color` entirely — the font stack above
+  // prefers fonts with a monochrome text glyph, and this forces the text
+  // presentation on any font that offers both.
+  font-variant-emoji: text;
+  color: var(--zf-content-color);
+  text-shadow:
+    0 0 8px var(--zf-glow-color),
+    0 0 18px var(--zf-glow-color);
+}
+
+.zf-card__constellation {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  color: var(--zf-content-color);
+  filter: drop-shadow(0 0 4px var(--zf-glow-color));
+
+  circle {
+    fill: currentColor;
+  }
+
+  polyline,
+  line {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.85;
+  }
+}
+
+.zf-card__name {
+  font-size: 7px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--zf-content-color);
+  text-shadow: 0 0 8px var(--zf-glow-color);
+}
+
+// Net motion is a steady right-to-left drift, but neither the horizontal
+// spacing between stops nor the vertical offset is even — that unevenness
+// is what reads as wind gusts rather than a conveyor-belt slide.
+@keyframes zf-fly {
+  0% {
+    transform: translate(115cqw, 0%) rotate3d(1, 0, 0, math.random() * 360deg);
+  }
+  14% {
+    transform: translate(85cqw, -22%) rotate3d(1, 1, 1, math.random() * 360deg);
+  }
+  30% {
+    transform: translate(54cqw, 14%) rotate3d(1, 0, 1, math.random() * 360deg);
+  }
+  46% {
+    transform: translate(29cqw, -18%) rotate3d(1, 1, 1, math.random() * 360deg);
+  }
+  62% {
+    transform: translate(3cqw, 20%) rotate3d(1, 0, 1, 0deg);
+  }
+  78% {
+    transform: translate(-24cqw, -12%) rotate3d(0, 1, 1, 120deg);
+  }
+  100% {
+    transform: translate(calc(-1 * var(--zf-card-width) - 143cqw), 8%)
+      rotate3d(1, 0, 0, 30deg);
+  }
+}
+
+@keyframes zf-spin-x {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(360deg);
+  }
+}
+
+@keyframes zf-spin-y {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes zf-spin-z {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zf-card {
+    animation: none;
+    left: var(--zf-lane, 50%);
+  }
+
+  .zf-card__spin {
+    animation: none;
+  }
+
+  .zodiac-flow::before,
+  .zodiac-flow::after {
+    animation: none;
+  }
+}
+
+/* --- THEMES --------------------------------------------------------------- */
+
+.zodiac-flow.zf-theme-gold {
+  --zf-content-color: #ffe8b3;
+  --zf-glow-color: #fbbf24;
+  --zf-border-color: rgba(251, 191, 36, 0.35);
+  --zf-card-bg: rgba(28, 20, 6, 0.55);
+}
+
+.zodiac-flow.zf-theme-violet {
+  --zf-content-color: #e4d4ff;
+  --zf-glow-color: #a855f7;
+  --zf-border-color: rgba(168, 85, 247, 0.35);
+  --zf-card-bg: rgba(20, 12, 32, 0.55);
+}
+
+.zodiac-flow.zf-theme-rose {
+  --zf-content-color: #ffd6e5;
+  --zf-glow-color: #fb7185;
+  --zf-border-color: rgba(251, 113, 133, 0.35);
+  --zf-card-bg: rgba(30, 12, 18, 0.55);
+}
+
+/* --- RESPONSIVE ------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+  .zodiac-flow {
+    --zf-card-width: 74px;
+    --zf-card-height: 94px;
+  }
+
+  .zf-card__face {
+    padding: 8px;
+    gap: 5px;
+  }
+
+  .zf-card__symbol {
+    font-size: 14px;
+  }
+
+  .zf-card__name {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 560px) {
+  .zodiac-flow {
+    --zf-card-width: 60px;
+    --zf-card-height: 76px;
+  }
+
+  .zf-card__face {
+    padding: 6px;
+    gap: 4px;
+  }
+
+  .zf-card__symbol {
+    font-size: 12px;
+  }
+
+  .zf-card__name {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+}

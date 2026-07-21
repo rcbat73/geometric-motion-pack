@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zodiac Flow — MotionForge Edition</title>
+    <link rel="stylesheet" href="../css/motionforge.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: #05060d;
+      }
+
+      .zf-demo-content {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+        pointer-events: none;
+      }
+
+      .zf-badge {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 6px 14px;
+        border-radius: 4px;
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #7dd3fc;
+        margin-bottom: 18px;
+      }
+
+      .zf-title {
+        font-size: clamp(28px, 4.5vw, 46px);
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0 0 12px 0;
+        text-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+      }
+
+      .zf-description {
+        font-size: clamp(14px, 1.5vw, 16px);
+        color: #94a3b8;
+        max-width: 520px;
+        margin: 0;
+        text-shadow: 0 0 16px rgba(0, 0, 0, 0.9);
+      }
+
+      .zf-theme-switcher {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 18px;
+        background: #05060d;
+      }
+
+      .zf-theme-switcher button {
+        background: #111827;
+        color: #e5e7eb;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .zf-theme-switcher button.active {
+        outline: 2px solid #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="zodiac-flow" id="zf-preview">
+      <!-- Farthest cards first so nearer cards paint on top. -->
+      <div
+        class="zf-card zf-card--spin-x"
+        style="--zf-depth: 0.2; --zf-lane: 8%; --zf-delay: -3s; --zf-spin-duration: 22s"
+      >
+        <div class="zf-card__depth">
+          <div class="zf-card__spin">
+            <div class="zf-card__face">
+              <span class="zf-card__symbol">♋</span>
+              <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                <polyline points="30,20 40,45 35,70" />
+                <polyline points="40,45 60,55" />
+                <circle cx="30" cy="20" r="3" />
+                <circle cx="40" cy="45" r="3.4" />
+                <circle cx="35" cy="70" r="2.6" />
+                <circle cx="60" cy="55" r="2.6" />
+              </svg>
+              <span class="zf-card__name">Cancer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="zf-card zf-card--spin-y"
+        style="--zf-depth: 0.25; --zf-lane: 90%; --zf-delay: -9s; --zf-spin-duration: 20s"
+      >
+        <div class="zf-card__depth">
+          <div class="zf-card__spin">
+            <div class="zf-card__face">
+              <span class="zf-card__symbol">♑</span>
+              <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                <polyline points="10,30 30,55 50,65 70,50 90,30" />
+                <circle cx="10" cy="30" r="2.6" />
+                <circle cx="30" cy="55" r="3" />
+                <circle cx="50" cy="65" r="3.4" />
+                <circle cx="70" cy="50" r="3" />
+                <circle cx="90" cy="30" r="2.6" />
+              </svg>
+              <span class="zf-card__name">Capricornus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="zf-card zf-card--spin-y"
+        style="--zf-depth: 0.3; --zf-lane: 6%; --zf-delay: -1s; --zf-spin-duration: 18s"
+      >
+        <div class="zf-card__depth">
+          <div class="zf-card__spin">
+            <div class="zf-card__face">
+              <span class="zf-card__symbol">♈</span>
+              <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                <polyline points="10,70 30,55 45,60 65,35 80,40" />
+                <circle cx="10" cy="70" r="2.6" />
+                <circle cx="30" cy="55" r="3" />
+                <circle cx="45" cy="60" r="2.6" />
+                <circle cx="65" cy="35" r="3.4" />
+                <circle cx="80" cy="40" r="2.6" />
+              </svg>
+              <span class="zf-card__name">Aries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="zf-card zf-card--spin-x"
+        style="--zf-depth: 0.35; --zf-lane: 82%; --zf-delay: -13s; --zf-spin-duration: 16s"
+      >
+        <div class="zf-card__depth">
+          <div class="zf-card__spin">
+            <div class="zf-card__face">
+              <span class="zf-card__symbol">♏</span>
+              <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                <polyline
+                  points="10,20 20,35 35,45 50,50 65,55 75,68 80,82 68,88"
+                />
+                <circle cx="10" cy="20" r="2.4" />
+                <circle cx="20" cy="35" r="2.6" />
+                <circle cx="35" cy="45" r="2.8" />
+                <circle cx="50" cy="50" r="3" />
+                <circle cx="65" cy="55" r="2.8" />
+                <circle cx="75" cy="68" r="2.6" />
+                <circle cx="80" cy="82" r="3.2" />
+                <circle cx="68" cy="88" r="2.4" />
+              </svg>
+              <span class="zf-card__name">Scorpius</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="zf-card zf-card--spin-z"
+        style="--zf-depth: 0.45; --zf-lane: 70%; --zf-delay: -7s; --zf-spin-duration: 14s"
+      >
+        <div class="zf-card__depth">
+          <div class="zf-card__spin">
+            <div class="zf-card__face">
+              <span class="zf-card__symbol">♍</span>
+              <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                <polyline
+                  points="10,15 25,35 20,55 40,60 55,75 75,65 90,80"
+                />
+                <circle cx="10" cy="15" r="2.4" />
+                <circle cx="25" cy="35" r="2.8" />
+                <circle cx="20" cy="55" r="2.6" />
+                <circle cx="40" cy="60" r="3" />
+                <circle cx="55" cy="75" r="2.8" />
+                <circle cx="75" cy="65" r="2.6" />
+                <circle cx="90" cy="80" r="3.2" />
+              </svg>
+              <span class="zf-card__name">Virgo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="zf-card zf-card--spin-z"
+        style="--zf-depth: 0.5; --zf-lane: 33%; --zf-delay: -11s; --zf-spin-duration: 13s"
+      >
+        <div class="zf-card__depth">
+          <div class="zf-card__spin">
+            <div class="zf-card__face">
+              <span class="zf-card__symbol">♊</span>
+              <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                <polyline points="20,10 25,35 20,60 25,85" />
+                <polyline points="45,15 50,40 45,65 50,88" />
+                <line x1="20" y1="10" x2="45" y2="15" />
+                <circle cx="20" cy="10" r="2.6" />
+                <circle cx="25" cy="35" r="2.6" />
+                <circle cx="20" cy="60" r="2.6" />
+                <circle cx="25" cy="85" r="2.6" />
+                <circle cx="45" cy="15" r="2.6" />
+                <circle cx="50" cy="40" r="2.6" />
+                <circle cx="45" cy="65" r="2.6" />
+                <circle cx="50" cy="88" r="2.6" />
+              </svg>
+              <span class="zf-card__name">Gemini</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="zf-card zf-card--spin-y"
+        style="--zf-depth: 0.55; --zf-lane: 4%; --zf-delay: -16s; --zf-spin-duration: 15s"
+      >
+        <div class="zf-card__depth">
+          <div class="zf-card__spin">
+            <div class="zf-card__face">
+              <span class="zf-card__symbol">♒</span>
+              <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                <polyline
+                  points="10,25 25,40 20,60 35,70 50,55 65,68 80,50"
+                />
+                <circle cx="10" cy="25" r="2.4" />
+                <circle cx="25" cy="40" r="2.8" />
+                <circle cx="20" cy="60" r="2.6" />
+                <circle cx="35" cy="70" r="3" />
+                <circle cx="50" cy="55" r="2.6" />
+                <circle cx="65" cy="68" r="2.8" />
+                <circle cx="80" cy="50" r="3.2" />
+              </svg>
+              <span class="zf-card__name">Aquarius</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="zf-card zf-card--spin-x"
+        style="--zf-depth: 0.65; --zf-lane: 16%; --zf-delay: -19s; --zf-spin-duration: 12s"
+      >
+        <div class="zf-card__depth">
+          <div class="zf-card__spin">
+            <div class="zf-card__face">
+              <span class="zf-card__symbol">♎</span>
+              <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                <line x1="20" y1="60" x2="80" y2="60" />
+                <polyline points="35,60 50,25 65,60 35,60" />
+                <circle cx="20" cy="60" r="2.4" />
+                <circle cx="80" cy="60" r="2.4" />
+                <circle cx="35" cy="60" r="2.6" />
+                <circle cx="50" cy="25" r="3.2" />
+                <circle cx="65" cy="60" r="2.6" />
+              </svg>
+              <span class="zf-card__name">Libra</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="zf-card zf-card--spin-z"
+        style="--zf-depth: 0.7; --zf-lane: 60%; --zf-delay: -2s; --zf-spin-duration: 11s"
+      >
+        <div class="zf-card__depth">
+          <div class="zf-card__spin">
+            <div class="zf-card__face">
+              <span class="zf-card__symbol">♐</span>
+              <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                <polyline points="20,70 35,50 55,55 65,35 80,20" />
+                <polyline points="35,50 30,75" />
+                <circle cx="20" cy="70" r="2.6" />
+                <circle cx="35" cy="50" r="3" />
+                <circle cx="55" cy="55" r="2.6" />
+                <circle cx="65" cy="35" r="2.8" />
+                <circle cx="80" cy="20" r="3.2" />
+                <circle cx="30" cy="75" r="2.4" />
+              </svg>
+              <span class="zf-card__name">Sagittarius</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="zf-card zf-card--spin-x"
+        style="--zf-depth: 0.8; --zf-lane: 44%; --zf-delay: -22s; --zf-spin-duration: 10s"
+      >
+        <div class="zf-card__depth">
+          <div class="zf-card__spin">
+            <div class="zf-card__face">
+              <span class="zf-card__symbol">♉</span>
+              <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                <polyline points="15,20 35,45 55,40 75,60 90,80" />
+                <polyline points="35,45 20,65" />
+                <circle cx="15" cy="20" r="2.4" />
+                <circle cx="35" cy="45" r="3.6" />
+                <circle cx="55" cy="40" r="2.6" />
+                <circle cx="75" cy="60" r="2.8" />
+                <circle cx="90" cy="80" r="3" />
+                <circle cx="20" cy="65" r="2.4" />
+              </svg>
+              <span class="zf-card__name">Taurus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="zf-card zf-card--spin-y"
+        style="--zf-depth: 0.88; --zf-lane: 24%; --zf-delay: -5s; --zf-spin-duration: 9s"
+      >
+        <div class="zf-card__depth">
+          <div class="zf-card__spin">
+            <div class="zf-card__face">
+              <span class="zf-card__symbol">♓</span>
+              <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                <polyline points="15,20 25,10 30,20 20,28 15,20" />
+                <polyline points="20,28 45,55 70,80" />
+                <polyline points="70,80 80,72 85,82 75,90 70,80" />
+                <circle cx="15" cy="20" r="2.2" />
+                <circle cx="25" cy="10" r="2.2" />
+                <circle cx="30" cy="20" r="2.2" />
+                <circle cx="20" cy="28" r="2.4" />
+                <circle cx="45" cy="55" r="2.6" />
+                <circle cx="70" cy="80" r="2.4" />
+                <circle cx="80" cy="72" r="2.2" />
+                <circle cx="85" cy="82" r="2.2" />
+                <circle cx="75" cy="90" r="2.2" />
+              </svg>
+              <span class="zf-card__name">Pisces</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="zf-card zf-card--spin-z"
+        style="--zf-depth: 1; --zf-lane: 56%; --zf-delay: -26s; --zf-spin-duration: 8s"
+      >
+        <div class="zf-card__depth">
+          <div class="zf-card__spin">
+            <div class="zf-card__face">
+              <span class="zf-card__symbol">♌</span>
+              <svg class="zf-card__constellation" viewBox="0 0 100 100">
+                <polyline points="15,30 25,15 40,20 45,40 35,50" />
+                <polyline points="35,50 60,55 85,45" />
+                <polyline points="85,45 90,25" />
+                <circle cx="15" cy="30" r="2.6" />
+                <circle cx="25" cy="15" r="2.6" />
+                <circle cx="40" cy="20" r="2.6" />
+                <circle cx="45" cy="40" r="3" />
+                <circle cx="35" cy="50" r="2.6" />
+                <circle cx="60" cy="55" r="2.8" />
+                <circle cx="85" cy="45" r="3.4" />
+                <circle cx="90" cy="25" r="2.4" />
+              </svg>
+              <span class="zf-card__name">Leo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="zf-demo-content">
+        <span class="zf-badge">MotionForge Edition</span>
+        <h1 class="zf-title">Zodiac Flow</h1>
+        <p class="zf-description">
+          Glowing constellation cards drift right to left at varying depth
+          and speed — a pure-CSS starfield for hero and feature backgrounds.
+        </p>
+      </div>
+    </div>
+
+    <div class="zf-theme-switcher" role="tablist">
+      <button data-theme="" class="active">Ice</button>
+      <button data-theme="zf-theme-gold">Gold</button>
+      <button data-theme="zf-theme-violet">Violet</button>
+      <button data-theme="zf-theme-rose">Rose</button>
+    </div>
+
+    <script>
+      const preview = document.getElementById("zf-preview");
+      const buttons = document.querySelectorAll(".zf-theme-switcher button");
+
+      buttons.forEach((btn) =>
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const theme = btn.getAttribute("data-theme");
+          preview.className = theme ? `zodiac-flow ${theme}` : "zodiac-flow";
+        }),
+      );
+    </script>
+  </body>
+</html>

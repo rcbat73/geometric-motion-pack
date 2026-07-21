@@ -1,0 +1,164 @@
+/* ==========================================================================
+   BACKGROUNDS / _AURORA-GRID.SCSS
+   Premium ambient triangular-mesh background with slow-drifting aurora light.
+   Pure CSS: base element + ::before (aurora/glow/vignette) + ::after (grid).
+   ========================================================================== */
+
+.aurora-grid {
+  --ag-background: #0b1020;
+  --ag-line-color: rgba(120, 180, 255, 0.12);
+  --ag-glow-1: rgba(59, 130, 246, 0.58);
+  --ag-glow-2: rgba(139, 92, 246, 0.58);
+  --ag-glow-3: rgba(6, 182, 212, 0.54);
+  --ag-grid-size: 56px;
+  --ag-duration: 32s;
+  --grid-color: rgba(255, 255, 255, 0.21);
+  --dots-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 30%, var(--ag-glow-1), transparent 35%) top
+      right/200% 200%,
+    radial-gradient(circle at 80% 60%, var(--ag-glow-2), transparent 40%) top
+      right/200% 200%,
+    radial-gradient(circle at 45% 80%, var(--ag-glow-3), transparent 35%) top
+      right/200% 200%;
+
+  background-blend-mode: hard-light;
+  animation: mf-aurora-grid-drift 10s infinite alternate;
+}
+
+.aurora-grid::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--grid-color) 1px, transparent 0.21px);
+  background-size: 40.5px 50px;
+  background-position: 0 0;
+}
+
+.aurora-grid::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  filter: brightness(1.75) drop-shadow(0 0 30px red);
+  background:
+    linear-gradient(
+      30deg,
+      transparent 49%,
+      var(--grid-color) 1px,
+      var(--grid-color) 1px,
+      transparent 50%
+    ),
+    linear-gradient(
+      150deg,
+      transparent 49%,
+      var(--grid-color) 1px,
+      var(--grid-color) 1px,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at center,
+      var(--dots-color) 1px,
+      transparent 2px,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at left top,
+      var(--dots-color) 1px,
+      transparent 2px,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at right top,
+      var(--dots-color) 1px,
+      transparent 2px,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at left bottom,
+      var(--dots-color) 1px,
+      transparent 2px,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at right bottom,
+      var(--dots-color) 1px,
+      transparent 2px,
+      transparent 50%
+    );
+  background-blend-mode: hard-light;
+  background-size: 81px 48px;
+  background-position: 0 0;
+}
+
+@keyframes mf-aurora-grid-drift {
+  to {
+    background-position: top left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-grid {
+    animation: none;
+  }
+}
+
+/* --- THEMES --------------------------------------------------------------- */
+
+.aurora-grid.ag-theme-emerald {
+  --ag-glow-1: rgba(16, 185, 129, 0.58);
+  --ag-glow-2: rgba(20, 184, 166, 0.58);
+  --ag-glow-3: rgba(59, 130, 246, 0.54);
+}
+
+.aurora-grid.ag-theme-sunset {
+  --ag-glow-1: rgba(244, 114, 182, 0.58);
+  --ag-glow-2: rgba(251, 146, 60, 0.58);
+  --ag-glow-3: rgba(168, 85, 247, 0.54);
+}
+
+.aurora-grid.ag-theme-fire {
+  --ag-background: #120a08;
+  --ag-line-color: rgba(255, 160, 100, 0.12);
+  --ag-glow-1: rgba(249, 115, 22, 0.58);
+  --ag-glow-2: rgba(245, 158, 11, 0.58);
+  --ag-glow-3: rgba(239, 68, 68, 0.54);
+}
+
+.aurora-grid.ag-theme-arctic {
+  --ag-background: #0a1420;
+  --ag-line-color: rgba(200, 230, 255, 0.12);
+  --ag-glow-1: rgba(224, 242, 254, 0.58);
+  --ag-glow-2: rgba(125, 211, 252, 0.58);
+  --ag-glow-3: rgba(34, 211, 238, 0.54);
+}
+
+.aurora-grid.ag-theme-cosmic {
+  --ag-background: #07071a;
+  --ag-line-color: rgba(180, 140, 255, 0.12);
+  --ag-glow-1: rgba(30, 58, 138, 0.58);
+  --ag-glow-2: rgba(217, 70, 239, 0.58);
+  --ag-glow-3: rgba(124, 58, 237, 0.54);
+}
+
+/* --- RESPONSIVE ------------------------------------------------------------ */
+
+@media (max-width: 1024px) {
+  .aurora-grid {
+    --ag-grid-size: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .aurora-grid {
+    --ag-grid-size: 32px;
+  }
+}

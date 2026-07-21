@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(NODE_PATH=\"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\node_modules\" node \"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\zf-shot.js\")",
+      "Bash(NODE_PATH=\"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\node_modules\" node \"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\zf-star-color-check.js\")",
+      "Bash(NODE_PATH=\"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\node_modules\" node \"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\zf-nebula-check.js\")",
+      "Bash(NODE_PATH=\"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\node_modules\" node \"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\zf-twinkle-check.js\")",
+      "Bash(NODE_PATH=\"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\node_modules\" node \"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\zf-star-twinkle-check.js\")",
+      "Bash(NODE_PATH=\"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\node_modules\" node \"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\demo-themes-full-shot.js\")",
+      "Bash(NODE_PATH=\"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\node_modules\" node \"C:\\\\Users\\\\rcbat\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-rcbat-Documents-work-geometric-motion-pack\\\\63c531d3-50eb-4339-a107-f0f0d18ed2ce\\\\scratchpad\\\\hex-rays-shot.js\")"
+    ]
+  }
+}
