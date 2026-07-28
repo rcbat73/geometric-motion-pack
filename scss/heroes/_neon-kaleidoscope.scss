@@ -132,23 +132,28 @@
 }
 
 /* --- ESTRELA CENTRAL DE 24 PONTAS --- */
+// transform-origin/translate here match the star path's own true center
+// (200,200 in the 400x400 viewBox) — the path used to be authored off-center
+// at (247,247), which this -47,-47 translate + matching origin used to
+// compensate for; now that the path itself is centered at (200,200), both
+// values line up with it directly instead of correcting for an offset.
 .nk-svg--core-star-24 {
-  transform-origin: 247px 247px !important;
+  transform-origin: 200px 200px !important;
   animation: nkGiroReversoCardinal calc(var(--nk-speed-base) * 0.45) linear
     infinite;
 
   .nk-static-glow-path {
-    transform-origin: 247px 247px !important;
+    transform-origin: 200px 200px !important;
     filter: drop-shadow(0 0 5px #ff1a00) drop-shadow(0 0 1px #ff0000);
   }
 }
 
 @keyframes nkGiroReversoCardinal {
   0% {
-    transform: translate(-47px, -47px) scale(1.35) rotate(0deg);
+    transform: scale(1.35) rotate(0deg);
   }
   100% {
-    transform: translate(-47px, -47px) scale(1.35) rotate(-360deg);
+    transform: scale(1.35) rotate(-360deg);
   }
 }
 

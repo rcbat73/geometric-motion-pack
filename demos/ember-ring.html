@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ember Ring — MotionForge Edition</title>
+    <link rel="stylesheet" href="../css/motionforge.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        font-family: system-ui, -apple-system, sans-serif;
+        background: #05060d;
+        color: #f8fafc;
+        padding: 48px 24px;
+      }
+
+      .er-demo-content {
+        text-align: center;
+      }
+
+      .er-badge {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 6px 14px;
+        border-radius: 4px;
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #7dd3fc;
+        margin-bottom: 18px;
+        display: inline-block;
+      }
+
+      .er-title {
+        font-size: clamp(26px, 4vw, 38px);
+        font-weight: 700;
+        margin: 0 0 12px 0;
+      }
+
+      .er-description {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #94a3b8;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .er-stage {
+        width: 320px;
+        height: 320px;
+        display: grid;
+        place-items: center;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+      }
+
+      .er-controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        max-width: 620px;
+      }
+
+      .er-controls label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.7rem 0.85rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #e5e7eb;
+        font-size: 0.9rem;
+      }
+
+      .er-controls input[type="color"],
+      .er-controls input[type="range"] {
+        border: none;
+        background: transparent;
+        color: inherit;
+      }
+
+      .er-controls output {
+        min-width: 3.2rem;
+        text-align: right;
+        display: inline-block;
+        color: #94a3b8;
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="er-demo-content">
+      <span class="er-badge">MotionForge Edition</span>
+      <h1 class="er-title">Ember Ring</h1>
+      <p class="er-description">
+        Five sparks trace independent arcs before converging into a single
+        glowing ring — built from one shared color and timing set.
+      </p>
+    </div>
+
+    <div class="er-stage">
+      <div class="ember-ring" id="er-preview" aria-label="Ember ring loader">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <div class="er-controls">
+      <label>
+        Ring &amp; spark color
+        <input id="er-color-input" type="color" value="#7c3aed" />
+      </label>
+      <label>
+        Glow tint
+        <input id="er-glow-input" type="color" value="#7c3aed" />
+      </label>
+      <label>
+        Size
+        <input id="er-size-input" type="range" min="60" max="160" value="96" />
+        <output id="er-size-value">96px</output>
+      </label>
+      <label>
+        Spin speed
+        <input
+          id="er-spin-input"
+          type="range"
+          min="3"
+          max="16"
+          step="0.5"
+          value="8.8"
+        />
+        <output id="er-spin-value">8.8s</output>
+      </label>
+      <label>
+        Spark speed
+        <input
+          id="er-sparks-input"
+          type="range"
+          min="2"
+          max="8"
+          step="0.2"
+          value="4.4"
+        />
+        <output id="er-sparks-value">4.4s</output>
+      </label>
+    </div>
+
+    <script>
+      const preview = document.getElementById("er-preview");
+      const colorInput = document.getElementById("er-color-input");
+      const glowInput = document.getElementById("er-glow-input");
+      const sizeInput = document.getElementById("er-size-input");
+      const spinInput = document.getElementById("er-spin-input");
+      const sparksInput = document.getElementById("er-sparks-input");
+      const sizeValue = document.getElementById("er-size-value");
+      const spinValue = document.getElementById("er-spin-value");
+      const sparksValue = document.getElementById("er-sparks-value");
+
+      function hexToRgba(hex, alpha) {
+        const n = parseInt(hex.slice(1), 16);
+        const r = (n >> 16) & 255;
+        const g = (n >> 8) & 255;
+        const b = n & 255;
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+      }
+
+      function update() {
+        preview.style.setProperty("--rs-ring-color", colorInput.value);
+        preview.style.setProperty("--rs-spark-glow", hexToRgba(colorInput.value, 0.95));
+        preview.style.setProperty("--rs-glow-color", hexToRgba(glowInput.value, 0.18));
+        preview.style.setProperty("--rs-size", `${sizeInput.value}px`);
+        preview.style.setProperty("--rs-spin-duration", `${spinInput.value}s`);
+        preview.style.setProperty("--rs-sparks-duration", `${sparksInput.value}s`);
+        sizeValue.textContent = `${sizeInput.value}px`;
+        spinValue.textContent = `${spinInput.value}s`;
+        sparksValue.textContent = `${sparksInput.value}s`;
+      }
+
+      [colorInput, glowInput, sizeInput, spinInput, sparksInput].forEach((el) =>
+        el.addEventListener("input", update),
+      );
+      update();
+    </script>
+  </body>
+</html>

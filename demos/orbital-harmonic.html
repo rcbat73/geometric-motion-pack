@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orbital Harmonic — MotionForge Edition</title>
+    <link rel="stylesheet" href="../css/motionforge.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        font-family: system-ui, -apple-system, sans-serif;
+        background: #05060d;
+        color: #f8fafc;
+        padding: 48px 24px;
+      }
+
+      .oh-demo-content {
+        text-align: center;
+      }
+
+      .oh-badge {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 6px 14px;
+        border-radius: 4px;
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #7dd3fc;
+        margin-bottom: 18px;
+        display: inline-block;
+      }
+
+      .oh-title {
+        font-size: clamp(26px, 4vw, 38px);
+        font-weight: 700;
+        margin: 0 0 12px 0;
+      }
+
+      .oh-description {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #94a3b8;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .oh-stage {
+        width: 320px;
+        height: 320px;
+        display: grid;
+        place-items: center;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+      }
+
+      .oh-theme-switcher {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .oh-theme-switcher button {
+        background: #111827;
+        color: #e5e7eb;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .oh-theme-switcher button.active {
+        outline: 2px solid #ffffff;
+      }
+
+      /* Demo-only theme presets — the component itself only defines the
+         base look; these classes exist here (not in the SCSS) purely so
+         this page can demonstrate re-theming via the same CSS variables
+         every .orbital-harmonic instance already exposes. */
+      .orbital-theme-neon {
+        --oh-inner-color: #00f6ff;
+        --oh-middle-color: #7c3aed;
+        --oh-outer-color: #ff4d6d;
+        --oh-inner-duration: 4s;
+        --oh-middle-duration: 5.6s;
+        --oh-outer-duration: 7s;
+        --oh-inner-dot-duration: 2.6s;
+        --oh-middle-dot-duration: 4s;
+        --oh-outer-dot-duration: 5s;
+        --oh-inner-glow-1: rgba(0, 246, 255, 0.36);
+        --oh-inner-glow-2: rgba(0, 246, 255, 0.12);
+        --oh-outer-dot-glow: rgba(255, 77, 109, 0.95);
+      }
+      .orbital-theme-warm {
+        --oh-inner-color: #ffd6a5;
+        --oh-middle-color: #ffadad;
+        --oh-outer-color: #ff6b6b;
+        --oh-inner-duration: 5s;
+        --oh-outer-dot-duration: 6s;
+        --oh-outer-glow-1: rgba(255, 107, 107, 0.18);
+        --oh-outer-glow-2: rgba(255, 107, 107, 0.06);
+      }
+      .orbital-theme-subtle {
+        --oh-inner-color: #9ad1ff;
+        --oh-middle-color: #cbb4ff;
+        --oh-outer-color: #ffb0c0;
+        --oh-inner-duration: 5.6s;
+        --oh-middle-duration: 6.8s;
+        --oh-outer-duration: 8s;
+        --oh-inner-glow-1: rgba(154, 209, 255, 0.12);
+        --oh-inner-glow-2: rgba(154, 209, 255, 0.04);
+        --oh-outer-dot-glow: rgba(255, 176, 192, 0.9);
+      }
+      .orbital-theme-mono {
+        --oh-inner-color: #ffffff;
+        --oh-middle-color: #d1d5db;
+        --oh-outer-color: #9ca3af;
+        --oh-inner-duration: 5s;
+        --oh-outer-dot-duration: 6s;
+        --oh-inner-glow-1: rgba(255, 255, 255, 0.14);
+        --oh-inner-glow-2: rgba(255, 255, 255, 0.06);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="oh-demo-content">
+      <span class="oh-badge">MotionForge Edition</span>
+      <h1 class="oh-title">Orbital Harmonic</h1>
+      <p class="oh-description">
+        Three glowing orbitals spinning at independent speeds, each carrying
+        its own bright dot — a lightweight loader for any dark UI.
+      </p>
+    </div>
+
+    <div class="oh-stage">
+      <div class="orbital-harmonic" id="oh-preview" aria-label="Orbital harmonic loader">
+        <div class="ring ring--inner"></div>
+        <div class="ring ring--middle"></div>
+        <div class="ring ring--outer"></div>
+      </div>
+    </div>
+
+    <div class="oh-theme-switcher" role="tablist">
+      <button data-theme="" class="active">Default</button>
+      <button data-theme="orbital-theme-neon">Neon</button>
+      <button data-theme="orbital-theme-warm">Warm</button>
+      <button data-theme="orbital-theme-subtle">Subtle</button>
+      <button data-theme="orbital-theme-mono">Mono</button>
+    </div>
+
+    <script>
+      const preview = document.getElementById("oh-preview");
+      const buttons = document.querySelectorAll(".oh-theme-switcher button");
+
+      buttons.forEach((btn) =>
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const theme = btn.getAttribute("data-theme");
+          preview.className = theme
+            ? `orbital-harmonic ${theme}`
+            : "orbital-harmonic";
+        }),
+      );
+    </script>
+  </body>
+</html>

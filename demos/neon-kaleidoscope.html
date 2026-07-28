@@ -5,13 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neon Kaleidoscope — MotionForge Edition</title>
     <link rel="stylesheet" href="../css/motionforge.css" />
+    <style>
+      .nk-controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 18px;
+        background: #050505;
+      }
+
+      .nk-controls label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.7rem 0.85rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #e5e7eb;
+        font-size: 0.9rem;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+
+      .nk-controls output {
+        min-width: 3.5rem;
+        text-align: right;
+        display: inline-block;
+        color: #94a3b8;
+        font-size: 0.85rem;
+      }
+    </style>
   </head>
   <body>
     <div class="nk-hero theme-rainbow">
       <div class="nk-grid"></div>
 
       <!-- 1. O CALEIDOSCÓPICO: No topo em ecrãs pequenos e à esquerda no desktop -->
-      <div class="nk-visual-container">
+      <div class="nk-visual-container" id="nk-visual">
         <div class="nk-halo"></div>
 
         <svg
@@ -267,5 +298,42 @@
         </div>
       </div>
     </div>
+
+    <div class="nk-controls">
+      <label>
+        Size
+        <input id="nk-size-input" type="range" min="220" max="520" value="460" />
+        <output id="nk-size-value">460px</output>
+      </label>
+      <label>
+        Speed
+        <input
+          id="nk-speed-input"
+          type="range"
+          min="6"
+          max="26"
+          step="0.5"
+          value="14"
+        />
+        <output id="nk-speed-value">14s</output>
+      </label>
+    </div>
+
+    <script>
+      const visual = document.getElementById("nk-visual");
+      const sizeInput = document.getElementById("nk-size-input");
+      const speedInput = document.getElementById("nk-speed-input");
+      const sizeValue = document.getElementById("nk-size-value");
+      const speedValue = document.getElementById("nk-speed-value");
+
+      function update() {
+        visual.style.setProperty("--nk-size", `${sizeInput.value}px`);
+        visual.style.setProperty("--nk-speed-base", `${speedInput.value}s`);
+        sizeValue.textContent = `${sizeInput.value}px`;
+        speedValue.textContent = `${speedInput.value}s`;
+      }
+
+      [sizeInput, speedInput].forEach((el) => el.addEventListener("input", update));
+    </script>
   </body>
 </html>

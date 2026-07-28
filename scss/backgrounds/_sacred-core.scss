@@ -1,0 +1,1001 @@
+/* ==========================================================================
+   BACKGROUNDS / _SACRED-CORE.SCSS
+   A burst of luminous particles born at a small faceted "stone" turning
+   at their shared center, travelling outward and fading to nothing right
+   as they reach an (invisible) enclosing sphere, floating above a base of
+   expanding ripple rings fed by a straight beam of light from the
+   sphere's lowest point — all pure CSS/SVG, no JS, built on the same
+   real-3D techniques as backgrounds/crystal-nexus.
+
+   Each particle (.sac-particle) is placed with real spherical
+   trigonometry — a random longitude (rotateY) and latitude (rotateX),
+   generated once and never animated, exactly like the mesh's own baked
+   facet placements — but that only sets its DIRECTION. Its child
+   .sac-particle__dot is what actually moves: an ANIMATED individual
+   `translate` property sliding it from 0 (the shared center, where the
+   stone sits) straight out to the sphere's radius (where it dies, opacity
+   faded to 0 exactly as it arrives) along that already-fixed direction,
+   plus a static `rotate` (a different individual property, so it
+   coexists with the animated translate without clobbering it) pointing
+   the dot's own elongated shape — same width/height/box-shadow as
+   loaders/_arcane-portal's particle — along that same direction, so it
+   reads as a short radiating streak rather than a shape that stays
+   screen-vertical no matter which way it's travelling. Direction and
+   radial motion being on two different elements is what lets every
+   particle share ONE keyframe animation for the radial part — only each
+   instance's duration/delay (and its baked-in, unanimated direction)
+   differ.
+
+   filter is never used on an element that is itself a 3D transform's
+   ancestor (the bug class documented at length in crystal-nexus and
+   below, where .sac-core__glow hit it): every glow here is either a
+   plain blurred sibling positioned inside the SAME already-3D-placed
+   parent as the thing it's glowing, or box-shadow (particles) / a
+   radial-gradient fill / filter: drop-shadow() on a transform-less
+   preserve-3d element (the core's own glow) — box-shadow in particular
+   was confirmed empirically NOT to hit the same bug filter:blur() does,
+   even animated inside this exact 3D hierarchy.
+
+   Structure (DOM order):
+     .sacred-core              → full-bleed container, near-black background
+       .sac-dust                  → one 0×0 box; its box-shadow list draws
+                                 every background point in a single paint
+       .sac-stage                  → perspective root, anchored where the
+                                 burst's center belongs
+         .sac-particles-orbit        → 10 small embers orbiting close to
+                                 the stone on the XZ plane, independent of
+                                 the wider burst below
+         .sac-beam                   → flat vertical light shaft straight
+                                 down to the rings
+         .sac-sparks-center           → a burst of short-lived spark
+                                 streaks fired from the rings' center
+         .sac-rings                   → base anchor for the ripple rings,
+                                 tilted flat via rotateX(90deg)
+           .sac-ring (x5)                → expanding + fading circle,
+                                 staggered delay, "a drop forming waves in
+                                 a liquid"
+           .sac-rings-center             → bright fixed point the ripples
+                                 (and the rays below) are born at
+           .sac-rings-rays                → wrapper for the static ray lines
+             .sac-rings-ray (x8)             → fixed line from the center out
+                                 past the rings' own max reach, fading to
+                                 transparent — plain 2D `rotate` spread,
+                                 since .sac-rings already tilted this
+                                 whole plane flat
+         .sac-particles               → preserve-3d — shared 3D context for
+                                 the burst, nothing else
+           .sac-particle (x70)            → rotateY(longitude) rotateX(latitude),
+                                 static direction only, never animated
+             .sac-particle__dot             → the actual visible particle;
+                                 animated translate (0 → sphere radius)
+                                 + opacity + scale, "born, lives, dies"
+         .sac-lattice                 → a rotating faceted "gem" wireframe,
+                                 its own independent spin, encasing the
+                                 stone (see its own comment further down)
+           .sac-lattice__face (x6)        → 2 plain pole caps (border only)
+                                 + 4 side faces, each carrying the same
+                                 diagonal SVG wire, deliberately oversized
+                                 so 4 copies tile into one continuous
+                                 lattice
+           .sac-lattice__nodes             → preserve-3d wrapper, no
+                                 transform of its own
+             .sac-lattice__node (x10)         → bright point at each of the
+                                 hexahedron's corners, where adjacent
+                                 faces' lines meet
+         .sac-core                    → the central stone, at the same origin
+                                 as the burst but its OWN sibling — spins
+                                 only on its own animation, completely
+                                 unaffected by anything above it; also
+                                 carries the glow (filter: drop-shadow(),
+                                 hugging the mesh's real silhouette)
+             .sac-core__stage3d             → perspective root + a static
+                                 rotateX tilt exposing the mesh's top dome
+               .sac-core__rotator              → preserve-3d, animated
+                                 rotateY-equivalent spin (driven by the
+                                 registered --sac-core-angle custom
+                                 property) + static scale-down
+                 .mesh-3d                          → plain preserve-3d
+                                 wrapper, no transform of its own
+                   .face (x44)                        → one SVG per facet,
+                                 a Blender-exported matrix3d() placing/
+                                 orienting each, verbatim
+         .sac-core-lightning           → an SVG bolt travelling down from
+                                 the stone into the beam below, via an
+                                 animated stroke-dashoffset
+   ========================================================================== */
+
+@use "sass:math";
+@use "sass:list";
+@use "sass:map";
+@use "sass:string";
+
+// Registered as a typed length, not left as a plain custom property, so
+// it substitutes cleanly into the particle burst's `translate` end-state
+// below regardless of what unit a theme override supplies.
+@property --sac-radius {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 130px;
+}
+
+// Without this, --sac-core-angle is an unregistered custom property — the
+// browser can't interpolate an untyped value across a keyframe, so the
+// "animation" just silently jumps from 0deg to 360deg partway through
+// instead of sweeping smoothly, and since those two angles look IDENTICAL,
+// the stone reads as not rotating at all despite the animation genuinely
+// running.
+@property --sac-core-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+.sacred-core {
+  --sac-bg: #05040c;
+  --sac-glow-color: #fee8bc;
+  --sac-node-color: #ffd27a;
+  --sac-stone-tip: #fff3d6;
+  --sac-stone-mid: #ffb347;
+  --sac-stone-base: #f99633;
+  --sac-glow-color2: #ce47ff;
+  --sac-glow-color3: #ce47ff50;
+  --sac-dust-color: #ffffff;
+  --sac-spark-color: #ffffff;
+  --sac-lightning-color: #ffffff;
+  --sac-rings-center-color: #ffffff;
+  --sac-radius: 130px;
+  --sac-core-scale: 0.35 0.35 0.35;
+  --sac-core-duration: 12s;
+  --sac-lattice-duration: 15s;
+  --sac-ring-duration: 5s;
+  --sac-beam-duration: 4.5s;
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  width: 100%;
+  min-height: clamp(480px, 85vh, 820px);
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    #1e162e 0%,
+    #070611 55%,
+    #020103 100%
+  );
+
+  > * {
+    position: absolute;
+  }
+}
+
+@function create-starts($n) {
+  $value: "#{math.random(2000)}px #{math.random(2000)}px var(--sac-dust-color)";
+  @for $i from 2 through $n {
+    $value: "#{$value} , #{math.random(2000)}px #{math.random(2000)}px var(--sac-dust-color)";
+  }
+
+  @return string.unquote($value);
+}
+
+// Plain, flat ambient dust — no 3D, no dependency on the network below,
+// just scattered points behind everything else. A single 0×0 box whose
+// only visible content is its box-shadow list, same "one point, N shadow
+// copies" trick as zodiac-flow's own starfield.
+.sac-dust {
+  $sac-dust-count: 200;
+  $size: 0.01 * math.random($sac-dust-count) + px;
+  width: $size;
+  height: $size;
+  background: transparent;
+  box-shadow: create-starts($sac-dust-count);
+  opacity: 0.7;
+}
+
+.sac-stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  perspective: 1100px;
+  transform-style: preserve-3d;
+}
+
+// ── Base ripple rings ───────────────────────────────────────────────────
+// Anchored well below the network so the beam has somewhere to travel to.
+$sac-ray-count: 8;
+$sac-ray-length: 530px; // rings themselves cap out at 8px base radius × scale(30) = 240px
+
+.sac-rings {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 152px;
+  height: 152px;
+  z-index: 2;
+  transform: translateY(210px) rotateX(90deg);
+}
+
+// SVG circle + stroke, not a border-radius div — border-radius silently
+// failing inside a 3D-tilted animated context is the same bug class this
+// whole file keeps running into (see .sac-core__glow's own comment
+// further down); a real vector circle sidesteps it. Stroke is thin (1px)
+// rather than the original border — "too thick" — since with the rotateX
+// tilt above, a thick border would foreshorten unevenly around the
+// ellipse.
+.sac-ring {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  overflow: visible;
+  opacity: 0;
+  animation: sac-ripple var(--sac-ring-duration) linear infinite;
+
+  circle {
+    fill: none;
+    stroke: var(--sac-node-color);
+    stroke-width: 0.1px;
+  }
+}
+
+.sac-rings-center {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--sac-rings-center-color);
+  box-shadow: 0 0 25px 20px var(--sac-rings-center-color);
+}
+
+// Static lines from the same center the ripples are born at, out past
+// the rings' own max reach (8px base radius × scale(30) at 100% of
+// sac-ripple = 240px — these run to 270px, past every ring at every
+// point in its cycle, never just the ones currently near full size), a
+// linear-gradient fading them from the glow colour at the center to
+// fully transparent at the tip. A dedicated .sac-rings-rays wrapper, not
+// siblings mixed in with .sac-ring/.sac-rings-center — this pack has hit
+// the bug that causes before (point-to-point connections, when they
+// briefly lived directly among .sac-point): mixed-in :nth-child(#{$i})
+// selectors get silently offset by however many OTHER kinds of sibling
+// precede them. No transform on .sac-rings-rays itself; it only exists
+// so :nth-child counts cleanly, 1 through $sac-ray-count.
+//
+// No rotateX reorientation needed the way spokes/particles elsewhere in
+// this file need one: .sac-rings ITSELF already tilted this whole plane
+// down via rotateX(90deg), so each ray's own `rotate` is a plain 2D
+// (Z-axis) spin distributing them evenly around the circle WITHIN that
+// already-tilted plane, not a second axis to compose.
+.sac-rings-rays {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.sac-rings-ray {
+  position: absolute;
+  width: 1.2px;
+  height: $sac-ray-length;
+  background: linear-gradient(
+    transparent 0%,
+    var(--sac-glow-color) 10%,
+    var(--sac-glow-color2) 50%,
+    var(--sac-glow-color) 90%,
+    transparent 100%
+  );
+  opacity: 0.4;
+}
+
+@for $i from 0 through $sac-ray-count - 1 {
+  .sac-rings-ray:nth-child(#{$i + 1}) {
+    rotate: #{math.div(180deg, $sac-ray-count) * $i + 20};
+  }
+}
+
+@keyframes sac-ripple {
+  0% {
+    transform: scale(0.4);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(30);
+    opacity: 0;
+  }
+}
+
+$sac-ring-count: 5;
+
+@for $i from 0 through ($sac-ring-count - 1) {
+  .sac-ring:nth-child(#{$i + 1}) {
+    animation-delay: #{$i + 1}s;
+  }
+}
+
+// ── Beam: south pole of the sphere straight down to the rings' center ──
+.sac-beam {
+  position: absolute;
+  height: 160px;
+  box-shadow:
+    0 0 5px 5px var(--sac-glow-color3),
+    0 0 5px 2px var(--sac-glow-color);
+  z-index: 1;
+  transform: translateY(125px);
+  animation: sac-beam-pulse var(--sac-beam-duration) ease-in-out infinite;
+
+  & > div {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    opacity: 0.5;
+    background-color: var(--sac-node-color);
+  }
+}
+
+@keyframes sac-beam-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+
+// ── Particles: born at the shared center, die on an (invisible) sphere ──
+// A plain radial burst, not a static network of points — each particle
+// is a STATIC per-particle rotateY(longitude) rotateX(latitude) direction
+// (Sass-random, generated once — the exact same spherical-placement idea
+// used throughout this pack, e.g. the mesh facets) on an outer wrapper,
+// with an ANIMATED translateZ on the inner dot: 0 (born, right at the
+// same origin the stone sits at) out to the sphere's radius (where it
+// dies, faded to nothing exactly as it arrives). The direction and the
+// radial distance are two SEPARATE transforms on two different elements
+// specifically so every particle can share the exact same keyframes for
+// its radial motion — only the (never-animated) direction baked into the
+// wrapper, and each instance's animation-duration/-delay, differ.
+.sac-particles {
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 4;
+  transform-style: preserve-3d;
+}
+
+.sac-particle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+
+// Same width/height/box-shadow as loaders/_arcane-portal's own .particle
+// (1.25px × 10px bar, box-shadow glow, border-radius:1px) rather than a
+// blurred circle — box-shadow, unlike filter:blur(), does NOT hit this
+// file's usual "soft effect fails inside an animated 3D context" bug
+// (confirmed empirically before committing to this: an identical bar
+// dropped into this exact 3D hierarchy renders its glow correctly at
+// every tested direction, nothing hard-edged).
+//
+// The bar's long axis (10px, originally its own height/Y) is reoriented
+// onto local Z via `rotate: 1 0 0 -90deg` — the same "extend via height,
+// then reorient" trick as this file's spokes/connections elsewhere — so
+// it always points along whatever direction its .sac-particle parent
+// set, reading as a short radiating streak rather than a shape that
+// stays screen-vertical regardless of which way it's travelling. Static
+// `rotate` and animated `translate` are different individual transform
+// properties, so both sit on this same element without clobbering each
+// other (this file's usual split-across-two-elements trick isn't needed
+// here, since there's no filter/border-radius-vs-3D-transform conflict
+// to avoid in the first place).
+.sac-particle__dot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1.25px;
+  height: 10px;
+  margin-left: -0.625px;
+  background: var(--sac-node-color);
+  border-radius: 1px;
+  transform-origin: center bottom;
+  rotate: 1 0 0 -90deg;
+  box-shadow: 0 0 12px 5px var(--sac-node-color);
+  animation: sac-particle-emit var(--sac-p-duration) linear infinite;
+  animation-delay: var(--sac-p-delay);
+}
+
+@keyframes sac-particle-emit {
+  0% {
+    translate: 0 0 0;
+    scale: 0.6;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+    scale: 1;
+  }
+  100% {
+    translate: 0 0 var(--sac-radius);
+    scale: 1.1;
+    opacity: 0;
+  }
+}
+
+$sac-particle-count: 70;
+
+@for $i from 1 through $sac-particle-count {
+  // Longitude uniform 0..360; latitude approximated as uniform in the
+  // ANGLE itself rather than solid-angle-corrected (that needs asin,
+  // which Sass doesn't have) — a slight bias toward the poles is not
+  // visible in a burst of small, constantly moving, fading points.
+  $long: math.random(36000) * 0.01deg;
+  $lat: (math.random(18000) * 0.01 - 90) * 1deg;
+  $duration: 2.6s + math.random(280) * 0.01s; // 2.6..5.4s
+  $delay: math.random(540) *
+    -0.01s; // staggers every particle mid-flight at load
+
+  .sac-particle:nth-child(#{$i}) {
+    transform: rotateY(#{$long}) rotateX(#{$lat});
+
+    .sac-particle__dot {
+      --sac-p-duration: #{$duration};
+      --sac-p-delay: #{$delay};
+    }
+  }
+}
+
+// ── Light-point lattice: a rotating faceted "gem" wireframe ────────────
+// A flat-capped hexahedron — 2 plain pole faces + 4 side faces, each
+// carrying the SAME diagonal SVG wire — reproduced at this scene's scale
+// from a supplied reference layout, verbatim in its transform math (the
+// specific rotateX/rotateY/rotateZ combinations per face, the pole
+// offset being 0.8× the half-extent, the side faces' scaleY(1.2), the
+// wire being drawn at 2× the face's own size so it deliberately overflows
+// past its own face and reaches into the NEXT face's territory) — that
+// overflow is what makes 4 identical copies of one diagonal line tile
+// into a continuous lattice across the whole shape instead of 4
+// disconnected marks, one per face.
+//
+// The bright nodes sit at the wire path's own 4 corners: (0,0), the
+// second vertex, (100,100), and the fourth vertex — those corners ARE
+// the "intersections" this was asked for, since by construction they're
+// exactly where one face's copy of the line meets the identical corner
+// of the adjacent face's copy once the hexahedron is assembled, or where
+// a side face's line reaches up/down toward a pole face's flat cap.
+//
+// Measured (frozen the spin, read every node's getBoundingClientRect):
+// front's v0/v2 land exactly on back's v2/v0, and right's v0/v2 land
+// exactly on left's v2/v0 — the 180°-rotation relationship between
+// opposite faces makes their "diagonal" corners coincide. So back and
+// left only carry v1/v3 (their own v0/v2 would just redraw a node
+// already placed by front/right at the identical point).
+//
+// A single plain div per node (border-radius:50% + box-shadow), NOT an
+// SVG <circle> with filter or box-shadow — both were tried and both
+// failed here, for two different reasons: box-shadow doesn't apply to
+// SVG shape elements AT ALL (confirmed in total isolation, no 3D
+// involved), and filter:drop-shadow() on a <circle> this deep in real,
+// non-identity 3D transforms (the face's own static one, THEN
+// .sac-lattice's animated one stacked on top) rendered it completely
+// invisible at every angle tested, despite a perfectly valid computed
+// bounding box — the same "disappears entirely" failure this file
+// already hit on .sac-core__rotator/.sac-core__stage3d. A div's
+// box-shadow is the one glow mechanism actually proven reliable in this
+// exact nested-3D situation (already carrying the particles' own glow).
+.sac-lattice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transform: scaleY(0.8) rotateX(25deg);
+  animation: sac-lattice-spin var(--sac-lattice-duration) linear infinite;
+}
+
+.sac-lattice__face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: inherit;
+  font-size: 60px;
+}
+
+.sac-lattice__face:nth-child(1) {
+  transform: translateY(-40px) rotateX(90deg) rotateZ(45deg);
+  border: 1px solid var(--sac-node-color);
+}
+
+.sac-lattice__face:nth-child(2) {
+  transform: translateY(40px) rotateX(90deg) rotateZ(45deg);
+  border: 1px solid var(--sac-node-color);
+}
+
+.sac-lattice__face:nth-child(3) {
+  transform: scaleY(1.2) rotateZ(45deg);
+
+  & > svg > path {
+    d: path("M 0 0 L 125 23 L 100 100 L 23 125 Z");
+    stroke: var(--sac-node-color);
+  }
+}
+
+.sac-lattice__face:nth-child(4) {
+  transform: scaleY(1.2) rotateX(-180deg) rotateY(180deg) rotateZ(45deg);
+
+  & > svg > path {
+    d: path("M 0 0 L 125 23 L 100 100 L 23 125 Z");
+    stroke: var(--sac-node-color);
+  }
+}
+
+.sac-lattice__face:nth-child(5) {
+  transform: scaleY(1.2) rotateY(90deg) rotateZ(45deg);
+
+  & > svg > path {
+    d: path("M 0 0 L 125 23 L 100 100 L 23 125 Z");
+    stroke: var(--sac-node-color);
+  }
+}
+
+.sac-lattice__face:nth-child(6) {
+  transform: scaleY(1.2) rotateX(-180deg) rotateY(90deg) rotateZ(45deg);
+
+  & > svg > path {
+    d: path("M 0 0 L 125 23 L 100 100 L 23 125 Z");
+    stroke: var(--sac-node-color);
+  }
+}
+
+.sac-lattice__nodes {
+  transform-style: preserve-3d;
+}
+
+.sac-lattice__node {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  background-color: var(--sac-node-color);
+  border-radius: 50%;
+  box-shadow: 0 0 8px 4px var(--sac-node-color);
+}
+
+.sac-lattice__node:nth-child(1) {
+  transform: translateX(70px) translateY(40px);
+}
+
+.sac-lattice__node:nth-child(2) {
+  transform: translateX(-70px) translateY(40px);
+}
+
+.sac-lattice__node:nth-child(3) {
+  transform: translateX(70px) translateY(-40px);
+}
+
+.sac-lattice__node:nth-child(4) {
+  transform: translateX(-70px) translateY(-40px);
+}
+
+.sac-lattice__node:nth-child(5) {
+  transform: translateZ(70px) translateY(40px) rotateY(90deg);
+}
+
+.sac-lattice__node:nth-child(6) {
+  transform: translateZ(-70px) translateY(40px) rotateY(90deg);
+}
+
+.sac-lattice__node:nth-child(7) {
+  transform: translateZ(70px) translateY(-40px) rotateY(90deg);
+}
+
+.sac-lattice__node:nth-child(8) {
+  transform: translateZ(-70px) translateY(-40px) rotateY(90deg);
+}
+
+.sac-lattice__node:nth-child(9) {
+  transform: translateY(-84px);
+}
+
+.sac-lattice__node:nth-child(10) {
+  transform: translateY(84px);
+}
+
+@keyframes sac-lattice-spin {
+  100% {
+    transform: scaleY(0.8) rotateX(25deg) rotateY(-360deg);
+  }
+}
+
+.sac-core-lightning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 50px;
+  transform: scaleY(0.65) translateY(210px);
+  animation: sac-core-lightning-spin 0.45s linear infinite;
+
+  & > svg > path {
+    filter: url("#glow");
+    stroke: var(--sac-lightning-color);
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: sac-core-lightning-pulse 0.25s linear infinite;
+  }
+}
+
+@keyframes sac-core-lightning-pulse {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes sac-core-lightning-spin {
+  to {
+    transform: scaleY(0.65) translateY(210px) rotateY(360deg);
+  }
+}
+
+@function create-sparks($n) {
+  $x: 1px * math.cos(0);
+  $y: -1px * math.sin(0);
+  $value: "#{$x} #{$y} var(--sac-spark-color)";
+  @for $i from $n through 1 {
+    $angle: $i * math.div(180, $n) * math.div(math.$pi, 180);
+    $x: 1px * math.random(40) * math.cos($angle);
+    $y: -1px * math.random(40) * math.sin($angle);
+    $value: "#{$value}, #{$x} #{$y} var(--sac-spark-color)";
+  }
+
+  @return string.unquote($value);
+}
+
+.sac-sparks-center {
+  width: 2px;
+  height: 2px;
+  position: absolute;
+  transform: translate(0px, 205px);
+  background-color: transparent;
+  animation: animate-sparks 0.5s linear infinite;
+}
+
+@keyframes animate-sparks {
+  to {
+    box-shadow: create-sparks(50);
+    opacity: 0;
+  }
+}
+
+// A small ring of embers orbiting close to the stone, independent of the
+// wider particle burst — each one gets its own rotateZ sweep (staggered
+// duration/delay) around a fixed radius on the XZ plane, colour and glow
+// pulled from the same node/glow palette as the rest of the scene via
+// color-mix() (explicit-percentage operands, not rgba() blended at an
+// implicit ratio — see .face's own note further below on why) so a theme
+// override of --sac-node-color/--sac-glow-color2 reaches these too.
+.sac-particles-orbit {
+  $particles-amount: 10;
+  position: absolute;
+  transform-style: preserve-3d;
+
+  @for $i from 1 through $particles-amount {
+    $angle: $i * 2 * math.div(math.$pi, 180);
+    $x: 1px * 100 * math.cos($angle);
+    $z: 1px * 100 * math.sin($angle);
+    $size: $i * math.div(4, 10) + px;
+    $alpha: math.min($i * math.div(1, 2), 1);
+    $color: color-mix(
+      in srgb,
+      var(--sac-node-color) #{$alpha * 100%},
+      transparent
+    );
+    $glow: color-mix(
+      in srgb,
+      var(--sac-glow-color2) #{$alpha * 100%},
+      transparent
+    );
+    & > div:nth-child(#{$i}) {
+      position: absolute;
+      transform-style: preserve-3d;
+      background: $color;
+      border-radius: 50%;
+      width: $size;
+      height: $size;
+      box-shadow: 0 0 5px 2px #{$glow};
+      animation: sac-particle-orbit-spin-#{$i}
+        ($i * math.random($particles-amount) + 5 + s)
+        ($i * math.random() * 3s)
+        linear
+        infinite;
+    }
+
+    @keyframes sac-particle-orbit-spin-#{$i} {
+      0% {
+        transform: rotateZ(($i * 2) + deg) translateX($x) translateZ($z);
+      }
+      100% {
+        transform: rotateZ(($i * 2 + 360) + deg) translateX($x) translateZ($z);
+      }
+    }
+  }
+}
+
+// ── The central stone: a Blender-exported faceted mesh ──────────────────
+// Every .face below carries a PRECOMPUTED matrix3d() (--transform-3d) baked
+// by the export, plus --box (that face's own SVG viewBox/element size).
+// The export also bakes --peak/--trough and animation-delay onto each
+// face (a per-face pulse range from a different effect this stone doesn't
+// use) — left on the elements untouched since the mesh markup is kept
+// verbatim, but deliberately never referenced by any rule below: the
+// stone is ONE rigid object, so the only motion allowed anywhere in this
+// mesh is the shared rotateY spin up on .sac-core__rotator, not per-face
+// animation.
+//
+// --sac-shade (0..1, also baked per-face) is the one value NOT part of the
+// raw export: the mesh ships geometry only, no per-face colour, so every
+// facet rendered in one flat fill and the whole stone read as a single
+// solid-coloured blob with no sense of form. It's a static per-facet
+// "lit-ness" — each face's local normal (the matrix's 3rd column, since
+// the flat SVG path's own normal is local +Z) dotted against a fixed
+// light direction and precomputed once, not relit live — baked lighting
+// that spins WITH the mesh rather than staying camera-facing, same
+// tradeoff every faceted-gem CSS render makes since true dynamic
+// re-lighting isn't possible in pure CSS.
+// preserve-3d here isn't optional, even though .sac-core carries no
+// transform of its own: .sac-core__stage3d (its child) tilts + spins the
+// mesh in its own nested 3D context, and without preserve-3d up here too,
+// the default transform-style: flat would flatten everything stage3d
+// renders into a single pre-rasterized 2D card at THIS element's
+// boundary — the mesh's own internal faceting still looks fine either
+// way (that's a self-contained 3D context starting at stage3d), but the
+// filter: drop-shadow() below needs the true, un-flattened 3D result to
+// rasterize correctly (see its own note just below).
+// filter: drop-shadow(), not filter: blur() on a separate circle — a
+// drop-shadow hugs the mesh's ACTUAL faceted silhouette (reads as the
+// stone itself glowing) instead of a generic circular halo behind it.
+// It's also safe here in a way blur wasn't: the earlier .sac-core__glow
+// bug (documented below where the SVG gradient replaced it, kept for the
+// lesson) hit every element that had its OWN active 3D transform PLUS a
+// filter — .sac-core has preserve-3d but never a transform of its own,
+// only unanimated pass-through for its 3D-transformed descendants, so the
+// filter rasterizes the fully-composited final image once rather than
+// getting caught mid-3D-compositing. Confirmed empirically: the same
+// drop-shadow on .sac-core__rotator or .sac-core__stage3d (both DO carry
+// their own transform) makes the whole stone disappear; only an element
+// with preserve-3d and no transform of its own renders it correctly.
+.sac-core {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  transform-style: preserve-3d;
+  animation: sac-core-glow-pulse 5s ease-in-out infinite;
+}
+
+@keyframes sac-core-glow-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px var(--sac-stone-tip))
+      drop-shadow(1px 1px 2px var(--sac-glow-color2));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px var(--sac-stone-tip))
+      drop-shadow(1px 1px 7px var(--sac-glow-color2));
+  }
+}
+
+// A static reorientation lives here, separate from the animated Y-spin
+// below — Blender modeled this mesh lying flat in ITS OWN XY plane, but
+// Blender is Z-up and the web is Y-up, so that export lands in CSS space
+// flat across X/Z with Y as the thin axis (confirmed empirically: face
+// positions span roughly ±73px in X and ±95px in Z but only ±31px in Y).
+// rotateX(90deg) is the one correction that actually matches how it was
+// modeled — swinging the mesh's own XY plane up to stand vertically,
+// perpendicular to the ripple-ring base below, like a gem on a pedestal
+// instead of a disc lying flat. Static reorientation and animated spin
+// can't share one `rotate` (a single axis+angle can't compose two
+// independent rotations), so this stays on the perspective root while
+// .sac-core__rotator below keeps the animated spin — same split as
+// .sac-particle's static direction vs .sac-particle__dot's animated
+// radial motion.
+//
+// perspective is 1000px, not a tighter value: this mesh's own depth range
+// (~±95px pre-scale, ~±57px after .sac-core__rotator's scale(0.6)) is
+// large enough that a short perspective distance puts some facets close
+// enough to the near clip plane to blow their projected size up to
+// hundreds of pixels — large, flat, oddly-coloured "wings" jutting out
+// past the stone's actual silhouette. A longer perspective distance
+// keeps that same depth range a small fraction of the viewing distance,
+// which keeps every facet's projected size sane at every rotation angle
+// (swept and confirmed empirically across a full grid of network-spin ×
+// core-spin combinations, not just eyeballed at one angle).
+.sac-core__stage3d {
+  position: absolute;
+  inset: 0;
+  perspective: 1000px;
+  transform: rotateX(90deg);
+  transform-style: preserve-3d;
+}
+
+.sac-core__rotator {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  // The spin lives HERE, not on the outer .sac-core wrapper — pairing the
+  // animated rotate with transform-style: preserve-3d on the exact same
+  // element is what crystal-nexus's own spinning parts all do; splitting
+  // them across two different elements (animation up on .sac-core,
+  // preserve-3d down here) was what left the previous facets barely
+  // rendering. `rotate`/`scale` as separate individual-transform
+  // properties (not the `transform` shorthand) so the animated spin and
+  // the static scale-down below can coexist without one clobbering the
+  // other — the mesh's own matrix3d values are authored at Blender's
+  // scale (~150-250 units across), far bigger than the rest of this
+  // scene, so it needs shrinking down to sit believably at the center of
+  // the point sphere. The spin animates the registered --sac-core-angle
+  // custom property (see its @property block up top) rather than
+  // animating `rotate` directly — an unregistered custom property can't
+  // be interpolated, so the keyframe would otherwise jump from 0deg to
+  // 360deg partway through instead of sweeping, and since those two
+  // angles look identical, the stone would read as not rotating at all.
+  // The axis is LOCAL Z, not local Y, even though the visible result is a
+  // spin around the world/screen Y axis — .sac-core__stage3d's own static
+  // rotateX(90deg) (see its comment above) already remapped this
+  // element's local axes before any of this runs: local Z now points
+  // along world −Y (that's what puts the mesh's point at the bottom in
+  // the first place) and local Y now points along world Z. Rotating
+  // around local Y here would therefore tumble the stone front-to-back;
+  // local Z is the one that reads as turning in place around the vertical
+  // axis, point staying down throughout.
+  scale: var(--sac-core-scale);
+  rotate: 0 0 1 var(--sac-core-angle);
+  animation: sac-core-spin var(--sac-core-duration) linear infinite;
+}
+
+@keyframes sac-core-spin {
+  to {
+    --sac-core-angle: -360deg;
+  }
+}
+
+.mesh-3d {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+
+// No per-face animation: a face is a rigid facet of ONE solid stone, not
+// an independent element of its own. The export's --peak/--trough (a
+// pulse range) and staggered animation-delay are geometry baggage from a
+// different effect and are deliberately unused here — animating each
+// face's own scale independently made 44 facets breathe out of sync with
+// each other, which reads as the stone coming apart rather than turning
+// as a whole. The mesh's only motion is the rigid rotateY spin on its
+// shared ancestor, .sac-core__rotator — every face inherits that as one
+// unanimated, statically-placed piece of the same object.
+.face {
+  position: absolute;
+  top: calc(var(--box) / -2);
+  left: calc(var(--box) / -2);
+  width: var(--box);
+  height: var(--box);
+  overflow: visible;
+  transform: var(--transform-3d);
+
+  // Explicit-percentage, opaque-colour color-mix operands throughout —
+  // not rgba() blended at an implicit ratio, which silently dilutes
+  // alpha along with colour (the lesson this whole pack keeps relearning).
+  // --sac-shade drives how much of the flat --sac-stone-base shows through
+  // versus the brighter mid/tip mix, which is what gives the otherwise
+  // flat-shipped geometry its sense of form.
+  & > path {
+    fill: color-mix(
+      in srgb,
+      var(--sac-stone-base) calc((1 - var(--sac-shade)) * 100%),
+      color-mix(in srgb, var(--sac-stone-mid) 45%, var(--sac-stone-tip))
+    );
+    stroke: transparent;
+    stroke-width: 0.05px;
+    fill-opacity: 0.64;
+  }
+}
+
+@for $i from 1 through 44 {
+  .face:nth-child(#{$i}) > path {
+    animation: face-shining-#{$i} 3s ($i * 1s) ease-in-out infinite;
+
+    @keyframes face-shining-#{$i} {
+      0% {
+        fill: var(--sac-stone-base);
+      }
+      50% {
+        fill: var(--sac-node-color);
+      }
+      100% {
+        fill: var(--sac-stone-base);
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sac-dust,
+  .sac-ring,
+  .sac-beam,
+  .sac-particle__dot,
+  .sac-lattice,
+  .sac-core,
+  .sac-core__rotator,
+  .sac-particles-orbit > div,
+  .sac-sparks-center,
+  .sac-core-lightning,
+  .sac-core-lightning path,
+  .face > path {
+    animation: none;
+  }
+}
+
+/* --- THEMES --------------------------------------------------------------- */
+
+.sacred-core.sac-theme-amethyst {
+  --sac-glow-color: #e9d5ff;
+  --sac-node-color: #c084fc;
+  --sac-stone-tip: #f3e8ff;
+  --sac-stone-mid: #a855f7;
+  --sac-stone-base: #7e22ce;
+  --sac-glow-color2: #22d3ee;
+  --sac-glow-color3: #22d3ee50;
+}
+
+.sacred-core.sac-theme-emerald {
+  --sac-glow-color: #d1fae5;
+  --sac-node-color: #34d399;
+  --sac-stone-tip: #ecfdf5;
+  --sac-stone-mid: #10b981;
+  --sac-stone-base: #047857;
+  --sac-glow-color2: #facc15;
+  --sac-glow-color3: #facc1550;
+}
+
+.sacred-core.sac-theme-crimson {
+  --sac-bg: #0c0405;
+  --sac-glow-color: #ffd6da;
+  --sac-node-color: #fb7185;
+  --sac-stone-tip: #fff1f2;
+  --sac-stone-mid: #f43f5e;
+  --sac-stone-base: #9f1239;
+  --sac-glow-color2: #fbbf24;
+  --sac-glow-color3: #fbbf2450;
+}
+
+.sacred-core.sac-theme-azure {
+  --sac-bg: #040711;
+  --sac-glow-color: #dbeafe;
+  --sac-node-color: #60a5fa;
+  --sac-stone-tip: #eff6ff;
+  --sac-stone-mid: #3b82f6;
+  --sac-stone-base: #1d4ed8;
+  --sac-glow-color2: #22d3ee;
+  --sac-glow-color3: #22d3ee50;
+}
+
+/* --- RESPONSIVE ------------------------------------------------------------ */
+
+@media (max-width: 1024px) {
+  .sacred-core {
+    --sac-radius: 105px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sacred-core {
+    --sac-radius: 85px;
+    --sac-core-scale: 0.28 0.28 0.28;
+  }
+}

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arcane Portal Loader — MotionForge Edition</title>
+    <link rel="stylesheet" href="../css/motionforge.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        font-family: system-ui, -apple-system, sans-serif;
+        background: #05060d;
+        color: #f8fafc;
+        padding: 48px 24px;
+      }
+
+      .apl-demo-content {
+        text-align: center;
+      }
+
+      .apl-badge {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 6px 14px;
+        border-radius: 4px;
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #7dd3fc;
+        margin-bottom: 18px;
+        display: inline-block;
+      }
+
+      .apl-title {
+        font-size: clamp(26px, 4vw, 38px);
+        font-weight: 700;
+        margin: 0 0 12px 0;
+      }
+
+      .apl-description {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #94a3b8;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .apl-stage {
+        width: 320px;
+        height: 320px;
+        display: grid;
+        place-items: center;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+      }
+
+      .apl-controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+
+      .apl-controls label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.7rem 0.85rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #e5e7eb;
+        font-size: 0.9rem;
+      }
+
+      .apl-controls input[type="color"],
+      .apl-controls input[type="range"] {
+        border: none;
+        background: transparent;
+        color: inherit;
+      }
+
+      #apl-radius-value {
+        min-width: 3.5rem;
+        text-align: right;
+        display: inline-block;
+        color: #94a3b8;
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="apl-demo-content">
+      <span class="apl-badge">MotionForge Edition</span>
+      <h1 class="apl-title">Arcane Portal Loader</h1>
+      <p class="apl-description">
+        Mystical sparks trace a ring path with gold energy trails — a
+        compact loader variant of the full Arcane Portal hero.
+      </p>
+    </div>
+
+    <div class="apl-stage">
+      <div class="particle-container ap-loader-preview" aria-label="Arcane portal loader">
+        <div class="ap-loader-ring" data-total-particles="80"></div>
+      </div>
+    </div>
+
+    <div class="apl-controls">
+      <label>
+        Particle
+        <input id="apl-color-input" type="color" value="#ffcc00" />
+      </label>
+      <label>
+        Glow
+        <input id="apl-glow-input" type="color" value="#ff3300" />
+      </label>
+      <label>
+        Radius
+        <input id="apl-radius-input" type="range" min="40" max="90" value="80" />
+        <span id="apl-radius-value">80px</span>
+      </label>
+    </div>
+
+    <script>
+      const ring = document.querySelector(".ap-loader-ring");
+      const colorInput = document.getElementById("apl-color-input");
+      const glowInput = document.getElementById("apl-glow-input");
+      const radiusInput = document.getElementById("apl-radius-input");
+      const radiusValue = document.getElementById("apl-radius-value");
+
+      function initParticles() {
+        const targetCount = Number(ring.dataset.totalParticles) || 80;
+        ring.innerHTML = "";
+        for (let i = 0; i < targetCount; i += 1) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+          ring.appendChild(particle);
+        }
+      }
+
+      function update() {
+        ring.style.setProperty("--ap-ring-color", colorInput.value);
+        ring.style.setProperty("--ap-ring-glow", glowInput.value);
+        ring.style.setProperty("--ap-ring-radius", `${radiusInput.value}px`);
+        radiusValue.textContent = `${radiusInput.value}px`;
+      }
+
+      initParticles();
+      update();
+      [colorInput, glowInput, radiusInput].forEach((el) =>
+        el.addEventListener("input", update),
+      );
+    </script>
+  </body>
+</html>

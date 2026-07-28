@@ -7,10 +7,34 @@
 
     <!-- Importação do CSS compilado a partir do seu motionforge.scss -->
     <link rel="stylesheet" href="../css/motionforge.css" />
+    <style>
+      .oc-theme-switcher {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 18px;
+        background: #111827;
+      }
+
+      .oc-theme-switcher button {
+        background: #1f2937;
+        color: #e5e7eb;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .oc-theme-switcher button.active {
+        outline: 2px solid #ffffff;
+      }
+    </style>
   </head>
   <body>
     <!-- Wrapper Principal (Gerencia o tema. Opções: select-theme-cyan, select-theme-emerald, select-theme-fire, select-theme-cosmic) -->
-    <div class="orbital-constellation select-theme-cyan">
+    <div class="orbital-constellation select-theme-cyan" id="oc-preview">
       <!-- Camada Técnica: Grid de Fundo Sutil -->
       <div class="oc-grid"></div>
 
@@ -82,5 +106,26 @@
         </div>
       </div>
     </div>
+
+    <div class="oc-theme-switcher" role="tablist">
+      <button data-theme="select-theme-cyan" class="active">Cyan</button>
+      <button data-theme="select-theme-emerald">Emerald</button>
+      <button data-theme="select-theme-fire">Fire</button>
+      <button data-theme="select-theme-cosmic">Cosmic</button>
+    </div>
+
+    <script>
+      const preview = document.getElementById("oc-preview");
+      const buttons = document.querySelectorAll(".oc-theme-switcher button");
+
+      buttons.forEach((btn) =>
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const theme = btn.getAttribute("data-theme");
+          preview.className = `orbital-constellation ${theme}`;
+        }),
+      );
+    </script>
   </body>
 </html>
