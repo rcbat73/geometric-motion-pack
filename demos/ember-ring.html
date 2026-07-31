@@ -127,6 +127,18 @@
         <input id="er-glow-input" type="color" value="#7c3aed" />
       </label>
       <label>
+        Glow opacity
+        <input
+          id="er-glow-opacity-input"
+          type="range"
+          min="0"
+          max="1"
+          step="0.02"
+          value="0.18"
+        />
+        <output id="er-glow-opacity-value">0.18</output>
+      </label>
+      <label>
         Size
         <input id="er-size-input" type="range" min="60" max="160" value="96" />
         <output id="er-size-value">96px</output>
@@ -161,12 +173,14 @@
       const preview = document.getElementById("er-preview");
       const colorInput = document.getElementById("er-color-input");
       const glowInput = document.getElementById("er-glow-input");
+      const glowOpacityInput = document.getElementById("er-glow-opacity-input");
       const sizeInput = document.getElementById("er-size-input");
       const spinInput = document.getElementById("er-spin-input");
       const sparksInput = document.getElementById("er-sparks-input");
       const sizeValue = document.getElementById("er-size-value");
       const spinValue = document.getElementById("er-spin-value");
       const sparksValue = document.getElementById("er-sparks-value");
+      const glowOpacityValue = document.getElementById("er-glow-opacity-value");
 
       function hexToRgba(hex, alpha) {
         const n = parseInt(hex.slice(1), 16);
@@ -179,17 +193,23 @@
       function update() {
         preview.style.setProperty("--rs-ring-color", colorInput.value);
         preview.style.setProperty("--rs-spark-glow", hexToRgba(colorInput.value, 0.95));
-        preview.style.setProperty("--rs-glow-color", hexToRgba(glowInput.value, 0.18));
+        // Color and opacity are separate custom properties (--rs-glow-color,
+        // --rs-glow-opacity), combined via color-mix() in the SCSS — not
+        // baked together into one rgba() string, which would leave opacity
+        // stuck at whatever value that string happened to hardcode.
+        preview.style.setProperty("--rs-glow-color", glowInput.value);
+        preview.style.setProperty("--rs-glow-opacity", glowOpacityInput.value);
         preview.style.setProperty("--rs-size", `${sizeInput.value}px`);
         preview.style.setProperty("--rs-spin-duration", `${spinInput.value}s`);
         preview.style.setProperty("--rs-sparks-duration", `${sparksInput.value}s`);
         sizeValue.textContent = `${sizeInput.value}px`;
         spinValue.textContent = `${spinInput.value}s`;
         sparksValue.textContent = `${sparksInput.value}s`;
+        glowOpacityValue.textContent = glowOpacityInput.value;
       }
 
-      [colorInput, glowInput, sizeInput, spinInput, sparksInput].forEach((el) =>
-        el.addEventListener("input", update),
+      [colorInput, glowInput, glowOpacityInput, sizeInput, spinInput, sparksInput].forEach(
+        (el) => el.addEventListener("input", update),
       );
       update();
     </script>

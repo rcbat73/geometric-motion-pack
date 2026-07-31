@@ -4,7 +4,8 @@
 $rs-size: 96px;
 $rs-spark-size: 8px;
 $rs-ring-color: #7c3aed;
-$rs-glow-color: rgba(124, 58, 237, 0.18);
+$rs-glow-color: #7c3aed;
+$rs-glow-opacity: 0.18;
 $rs-spark-glow: rgba(124, 58, 237, 0.95);
 $rs-spin-duration: 8.8s;
 $rs-sparks-duration: 4.4s;
@@ -21,6 +22,7 @@ $rs-spark-count: 5;
   --rs-spark-size: #{$rs-spark-size};
   --rs-ring-color: #{$rs-ring-color};
   --rs-glow-color: #{$rs-glow-color};
+  --rs-glow-opacity: #{$rs-glow-opacity};
   --rs-spark-glow: #{$rs-spark-glow};
   --rs-spin-duration: #{$rs-spin-duration};
   --rs-sparks-duration: #{$rs-sparks-duration};
@@ -40,7 +42,14 @@ $rs-spark-count: 5;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.08);
   opacity: 0;
-  box-shadow: 0 0 20px var(--rs-glow-color), 0 0 42px rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 0 20px
+      color-mix(
+        in srgb,
+        var(--rs-glow-color) calc(var(--rs-glow-opacity) * 100%),
+        transparent
+      ),
+    0 0 42px rgba(255, 255, 255, 0.06);
   animation: rs-ring-glow var(--rs-ring-glow-duration) ease-out infinite;
 }
 
@@ -61,7 +70,14 @@ $rs-spark-count: 5;
   opacity: 0;
   transform: translate(-50%, -50%);
   filter: blur(0.7px);
-  box-shadow: 0 0 10px var(--rs-spark-glow), 0 0 18px rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 10px var(--rs-spark-glow),
+    0 0 18px
+      color-mix(
+        in srgb,
+        var(--rs-glow-color) calc(var(--rs-glow-opacity) * 100%),
+        transparent
+      );
   animation: rs-spark-path var(--rs-sparks-duration) ease-in-out infinite;
 }
 
@@ -74,36 +90,61 @@ $rs-spark-count: 5;
 }
 
 @keyframes rs-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes rs-ring-glow {
-  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.45); }
-  30% { opacity: 0.32; transform: translate(-50%, -50%) scale(0.72); }
-  65% { opacity: 0.72; transform: translate(-50%, -50%) scale(0.94); }
-  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.45);
+  }
+  30% {
+    opacity: 0.32;
+    transform: translate(-50%, -50%) scale(0.72);
+  }
+  65% {
+    opacity: 0.72;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 @keyframes rs-spark-path {
   0% {
     opacity: 0;
-    transform: translate(-50%, -50%) rotate(var(--rs-start)) translateY(calc(-1 * var(--rs-radius))) scale(0.28);
+    transform: translate(-50%, -50%) rotate(var(--rs-start))
+      translateY(calc(-1 * var(--rs-radius))) scale(0.28);
   }
   20% {
     opacity: 1;
-    transform: translate(-50%, -50%) rotate(calc(var(--rs-start) + var(--rs-offset) * 0.2)) translateY(calc(-1 * var(--rs-radius))) scale(0.72);
+    transform: translate(-50%, -50%)
+      rotate(calc(var(--rs-start) + var(--rs-offset) * 0.2))
+      translateY(calc(-1 * var(--rs-radius))) scale(0.72);
   }
   45% {
     opacity: 1;
-    transform: translate(-50%, -50%) rotate(calc(var(--rs-start) + var(--rs-offset) * 0.5)) translateY(calc(-1 * var(--rs-radius))) scale(1);
+    transform: translate(-50%, -50%)
+      rotate(calc(var(--rs-start) + var(--rs-offset) * 0.5))
+      translateY(calc(-1 * var(--rs-radius))) scale(1);
   }
   70% {
     opacity: 1;
-    transform: translate(-50%, -50%) rotate(calc(var(--rs-start) + var(--rs-offset) * 0.85)) translateY(calc(-1 * var(--rs-radius))) scale(0.82);
+    transform: translate(-50%, -50%)
+      rotate(calc(var(--rs-start) + var(--rs-offset) * 0.85))
+      translateY(calc(-1 * var(--rs-radius))) scale(0.82);
   }
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) rotate(calc(var(--rs-start) + var(--rs-offset) + 16deg)) translateY(calc(-1 * var(--rs-radius))) scale(0.32);
+    transform: translate(-50%, -50%)
+      rotate(calc(var(--rs-start) + var(--rs-offset) + 16deg))
+      translateY(calc(-1 * var(--rs-radius))) scale(0.32);
   }
 }

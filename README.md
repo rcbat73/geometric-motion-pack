@@ -1,141 +1,106 @@
 # Geometric Motion Pack
 
-A growing collection of handcrafted geometric web animations built with HTML, Sass and CSS.
+## Volume 1 — Sacred & Cosmic
 
-Geometric Motion Pack is designed to be **easy to use**.
+A premium collection of handcrafted motion components built with **HTML, SVG and CSS**.
 
-Simply copy the HTML, include the compiled CSS file and you're ready to go. No JavaScript frameworks or animation libraries are required.
+Designed for landing pages, portfolios, SaaS products, dashboards, creative websites and premium web experiences.
 
-For advanced customization, the original Sass source is included.
+### Features
+
+- Premium handcrafted animations
+- Zero JavaScript required
+- HTML + SVG + CSS
+- Framework agnostic
+- CSS Custom Properties
+- Easy to customize
+- Lightweight
+- Responsive
+- Production ready
 
 ---
 
-## Current Components
+## Included Components
 
 ### Loaders
 
 - Orbital Harmonic
 - Ember Ring
-- Dr Strange Ring
+- Doctor Strange Ring
 
-More loaders, hero animations, background loops and micro-interactions will be added in future releases.
+### Hero Sections
 
----
+- Arcane Portal Hero
+- Orbital Network
+- Sacred Core
 
-## Features
+### Backgrounds
 
-- Pure HTML + Sass + CSS
-- Ready-to-use compiled CSS
-- No external animation libraries
-- Easy copy & paste integration
-- Runtime customization with CSS Custom Properties
-- Sass source included
-- Demo pages included
-- Lightweight and reusable
+- Aurora Grid
+- Zodiac Flow
+- Photon Rain
 
 ---
 
-# Quick Start (Recommended)
+## Live Demo
 
-The fastest way to use the animations:
+Explore every animation, switch themes and customize CSS variables.
 
-1. Download the project.
-2. Include `css/motionforge.css`.
-3. Copy the HTML of the animation you want.
-4. Customize colors and size if desired.
-
-Done.
-
-For complete examples and customization options, see **docs/USAGE.md**.
+👉 **Demo:** https://YOUR-DEMO-URL
 
 ---
 
-## Advanced Development
+## Installation
 
-If you want to modify the Sass source or create your own variants:
+Clone or download the repository.
 
-Install dependencies:
-
-```bash id="92n7fw"
-npm install
+```bash
+git clone https://github.com/rcbat73/geometric-motion-pack.git
 ```
 
-Build the CSS:
+Include the compiled stylesheet.
 
-```bash id="j4u7jk"
-npm run build
+```html
+<link rel="stylesheet" href="css/motionforge.css" />
 ```
 
-Watch for changes during development:
+Copy any component into your project and customize it using CSS variables.
 
-```bash id="e1lwdz"
-npm run watch
-```
-
----
-
-## What's Included
-
-```text id="g2epnr"
-css/
-    Compiled CSS ready to use.
-
-scss/
-    Original Sass source files.
-
-demos/
-    Ready-to-run examples.
-
-docs/
-    Usage and customization documentation.
-```
-
----
-
-## Documentation
-
-See **docs/USAGE.md** for:
-
-- HTML examples
-- CSS customization
-- Sass customization
-- CSS Custom Properties
-- Integration examples
-- Best practices
-
----
-
-## Works With
-
-The generated CSS can be used in virtually any platform that supports HTML and CSS, including:
-
-- HTML websites
-- React
-- Next.js
-- Vue
-- Angular
-- Svelte
-- Astro
-- Tailwind CSS
-- WordPress
-- Webflow
-- Shopify
-- Framer
-- Any CMS with custom HTML/CSS support
+For detailed instructions, see **USAGE.md**.
 
 ---
 
 ## Browser Support
 
-Compatible with all modern browsers supporting:
+- Chrome
+- Edge
+- Firefox
+- Safari
 
-- CSS Custom Properties
-- CSS Animations
-- CSS Transforms
-- CSS Gradients
+---
+
+## Documentation
+
+- USAGE.md
+- LICENSE.md
+- CHANGELOG.md
 
 ---
 
 ## License
 
-See the `LICENSE` file for licensing information.
+See **LICENSE.md** for license details.
+
+---
+
+## Roadmap
+
+This repository contains:
+
+**Geometric Motion Pack — Volume 1: Sacred & Cosmic**
+
+Future themed volumes are planned.
+
+---
+
+Made with ❤️ by RB AutoAI

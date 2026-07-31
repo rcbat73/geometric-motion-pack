@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Demo: Orbital Harmonic Themes</title>
+    <title>Geometric Motion Pack Volume 1 — Sacred & Cosmic</title>
     <link rel="stylesheet" href="../css/motionforge.css" />
     <style>
       body {
@@ -22,6 +22,12 @@
         width: min(1040px, calc(100vw - 2rem));
         text-align: center;
       }
+      .panel > p {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        opacity: 0.8;
+      }
       .preview-grid {
         display: grid;
         gap: 1rem;
@@ -35,6 +41,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
         gap: 1rem;
       }
       .preview-card h3 {
@@ -70,7 +77,9 @@
         font-weight: 600;
         padding: 0.55rem 1.1rem;
         border-radius: 8px;
-        transition: transform 0.15s ease, background 0.15s ease;
+        transition:
+          transform 0.15s ease,
+          background 0.15s ease;
       }
       .preview-btn:hover {
         background: rgba(255, 255, 255, 0.85);
@@ -80,7 +89,7 @@
         opacity: 0.9;
       }
 
-      .demo-section + .demo-section {
+      .demo-section {
         margin-top: 3rem;
       }
 
@@ -89,11 +98,17 @@
         font-size: 1.35rem;
         letter-spacing: 0.04em;
       }
+
+      .to-live-demo.text {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.75);
+      }
     </style>
   </head>
   <body>
     <div class="panel">
-      <h1>Geometric Motion Pack</h1>
+      <h1>Geometric Motion Pack<br /></h1>
+      <p>Volume 1 — Sacred & Cosmic</p>
       <section class="demo-section">
         <h2>Loaders</h2>
         <div class="preview-grid">
@@ -112,7 +127,7 @@
             <p class="preview-line">
               Glowing orbitals with dynamic rotation and ring build.
             </p>
-            <a class="preview-btn" href="orbital-harmonic.html">Preview →</a>
+            <a class="preview-btn" href="orbital-harmonic.html">Live Demo →</a>
           </div>
           <div class="preview-card">
             <h3>Ember Ring</h3>
@@ -125,7 +140,7 @@
             <p class="preview-line">
               Builds from sparks to a rotating glowing ring.
             </p>
-            <a class="preview-btn" href="ember-ring.html">Preview →</a>
+            <a class="preview-btn" href="ember-ring.html">Live Demo →</a>
           </div>
           <div class="preview-card">
             <h3>Arcane Portal</h3>
@@ -140,13 +155,15 @@
             <p class="preview-line">
               Mystical sparks trace a ring path with gold energy trails.
             </p>
-            <a class="preview-btn" href="arcane-portal-loader.html">Preview →</a>
+            <a class="preview-btn" href="arcane-portal-loader.html"
+              >Live Demo →</a
+            >
           </div>
         </div>
       </section>
 
       <section class="demo-section">
-        <h2>Hero Animations</h2>
+        <h2>Hero Sections</h2>
 
         <div class="preview-grid">
           <div class="preview-card">
@@ -229,7 +246,7 @@
             <p class="preview-line">
               Animated constellation for technology and SaaS hero sections.
             </p>
-            <a class="preview-btn" href="index-orbital.html">Preview →</a>
+            <a class="preview-btn" href="orbital-network.html">Live Demo →</a>
           </div>
 
           <div class="preview-card">
@@ -539,7 +556,7 @@
               Kaleidoscopic polygon layers wrapped around a 24-point cardinal
               star in static fire plasma.
             </p>
-            <a class="preview-btn" href="neon-kaleidoscope.html">Preview →</a>
+            <a class="preview-btn" href="neon-kaleidoscope.html">Live Demo →</a>
           </div>
 
           <div class="preview-card">
@@ -710,18 +727,15 @@
               Doctor Strange–style mystical portal: masked concentric rings, a
               rune-glyph band and 80 orbiting particles.
             </p>
-            <a class="preview-btn" href="index.html">Preview →</a>
+            <a class="preview-btn" href="arcane-portal-hero.html"
+              >Live Demo →</a
+            >
           </div>
         </div>
       </section>
 
       <section class="demo-section">
-        <h2>Background Loops</h2>
-        <p>
-          Premium animated background inspired by neural constellations.
-          Perfect for hero sections, dashboards and landing pages.
-        </p>
-
+        <h2>Backgrounds</h2>
         <div class="preview-grid">
           <div class="preview-card">
             <h3>Aurora Grid</h3>
@@ -738,7 +752,7 @@
             <p class="preview-line">
               Triangular mesh with slow-drifting aurora light.
             </p>
-            <a class="preview-btn" href="aurora-grid.html">Preview →</a>
+            <a class="preview-btn" href="aurora-grid.html">Live Demo →</a>
           </div>
 
           <div class="preview-card">
@@ -853,7 +867,7 @@
               Glowing zodiac cards drifting right to left at varying depth and
               speed, with a twinkling starfield and nebula behind them.
             </p>
-            <a class="preview-btn" href="zodiac-flow.html">Preview →</a>
+            <a class="preview-btn" href="zodiac-flow.html">Live Demo →</a>
           </div>
 
           <div class="preview-card">
@@ -868,7 +882,7 @@
                 aria-label="Sacred Core background loop"
               >
                 <div class="sac-dust"></div>
-          
+
                 <div class="sac-stage">
                   <div class="sac-particles-orbit">
                     <div></div>
@@ -1137,7 +1151,12 @@
                         viewBox="0 0 200 200"
                         fill="none"
                       >
-                        <path d="" fill="none" stroke="green" stroke-width="0.65" />
+                        <path
+                          d=""
+                          fill="none"
+                          stroke="green"
+                          stroke-width="0.65"
+                        />
                       </svg>
                     </div>
                     <div class="sac-lattice__face">
@@ -1148,7 +1167,12 @@
                         viewBox="0 0 200 200"
                         fill="none"
                       >
-                        <path d="" fill="none" stroke="green" stroke-width="0.5" />
+                        <path
+                          d=""
+                          fill="none"
+                          stroke="green"
+                          stroke-width="0.5"
+                        />
                       </svg>
                     </div>
                     <div class="sac-lattice__face">
@@ -1159,7 +1183,12 @@
                         viewBox="0 0 200 200"
                         fill="none"
                       >
-                        <path d="" fill="none" stroke="green" stroke-width="0.5" />
+                        <path
+                          d=""
+                          fill="none"
+                          stroke="green"
+                          stroke-width="0.5"
+                        />
                       </svg>
                     </div>
                     <div class="sac-lattice__face">
@@ -1170,7 +1199,12 @@
                         viewBox="0 0 200 200"
                         fill="none"
                       >
-                        <path d="" fill="none" stroke="green" stroke-width="0.5" />
+                        <path
+                          d=""
+                          fill="none"
+                          stroke="green"
+                          stroke-width="0.5"
+                        />
                       </svg>
                     </div>
                     <div class="sac-lattice__nodes">
@@ -1219,7 +1253,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 28.88 -0.00 L 39.81 -48.59 Z" />
+                            <path
+                              d="M 0.00 0.00 L 28.88 -0.00 L 39.81 -48.59 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1250,7 +1286,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 62.81 0.00 L 58.23 -26.91 Z" />
+                            <path
+                              d="M 0.00 0.00 L 62.81 0.00 L 58.23 -26.91 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1281,7 +1319,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 25.58 0.00 L 62.53 -54.68 Z" />
+                            <path
+                              d="M 0.00 0.00 L 25.58 0.00 L 62.53 -54.68 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1312,7 +1352,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 83.07 0.00 L 73.58 -25.59 Z" />
+                            <path
+                              d="M 0.00 0.00 L 83.07 0.00 L 73.58 -25.59 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1343,7 +1385,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 28.88 0.00 L 22.28 -40.15 Z" />
+                            <path
+                              d="M 0.00 0.00 L 28.88 0.00 L 22.28 -40.15 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1374,7 +1418,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 45.92 -0.00 L 47.36 -19.81 Z" />
+                            <path
+                              d="M 0.00 0.00 L 45.92 -0.00 L 47.36 -19.81 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1405,7 +1451,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 19.91 0.00 L 32.79 -55.28 Z" />
+                            <path
+                              d="M 0.00 0.00 L 19.91 0.00 L 32.79 -55.28 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1436,7 +1484,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 64.27 -0.00 L 57.14 -18.54 Z" />
+                            <path
+                              d="M 0.00 0.00 L 64.27 -0.00 L 57.14 -18.54 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1533,7 +1583,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 65.99 0.00 L 15.72 -48.70 Z" />
+                            <path
+                              d="M 0.00 0.00 L 65.99 0.00 L 15.72 -48.70 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1564,7 +1616,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 65.99 -0.00 L 107.65 -27.29 Z" />
+                            <path
+                              d="M 0.00 0.00 L 65.99 -0.00 L 107.65 -27.29 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1595,7 +1649,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 111.06 0.00 L 76.61 -44.66 Z" />
+                            <path
+                              d="M 0.00 0.00 L 111.06 0.00 L 76.61 -44.66 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1626,7 +1682,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 27.30 -0.00 L 41.50 -47.73 Z" />
+                            <path
+                              d="M 0.00 0.00 L 27.30 -0.00 L 41.50 -47.73 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1657,7 +1715,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 63.25 0.00 L 57.56 -28.32 Z" />
+                            <path
+                              d="M 0.00 0.00 L 63.25 0.00 L 57.56 -28.32 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1688,7 +1748,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 19.86 -0.00 L 46.66 -30.62 Z" />
+                            <path
+                              d="M 0.00 0.00 L 19.86 -0.00 L 46.66 -30.62 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1719,7 +1781,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 55.81 0.00 L 44.04 -26.38 Z" />
+                            <path
+                              d="M 0.00 0.00 L 55.81 0.00 L 44.04 -26.38 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1750,7 +1814,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 65.99 -0.00 L 2.11 -61.51 Z" />
+                            <path
+                              d="M 0.00 0.00 L 65.99 -0.00 L 2.11 -61.51 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1781,7 +1847,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 61.54 0.00 L 25.07 -43.03 Z" />
+                            <path
+                              d="M 0.00 0.00 L 61.54 0.00 L 25.07 -43.03 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1878,7 +1946,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 19.86 0.00 L 16.33 -56.65 Z" />
+                            <path
+                              d="M 0.00 0.00 L 19.86 0.00 L 16.33 -56.65 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1909,7 +1979,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 58.96 0.00 L 56.72 -19.78 Z" />
+                            <path
+                              d="M 0.00 0.00 L 58.96 0.00 L 56.72 -19.78 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1940,7 +2012,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 27.30 -0.00 L 20.81 -65.67 Z" />
+                            <path
+                              d="M 0.00 0.00 L 27.30 -0.00 L 20.81 -65.67 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -1971,7 +2045,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 68.89 0.00 L 73.74 -25.11 Z" />
+                            <path
+                              d="M 0.00 0.00 L 68.89 0.00 L 73.74 -25.11 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2002,7 +2078,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 25.76 -0.00 L 27.44 -77.88 Z" />
+                            <path
+                              d="M 0.00 0.00 L 25.76 -0.00 L 27.44 -77.88 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2033,7 +2111,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 82.57 0.00 L 64.07 -15.80 Z" />
+                            <path
+                              d="M 0.00 0.00 L 82.57 0.00 L 64.07 -15.80 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2064,7 +2144,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 18.44 -0.00 L 21.89 -59.98 Z" />
+                            <path
+                              d="M 0.00 0.00 L 18.44 -0.00 L 21.89 -59.98 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2095,7 +2177,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 63.85 -0.00 L 54.50 -15.87 Z" />
+                            <path
+                              d="M 0.00 0.00 L 63.85 -0.00 L 54.50 -15.87 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2126,7 +2210,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 18.44 -0.00 L -6.55 -44.85 Z" />
+                            <path
+                              d="M 0.00 0.00 L 18.44 -0.00 L -6.55 -44.85 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2157,7 +2243,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 45.32 0.00 L 32.60 -24.35 Z" />
+                            <path
+                              d="M 0.00 0.00 L 45.32 0.00 L 32.60 -24.35 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2188,7 +2276,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 25.76 -0.00 L 8.01 -61.64 Z" />
+                            <path
+                              d="M 0.00 0.00 L 25.76 -0.00 L 8.01 -61.64 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2219,7 +2309,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 62.16 0.00 L 44.96 -21.42 Z" />
+                            <path
+                              d="M 0.00 0.00 L 62.16 0.00 L 44.96 -21.42 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2250,7 +2342,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 18.42 -0.00 L 4.06 -58.33 Z" />
+                            <path
+                              d="M 0.00 0.00 L 18.42 -0.00 L 4.06 -58.33 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2281,7 +2375,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 58.47 0.00 L 53.88 -17.86 Z" />
+                            <path
+                              d="M 0.00 0.00 L 58.47 0.00 L 53.88 -17.86 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2312,7 +2408,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 27.47 -0.00 L 21.01 -50.93 Z" />
+                            <path
+                              d="M 0.00 0.00 L 27.47 -0.00 L 21.01 -50.93 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2343,7 +2441,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 55.09 0.00 L 39.49 -9.82 Z" />
+                            <path
+                              d="M 0.00 0.00 L 55.09 0.00 L 39.49 -9.82 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2374,7 +2474,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 24.33 -0.00 L -16.29 -66.47 Z" />
+                            <path
+                              d="M 0.00 0.00 L 24.33 -0.00 L -16.29 -66.47 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2405,7 +2507,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 68.44 -0.00 L 61.19 -24.72 Z" />
+                            <path
+                              d="M 0.00 0.00 L 68.44 -0.00 L 61.19 -24.72 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2436,7 +2540,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 27.47 -0.00 L 10.22 -61.78 Z" />
+                            <path
+                              d="M 0.00 0.00 L 27.47 -0.00 L 10.22 -61.78 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2467,7 +2573,9 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 62.62 -0.00 L 45.81 -19.52 Z" />
+                            <path
+                              d="M 0.00 0.00 L 62.62 -0.00 L 45.81 -19.52 Z"
+                            />
                           </svg>
                           <svg
                             class="face"
@@ -2564,14 +2672,19 @@
                             "
                             viewBox="-127.7 -127.7 255.4 255.4"
                           >
-                            <path d="M 0.00 0.00 L 51.17 0.00 L 20.27 -62.80 Z" />
+                            <path
+                              d="M 0.00 0.00 L 51.17 0.00 L 20.27 -62.80 Z"
+                            />
                           </svg>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="sac-core-lightning">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 220">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 50 220"
+                    >
                       <filter id="glow">
                         <fegaussianblur
                           class="blur"
@@ -2599,14 +2712,14 @@
               A sphere of luminous points breathing around a slowly turning
               faceted stone, fed by a beam of light and expanding ripples.
             </p>
-            <a class="preview-btn" href="sacred-core.html">Preview →</a>
+            <a class="preview-btn" href="sacred-core.html">Live Demo →</a>
           </div>
         </div>
       </section>
-      <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.75)">
-        Click "Preview" on any card to open its full live demo, where you can
-        switch themes, change colors and tweak variables. You can also copy
-        the CSS variable overrides from <code>docs/themes.md</code>.
+      <p class="to-live-demo-text">
+        Click "Live Demo" on any card to open the interactive demo, where you
+        can switch themes, customize CSS variables and explore different
+        configurations.
       </p>
     </div>
 
