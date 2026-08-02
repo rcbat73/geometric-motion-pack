@@ -1,13 +1,11 @@
 @use "sass:math";
 
-// The loader features a glowing ring with mystical energy trails that form a sorcerer-style shimmer.
-// Variáveis de Configuração do Portal
 $animation-time: 0.15s;
 $ring-radius: 80px;
 $ring-color: #ffcc00;
 $ring-glow: rgba(255, 51, 0, 0.75);
 $total-particles-html: 80;
-$portal-opening-time: 3s; //O tempo que o anel demora a formar-se completamente (3 segundos)
+$portal-opening-time: 3s;
 
 .particle-container {
   position: relative;
@@ -44,8 +42,6 @@ $portal-opening-time: 3s; //O tempo que o anel demora a formar-se completamente 
   height: 10px;
   background: var(--ap-ring-color, currentColor);
   border-radius: 1px;
-
-  // Começam totalmente invisíveis para irem aparecendo uma a uma à medida que o anel se forma
   opacity: 0;
 
   @for $j from 1 through $total-particles-html {
@@ -62,16 +58,10 @@ $portal-opening-time: 3s; //O tempo que o anel demora a formar-se completamente 
       }
 
       $individual-speed: (math.random(200) + 400) * 1ms;
-
-      //Força a animação a correr de forma infinita após nascer
       animation: expandOut-#{$j} $individual-speed infinite ease-out;
-
-      // Cada partícula espera pela sua vez para nascer, desenhando o círculo perfeito no ecrã!
-      // Após o anel estar todo formado (3s), o loop infinito assume o controlo caótico natural.
       animation-delay: calc(
         (#{$j} / #{$total-particles-html}) * #{$portal-opening-time}
       );
-      /* animation-delay: math.random(2000) * -1ms; */
 
       @keyframes expandOut-#{$j} {
         0% {

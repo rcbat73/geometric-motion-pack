@@ -1,33 +1,6 @@
-/* ==========================================================================
-   BACKGROUNDS / _ZODIAC-FLOW.SCSS
-   Glowing zodiac cards drifting right-to-left at varying depth and speed.
-   Structure per card (each layer owns exactly one transform, so flight,
-   depth and spin never fight over the same `transform` property):
-     .zf-card         → animated translate (wind-blown right-to-left flight)
-     .zf-card__depth  → static scale/opacity/blur derived from --zf-depth
-     .zf-card__spin   → animated rotateX/Y/Z (tumble)
-     .zf-card__face   → the visible glowing panel (symbol, stars, name)
-   ========================================================================== */
-
 @use "sass:math";
 @use "sass:list";
 
-// Generates a *pair* of parallel `box-shadow` value lists of $count randomly
-// placed, randomly sized stars — chosen over stacking $count
-// radial-gradient() layers after benchmarking both (CDP
-// Performance.getMetrics, sustained 3s window): box-shadow stayed flat at
-// ~3-4ms of task time from 300 through 2000 shadows with ~0ms style-recalc
-// cost, while radial-gradient's style-recalc cost roughly doubled per
-// +1000 layers (1.2ms → 2.2ms) and then, at 3000 layers, exploded to 6.5s
-// of task time in a 3s window — effectively hanging the page.
-//
-// Every star gets identical $x/$y/$alpha in both lists; only $twinkle-share
-// of them get a bigger $radius in the "peak" list, same radius as the base
-// list for the rest. Animating `box-shadow` from the base list to the peak
-// list and back then only visibly changes size on that subset — the
-// non-twinkling majority's shadow entries are byte-identical between
-// keyframes, so nothing about them changes on screen — all from ONE
-// property animating on the existing element, no extra DOM.
 @function zf-star-frames($count, $twinkle-share: 0.16) {
   $base: ();
   $peak: ();
@@ -84,13 +57,6 @@ $zf-stars-peak: list.nth($zf-star-frames, 2);
   min-height: clamp(420px, 70vh, 720px);
   background-color: var(--zf-background);
 
-  // Starfield: a single 0×0 box whose only visible content is its
-  // box-shadow list — each shadow is a small circular "copy" of that
-  // invisible point, so 220 stars cost one paint of one shadow list rather
-  // than 220 separate gradients. z-index:0 keeps it behind the z-index:1
-  // cards despite ::after normally painting after real children. Animating
-  // box-shadow itself (base list ↔ peak list, see zf-star-frames above)
-  // gives a subset of stars a size-blink "twinkle" for free.
   &::after {
     content: "";
     position: absolute;
@@ -149,9 +115,6 @@ $zf-stars-peak: list.nth($zf-star-frames, 2);
   }
 }
 
-// Base list ↔ peak list (see zf-star-frames above) — identical shadow
-// entries stay identical across the animation and so read as static;
-// only the twinkle-share subset actually changes size.
 @keyframes zf-star-twinkle {
   0%,
   100% {
@@ -192,8 +155,6 @@ $zf-stars-peak: list.nth($zf-star-frames, 2);
   height: 100%;
   perspective: 800px;
   transform: scale(calc(0.45 + var(--zf-depth) * 0.55));
-  /* opacity: calc(0.15 + var(--zf-depth) * 0.65); */
-  /* filter: blur(calc((1 - var(--zf-depth)) * var(--zf-blur-max))); */
 }
 
 .zf-card__spin {
@@ -226,10 +187,6 @@ $zf-stars-peak: list.nth($zf-star-frames, 2);
   border-radius: 4px;
   border: 1px solid var(--zf-border-color);
   background: var(--zf-card-bg);
-  /* backdrop-filter: blur(6px); */
-  /* box-shadow:
-    0 0 10px 1px var(--zf-glow-color),
-    inset 0 0 10px 3px rgba(255, 255, 255, 0.04); */
   color: var(--zf-content-color);
 }
 
@@ -239,10 +196,6 @@ $zf-stars-peak: list.nth($zf-star-frames, 2);
     sans-serif;
   font-size: 18px;
   line-height: 1;
-  // Astrological glyphs (U+2648–U+2653) fall back to a color emoji font on
-  // some platforms, which ignores `color` entirely — the font stack above
-  // prefers fonts with a monochrome text glyph, and this forces the text
-  // presentation on any font that offers both.
   font-variant-emoji: text;
   color: var(--zf-content-color);
   text-shadow:
@@ -280,9 +233,6 @@ $zf-stars-peak: list.nth($zf-star-frames, 2);
   text-shadow: 0 0 8px var(--zf-glow-color);
 }
 
-// Net motion is a steady right-to-left drift, but neither the horizontal
-// spacing between stops nor the vertical offset is even — that unevenness
-// is what reads as wind gusts rather than a conveyor-belt slide.
 @keyframes zf-fly {
   0% {
     transform: translate(115cqw, 0%) rotate3d(1, 0, 0, math.random() * 360deg);

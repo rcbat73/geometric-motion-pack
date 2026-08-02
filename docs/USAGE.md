@@ -64,12 +64,12 @@ That's it.
 </div>
 ```
 
-### Dr Strange Ring — Quick markup
+### Arcane Portal Loader — Quick markup
 
 ```html
 <link rel="stylesheet" href="css/motionforge.css" />
-<div class="particle-container dr-strange-preview">
-  <div class="dr-strange-ring" data-total-particles="80"></div>
+<div class="particle-container ap-loader-preview">
+  <div class="ap-loader-ring" data-total-particles="80"></div>
 </div>
 ```
 
@@ -113,17 +113,17 @@ Examples:
 - `--oh-outer-glow-1`, `--oh-outer-glow-2`
 - `--oh-inner-dot-glow`, `--oh-middle-dot-glow`, `--oh-outer-dot-glow`
 
-### Dr Strange Ring
+### Arcane Portal Loader
 
-Override the Dr Strange ring color and radius on the `.dr-strange-ring` element or an ancestor.
+Override the Arcane Portal Loader color and radius on the `.ap-loader-ring` element or an ancestor.
 
 Example:
 
 ```html
-<div class="particle-container dr-strange-preview">
+<div class="particle-container ap-loader-preview">
   <div
-    class="dr-strange-ring"
-    style="--ds-ring-color:#4fd1c5; --ds-ring-radius:100px; --ds-ring-glow:rgba(79,209,197,0.8);"
+    class="ap-loader-ring"
+    style="--ap-ring-color:#4fd1c5; --ap-ring-radius:100px; --ap-ring-glow:rgba(79,209,197,0.8);"
   >
     <!-- particles -->
   </div>
@@ -132,9 +132,9 @@ Example:
 
 Supported CSS properties:
 
-- `--ds-ring-color` — main ring particle color
-- `--ds-ring-radius` — radius of the ring in px
-- `--ds-ring-glow` — particle glow color
+- `--ap-ring-color` — main ring particle color
+- `--ap-ring-radius` — radius of the ring in px
+- `--ap-ring-glow` — particle glow color
 
 ## Platform integration (no-Sass / quick-start)
 
@@ -280,7 +280,7 @@ Key source variables (Sass):
 
 - `npm run build` — compile once
 - `npm run watch` — continuous compile during development
-- Open `demos/index.html` in a browser to preview
+- Open `demo-themes.html` in a browser to preview.
 
 ## Distribution tips
 

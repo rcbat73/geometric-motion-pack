@@ -10,28 +10,25 @@ The format is based on **Keep a Changelog**, and this project follows **Semantic
 
 ### Planned
 
-- Hero Animations
-- Background Loops
 - Micro-interactions
-- Additional loaders
 - New themes
 - More integration examples
 - Documentation improvements
 
 ---
 
-## [0.1.0] - 2026-07-13
+## [0.1.0] - 2026-08-03
 
 ### Added
 
 - Initial project structure.
-- Orbital Harmonic loader.
-- Ember Ring loader.
-- Dr Strange Ring loader.
-- Runtime customization using CSS Custom Properties.
+- 3 animated loaders.
+- 3 hero sections.
+- 3 animated backgrounds.
+- CSS Custom Properties for runtime customization.
 - Sass source files.
 - Compiled CSS output.
-- Demo pages.
+- Demo preview pages.
 - README documentation.
 - Usage documentation.
 - Commercial license.

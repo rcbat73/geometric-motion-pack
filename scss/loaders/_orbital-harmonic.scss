@@ -1,4 +1,3 @@
-// loaders/_orbital-harmonic.scss
 @use "sass:math";
 
 $oh-wrapper-size: 96px;
@@ -23,7 +22,7 @@ $oh-outer-duration: 7.6s;
 $oh-inner-dot-duration: 3.4s;
 $oh-middle-dot-duration: 4.8s;
 $oh-outer-dot-duration: 5.8s;
-$oh-dot-offset: 6px; // push dot slightly outside ring edge to avoid glow touching ring
+$oh-dot-offset: 6px;
 
 .orbital-harmonic {
   position: relative;
@@ -32,7 +31,6 @@ $oh-dot-offset: 6px; // push dot slightly outside ring edge to avoid glow touchi
   margin: 1.5rem auto 0;
   display: grid;
   place-items: center;
-  /* runtime customization: exposed CSS properties (defaults from Sass variables) */
   --oh-inner-color: #{$oh-inner-color};
   --oh-middle-color: #{$oh-middle-color};
   --oh-outer-color: #{$oh-outer-color};
@@ -42,14 +40,12 @@ $oh-dot-offset: 6px; // push dot slightly outside ring edge to avoid glow touchi
   --oh-inner-dot-duration: #{$oh-inner-dot-duration};
   --oh-middle-dot-duration: #{$oh-middle-dot-duration};
   --oh-outer-dot-duration: #{$oh-outer-dot-duration};
-  /* per-ring glow controls (RGBA strings) */
   --oh-inner-glow-1: rgba(0, 170, 255, 0.28);
   --oh-inner-glow-2: rgba(0, 170, 255, 0.12);
   --oh-middle-glow-1: rgba(124, 58, 237, 0.26);
-  --oh-middle-glow-2: rgba(124, 58, 237, 0.10);
+  --oh-middle-glow-2: rgba(124, 58, 237, 0.1);
   --oh-outer-glow-1: rgba(255, 77, 109, 0.28);
   --oh-outer-glow-2: rgba(255, 77, 109, 0.12);
-  /* per-ring dot glow colors */
   --oh-inner-dot-glow: rgba(0, 170, 255, 0.9);
   --oh-middle-dot-glow: rgba(124, 58, 237, 0.9);
   --oh-outer-dot-glow: rgba(255, 77, 109, 0.9);
@@ -74,7 +70,6 @@ $oh-dot-offset: 6px; // push dot slightly outside ring edge to avoid glow touchi
     height: $oh-marker-size;
     background: currentColor;
     border-radius: 50%;
-    /* default: place the dot on the inner ring stroke center (per-ring overrides follow) */
     transform: translate(-50%, -50%) translateX($oh-inner-center);
     transform-origin: center center;
     z-index: 2;
@@ -88,14 +83,16 @@ $oh-dot-offset: 6px; // push dot slightly outside ring edge to avoid glow touchi
   margin: auto;
   animation: orbital-spin-inner var(--oh-inner-duration) linear infinite;
   color: var(--oh-inner-color);
-
-  /* ring glow (outer soft bloom) - tunable via CSS variables */
-  box-shadow: 0 0 8px var(--oh-inner-glow-1), 0 0 22px var(--oh-inner-glow-2);
+  box-shadow:
+    0 0 8px var(--oh-inner-glow-1),
+    0 0 22px var(--oh-inner-glow-2);
 
   &::after {
     transform: translate(-50%, -50%) translateX($oh-inner-center);
     animation: orbit-dot-spin-inner var(--oh-inner-dot-duration) linear infinite;
-    box-shadow: 0 0 6px var(--oh-inner-dot-glow), 0 0 20px var(--oh-inner-dot-glow);
+    box-shadow:
+      0 0 6px var(--oh-inner-dot-glow),
+      0 0 20px var(--oh-inner-dot-glow);
   }
 }
 
@@ -105,14 +102,17 @@ $oh-dot-offset: 6px; // push dot slightly outside ring edge to avoid glow touchi
   margin: auto;
   animation: orbital-spin-middle var(--oh-middle-duration) linear infinite;
   color: var(--oh-middle-color);
-
-  /* ring glow (outer soft bloom) - tunable via CSS variables */
-  box-shadow: 0 0 8px var(--oh-middle-glow-1), 0 0 24px var(--oh-middle-glow-2);
+  box-shadow:
+    0 0 8px var(--oh-middle-glow-1),
+    0 0 24px var(--oh-middle-glow-2);
 
   &::after {
     transform: translate(-50%, -50%) translateX($oh-middle-center);
-    animation: orbit-dot-spin-middle var(--oh-middle-dot-duration) linear infinite;
-    box-shadow: 0 0 6px var(--oh-middle-dot-glow), 0 0 20px var(--oh-middle-dot-glow);
+    animation: orbit-dot-spin-middle var(--oh-middle-dot-duration) linear
+      infinite;
+    box-shadow:
+      0 0 6px var(--oh-middle-dot-glow),
+      0 0 20px var(--oh-middle-dot-glow);
   }
 }
 
@@ -122,14 +122,15 @@ $oh-dot-offset: 6px; // push dot slightly outside ring edge to avoid glow touchi
   margin: auto;
   animation: orbital-spin-outer var(--oh-outer-duration) linear infinite;
   color: var(--oh-outer-color);
-
-  /* ring glow (outer soft bloom) - tunable via CSS variables */
-  box-shadow: 0 0 10px var(--oh-outer-glow-1), 0 0 30px var(--oh-outer-glow-2);
+  box-shadow:
+    0 0 10px var(--oh-outer-glow-1),
+    0 0 30px var(--oh-outer-glow-2);
   &::after {
     transform: translate(-50%, -50%) translateX($oh-outer-center);
     animation: orbit-dot-spin-outer var(--oh-outer-dot-duration) linear infinite;
-    /* outer-ring glow */
-    box-shadow: 0 0 6px var(--oh-outer-dot-glow), 0 0 26px var(--oh-outer-dot-glow);
+    box-shadow:
+      0 0 6px var(--oh-outer-dot-glow),
+      0 0 26px var(--oh-outer-dot-glow);
   }
 }
 
@@ -174,7 +175,8 @@ $oh-dot-offset: 6px; // push dot slightly outside ring edge to avoid glow touchi
     transform: translate(-50%, -50%) rotate(0deg) translateX($oh-middle-center);
   }
   to {
-    transform: translate(-50%, -50%) rotate(-720deg) translateX($oh-middle-center);
+    transform: translate(-50%, -50%) rotate(-720deg)
+      translateX($oh-middle-center);
   }
 }
 
@@ -183,6 +185,7 @@ $oh-dot-offset: 6px; // push dot slightly outside ring edge to avoid glow touchi
     transform: translate(-50%, -50%) rotate(0deg) translateX($oh-outer-center);
   }
   to {
-    transform: translate(-50%, -50%) rotate(1080deg) translateX($oh-outer-center);
+    transform: translate(-50%, -50%) rotate(1080deg)
+      translateX($oh-outer-center);
   }
 }

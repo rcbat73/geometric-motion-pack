@@ -1,10 +1,5 @@
 @use "sass:math";
 
-/* ==========================================================================
-   MOTIONFORGE PREMIUM PACK - CINEMATIC WIDER HERO SECTION LAYOUT
-   ========================================================================== */
-
-// --- 1. ESTILOS DO NOVO LAYOUT EXPANDIDO (WIDER HERO) ---
 body {
   margin: 0;
   background: #050508;
@@ -26,7 +21,6 @@ body {
   align-items: center;
   z-index: 100;
 
-  // CORREÇÃO: Força o texto ao lado do selector a ficar visível sobre o fundo escuro
   label {
     color: #ffffff;
     font-size: 14px;
@@ -136,9 +130,8 @@ body {
   z-index: 5;
 }
 
-// --- 2. O TEU MOTOR DO PORTAL 3D (MANTIDO INTACTO) ---
 .arcane-portal-hero {
-  --sr-size: 340px; // Subimos ligeiramente para ganhar dominância visual no cabeçalho
+  --sr-size: 340px;
   --sr-color-primary: #ffcc00;
   --sr-color-secondary: #ff8a00;
   --sr-color-tertiary: #ffd700;
@@ -371,43 +364,37 @@ body {
 
 @keyframes spinX {
   0% {
-    // Mantém os 42deg fixos da inclinação e inicia o rolamento em 0
-    transform: rotateX(0deg) /* rotate(0deg) */;
+    transform: rotateX(0deg);
   }
   100% {
-    // Preserva rigorosamente os 42deg e conclui a volta completa de 360
-    transform: rotateX(360deg) /* rotate(360deg) */;
+    transform: rotateX(360deg);
   }
 }
 
 @keyframes spinX-reverse {
   0% {
-    // Mantém os 54deg fixos do anel interno e inicia o rolamento em 0
-    transform: rotateX(45deg) /* rotate(0deg) */;
+    transform: rotateX(45deg);
   }
   100% {
-    // Conclui a volta no sentido inverso sem achatar ou quebrar o eixo
-    transform: rotateX(405deg) /* rotate(-360deg) */;
+    transform: rotateX(405deg);
   }
 }
 
-// Criamos um motor dedicado para o anel --mini (32deg) para que ele não mude de ângulo ao girar
 @keyframes spinX-mini {
   0% {
-    transform: rotateX(90deg) /* rotate(0deg) */;
+    transform: rotateX(90deg);
   }
   100% {
-    transform: rotateX(450deg) /* rotate(360deg) */;
+    transform: rotateX(450deg);
   }
 }
 
-// Criamos um motor dedicado para o anel --core-ring (65deg) para manter o seu alinhamento extremo
 @keyframes spinX-core {
   0% {
-    transform: rotateX(135deg) /* rotate(-0deg) */;
+    transform: rotateX(135deg);
   }
   100% {
-    transform: rotateX(495deg) /* rotate(-360deg) */;
+    transform: rotateX(495deg);
   }
 }
 
